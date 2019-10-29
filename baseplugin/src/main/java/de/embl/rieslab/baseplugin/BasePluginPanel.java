@@ -2,7 +2,7 @@ package de.embl.rieslab.baseplugin;
 
 import de.embl.rieslab.emu.ui.ConfigurablePanel;
 
-public class Panel extends ConfigurablePanel{
+public class BasePluginPanel extends ConfigurablePanel{
 
 	private static final long serialVersionUID = 1L;
 
@@ -11,7 +11,7 @@ public class Panel extends ConfigurablePanel{
 	public final static String PARAMETER_NAME = "My parameter";
 	public final static String INTPROPERTY_NAME = "My internal property";
 	
-	public Panel(String label) {
+	public BasePluginPanel(String label) {
 		super(label);
 		
 		/*

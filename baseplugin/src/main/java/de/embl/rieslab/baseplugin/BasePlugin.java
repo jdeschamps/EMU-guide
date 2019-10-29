@@ -15,7 +15,7 @@ public class BasePlugin implements UIPlugin{
 
 	@Override
 	public ConfigurableMainFrame getMainFrame(SystemController controller, TreeMap<String, String> pluginSettings) {
-		return new MainFrame("Title of the Frame", controller, pluginSettings);
+		return new BasePluginMainFrame("", controller, pluginSettings);
 	}
 
 }

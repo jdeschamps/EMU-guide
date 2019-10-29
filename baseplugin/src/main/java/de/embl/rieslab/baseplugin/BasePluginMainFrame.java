@@ -7,11 +7,11 @@ import de.embl.rieslab.emu.controller.SystemController;
 import de.embl.rieslab.emu.ui.ConfigurableMainFrame;
 import de.embl.rieslab.emu.utils.settings.Setting;
 
-public class MainFrame extends ConfigurableMainFrame{
+public class BasePluginMainFrame extends ConfigurableMainFrame{
 
 	private static final long serialVersionUID = 1L;
 
-	public MainFrame(String title, SystemController controller, TreeMap<String, String> pluginSettings) {
+	public BasePluginMainFrame(String title, SystemController controller, TreeMap<String, String> pluginSettings) {
 		super(title, controller, pluginSettings);
 	}
 
@@ -38,7 +38,7 @@ public class MainFrame extends ConfigurableMainFrame{
 		 * Here create the panels and add them.
 		 * 
 		 */
-		Panel myPanel = new Panel("My Panel");
+		BasePluginPanel myPanel = new BasePluginPanel("My Panel");
 		this.add(myPanel);
         
         this.pack(); 
