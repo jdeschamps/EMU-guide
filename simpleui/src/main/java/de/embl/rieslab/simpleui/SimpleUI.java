@@ -10,12 +10,11 @@ public class SimpleUI implements UIPlugin{
 
 	@Override
 	public ConfigurableMainFrame getMainFrame(SystemController controller, TreeMap<String, String> pluginSettings) {
-		return new SimpleFrame("Simple UI", controller, pluginSettings);
+		return new SimpleUIFrame("Simple UI", controller, pluginSettings);
 	}
 
 	@Override
 	public String getName() {
 		return "Simple UI";
 	}
-
 }
