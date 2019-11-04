@@ -130,7 +130,8 @@ Eclipse should generate a new Constructor with a String parameter. This paramete
 **12)** We are now going to use the drag and drop tools to build the laser panel. Here is an animated gif of the different steps:
 
 <p align="center">
-<img src="img/LaserPanel.GIF">
+<img src="img/LaserPanel.gif">
+
 
 
 1. In the **Layouts** section of the Palette, select "AbsoluteLayout" and click on the panel.
@@ -333,7 +334,8 @@ This time we want:
 **22)** Design the ConfigurablePanel:
 
 <p align="center">
-<img src="img/FiltersPanel.GIF">
+<img src="img/FiltersPanel.gif">
+
 
 
 1. In the **Layouts** section of the Palette, select "**GridLayout**" and click on the panel.
@@ -541,7 +543,8 @@ Fix the imports of SystemController and TreeMap.
 **28)** Let's now add 4 lasers and one filter wheel.
 
 <p align="center">
-<img src="img/MyFrame.GIF">
+<img src="img/MyFrame.gif">
+
 
 
 1. Add an **AbsoluteLayout** to the Frame.
@@ -611,7 +614,8 @@ com.myname.myui.MyPlugin
 The package explorer should look as follows:
 
 <p align="center">
-<img src="img/6_final_package.PNG">
+<img src="img/6_final_package.png">
+
 
 
 > Note: any deviation from the correct folder or the correct UIPlugin paths will prevent EMU from finding the plugin. 
