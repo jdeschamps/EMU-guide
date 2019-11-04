@@ -704,8 +704,8 @@ if(...){ // other parameter changes
 		double rescaleFactor = scaling/100.;
         
       	// sets the slope of the scaling in the RescaledUIProperty
-        String panel_label = getPanelLabel()+" "+LASER_PERCENTAGE);
-		((RescaledUIProperty) this.getUIProperty(panel_label)
+        String property_label = getPanelLabel()+" "+LASER_PERCENTAGE);
+		((RescaledUIProperty) this.getUIProperty(property_label)
          					.setScalingFactors(rescaleFactor, 0.);
 	} catch (IncorrectUIParameterTypeException 
              | UnknownUIParameterException | UnknownUIPropertyException e) {
