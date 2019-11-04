@@ -32,6 +32,7 @@ import de.embl.rieslab.emu.utils.exceptions.UnknownUIPropertyException;
 import de.embl.rieslab.ibeamsmart.components.TogglePower;
 import de.embl.rieslab.ibeamsmart.components.ToggleSlider;
 
+
 public class IBeamSmartPanel extends ConfigurablePanel{
 
 	private static final long serialVersionUID = 1L;
