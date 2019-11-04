@@ -5,7 +5,7 @@ This tutorial is a simple example walk-through of how to build a plugin for EMU,
 Here is a preview of the UI:
 
 <p align="center">
-<img src="img/Final.png">
+<img src="img/Final.PNG">
 </p>
 
 #### Prerequisite
