@@ -638,7 +638,7 @@ The package explorer should look as follows:
 
 ## I - Going further
 
-##### Bonus: Optional panel
+#### Bonus: Optional panel
 
 Using plugin settings, we could make the FiltersPanel optional. First, add a static String in MyFrame: 
 
@@ -673,7 +673,7 @@ if(((BoolSetting) this.getCurrentPluginSettings().get(SETTING_USE_FW)).getValue(
 
 
 
-##### Percentages of a device property
+#### Percentages of a device property
 
 Not all lasers have a percentage device property, for instance many offer a power (mW) set-point instead. How to reconcile this with our power percetage slider? The answer is using a UIParameter and a RescaledUIProperty.
 
@@ -716,7 +716,7 @@ if(...){ // other parameter changes
 
 
 
-##### Other parameters or panels
+#### Other parameters or panels
 
 - StringUIParameter for the title of the FiltersPanel.
 - An IntSetting for the number of LaserPanels.
