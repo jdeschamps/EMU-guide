@@ -16,7 +16,7 @@ This repository contains examples of EMU plugins:
 
 1. Follow the installation steps for [EMU](https://github.com/jdeschamps/EMU)
 
-2. Using the console, go to the folder you wish to install **EMU-examples** in and type:
+2. Using the console, go to the folder you wish to install **EMU-examples** in and type (omitting the $):
 
    ```bash
    $ git clone https://github.com/jdeschamps/EMU-examples.git
@@ -25,10 +25,10 @@ This repository contains examples of EMU plugins:
 3. Finally, compile all the examples using Maven
 
    ```bash
-   $ git cd EMU-examples
+   $ cd emu-examples
    $ mvn clean install
    ```
 
-4. Then for each example, copy the .jar file generated in the **/target/** folder to **/Micro-Manager/EMU/**. 
+4. Then for each example, copy the .jar file generated in the **example/target/** folder to **/Micro-Manager/EMU/**. 
 
 5. Start Micro-Manager and select **Plugins->Interface->EMU**.
