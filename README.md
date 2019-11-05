@@ -175,26 +175,26 @@ public class LaserPanel extends ConfigurablePanel {
 	private JSlider slider;
 	private JToggleButton tglbtnOnoff;
 	
-    //////// Properties
-    public final static String LASER_PERCENTAGE = "power percentage";
-    public final static String LASER_OPERATION = "enable";
+	//////// Properties
+	public final static String LASER_PERCENTAGE = "power percentage";
+	public final static String LASER_OPERATION = "enable";
     
-    [...]
+	[...]
 ```
 
 Then in the initializeProperties() method, we declare the two properties:
 
 ```java
-	@Override
-	protected void initializeProperties() {
-		String text1 = "Property changing the power percentage of the laser.";
-		String text2 = "Property turning the laser on/off.";
-        String propertyPercentage = getPanelLabel() + " " + LASER_PERCENTAGE;
-        String propertyOperation = getPanelLabel() + " " + LASER_OPERATION;
+@Override
+protected void initializeProperties() {
+	String text1 = "Property changing the power percentage of the laser.";
+	String text2 = "Property turning the laser on/off.";
+	String propertyPercentage = getPanelLabel() + " " + LASER_PERCENTAGE;
+	String propertyOperation = getPanelLabel() + " " + LASER_OPERATION;
 		
-		addUIProperty(new UIProperty(this, propertyName1, text1, new NoFlag()));
-		addUIProperty(new TwoStateUIProperty(this, propertyName2, text2, new NoFlag()));
-	}
+	addUIProperty(new UIProperty(this, propertyName1, text1, new NoFlag()));
+	addUIProperty(new TwoStateUIProperty(this, propertyName2, text2, new NoFlag()));
+}
 ```
 
 Use again Eclipse suggestions to import the UIProperty, TwoStateUIProperty and NoFlag classes.
@@ -207,7 +207,7 @@ Use again Eclipse suggestions to import the UIProperty, TwoStateUIProperty and N
 @Override
 protected void addComponentListeners() {
 	String propertyName1 = getPanelLabel() + " " + LASER_PERCENTAGE;
-    String propertyName2 = getPanelLabel() + " " + LASER_OPERATION;
+	String propertyName2 = getPanelLabel() + " " + LASER_OPERATION;
     
 	SwingUIListeners.addActionListenerOnIntegerValue(this, propertyName1, slider, 
                                                      label_1, "", "%");
@@ -229,7 +229,7 @@ As done previously, use the Eclipse suggestions to import the missing class. Swi
 @Override
 protected void propertyhasChanged(String propertyName, String newvalue) {
 	String propertyName1 = getPanelLabel() + " " + LASER_PERCENTAGE;
-    String propertyName2 = getPanelLabel() + " " + LASER_OPERATION;
+	String propertyName2 = getPanelLabel() + " " + LASER_OPERATION;
 		
 	if (propertyName.equals(propertyName1)) {
 		if (EmuUtils.isNumeric(newvalue)) {
@@ -295,7 +295,7 @@ Import the missing classes using Eclipse suggestions. We declared two parameters
 protected void parameterhasChanged(String parameterName) {
 	if (parameterName.equals(PARAM_TITLE)) {
 		try {
-            ((TitledBorder) this.getBorder())
+			((TitledBorder) this.getBorder())
                 	.setTitle(getStringUIParameterValue(PARAM_TITLE));
 			this.repaint();
 		} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {
