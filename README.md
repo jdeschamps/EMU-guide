@@ -636,7 +636,33 @@ The package explorer should look as follows:
 
 
 
-## I - Going further
+## I - Debugging with Eclipse
+
+In order to debug the import into EMU or the operation of the panels, you need to import all jars necessary to start Micro-Manager from Eclipse:
+
+1. Right-click on your project and select **Properties**.
+
+2. In **Java Build Path**, click on **Add External JARs**. Navigate to your Micro-Manager folder and add the **ij.jar**.
+
+3. Click again on **Add External JARs**, and this time go to **Micro-Manager/plugins/Micro-Manager** and add all the jars.
+
+4. **Apply** the new build paths.
+
+5. Then, in the **Run/Debug Settings** section (left side), create a **new** Configuration. Select **Java application**. Name your configuration. In **Main class**, select **ImageJ - IJ**. Finally, in **Arguments**, set the **working directory** to **other**, and point to your Micro-Manager folder. **Apply**, then **OK**.
+
+6. **Apply and close**.
+
+7. You can then, by right-clicking on your project or selecting the small arrow next to the run button in the menu bar, click on "**Run Configurations...**" and select your newly created configuration.
+
+8. Next time, the run button should also kick-start your configuration directly. 
+
+9. Running Micro-Manager from Eclipse allows you to have access to the live console output, see exceptions and at what line in your code they occur/originate from. You have also access to the Eclipse debugger, allowing you to place breakpoints in your code and halt the processes there to inspect variable values.
+
+   > Note that if you have the Frame class selected the run configuration button might just show your UI outside Micro-Manager. Make sure your run the correct configuration.
+
+
+
+## J - Going further
 
 #### Bonus: Optional panel
 
