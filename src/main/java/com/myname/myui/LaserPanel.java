@@ -1,7 +1,5 @@
 package com.myname.myui;
 
-import javax.swing.JPanel;
-
 import de.embl.rieslab.emu.ui.ConfigurablePanel;
 import de.embl.rieslab.emu.ui.swingslisteners.SwingUIListeners;
 import de.embl.rieslab.emu.ui.uiparameters.ColorUIParameter;
@@ -125,7 +123,7 @@ public class LaserPanel extends ConfigurablePanel {
 
 	@Override
 	protected void parameterhasChanged(String parameterName) {
-		if (parameterName.equals(PARAM_TITLE)) { // if title parameter
+		if (PARAM_TITLE.equals(parameterName)) { // if title parameter
 			try {
 				// retrieves the TitledBorder and set its title to the title parameter value
 				((TitledBorder) this.getBorder()).setTitle(getStringUIParameterValue(PARAM_TITLE));
@@ -136,7 +134,7 @@ public class LaserPanel extends ConfigurablePanel {
 				e.printStackTrace();
 			}
 	
-		} else if (parameterName.equals(PARAM_COLOR)) { // if color parameter
+		} else if (PARAM_COLOR.equals(parameterName)) { // if color parameter
 			try {
 				// retrieves the TitledBorder and set its title color to the color parameter value
 				((TitledBorder) this.getBorder()).setTitleColor(getColorUIParameterValue(PARAM_COLOR));
@@ -155,7 +153,7 @@ public class LaserPanel extends ConfigurablePanel {
         String propertyName1 = getPanelLabel() + " " + LASER_PERCENTAGE;
         String propertyName2 = getPanelLabel() + " " + LASER_OPERATION;
 		
-		if (propertyName.equals(propertyName1)) { // if the change concerns the laser percentage
+		if (propertyName1.equals(propertyName)) { // if the change concerns the laser percentage
 			if (EmuUtils.isNumeric(newvalue)) { // we only accept numerical value (no string)
 				// JSlider accept only an integer, this has the effect of rounding up the value 
 				int val = (int) Double.parseDouble(newvalue); 
@@ -169,7 +167,7 @@ public class LaserPanel extends ConfigurablePanel {
 					label_1.setText(String.valueOf(val) + "%");
 				}
 			}
-		} else if (propertyName.equals(propertyName2)) { // if the change pertains to the laser on/off
+		} else if (propertyName2.equals(propertyName)) { // if the change pertains to the laser on/off
 			try {
 				// Gets the value of the TwoStateUIProperty's ON value.
 				String onValue = ((TwoStateUIProperty) getUIProperty(propertyName2)).getOnStateValue();

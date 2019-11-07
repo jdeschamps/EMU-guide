@@ -138,7 +138,7 @@ public class FiltersPanel extends ConfigurablePanel {
 
 	@Override
 	protected void parameterhasChanged(String parameter) {
-		if(parameter.equals(PARAM_NAMES)){ // if the names parameter has changed
+		if(PARAM_NAMES.equals(parameter)){ // if the names parameter has changed
 			try {
 				// Retrieves the new value of the parameter
 				String value = getStringUIParameterValue(PARAM_NAMES); 
@@ -160,7 +160,7 @@ public class FiltersPanel extends ConfigurablePanel {
 			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) { // necessary in case PARAM_NAMES is not a StringParameter
 				e.printStackTrace();
 			}
-		} else if(parameter.equals(PARAM_COLORS)){
+		} else if(PARAM_COLORS.equals(parameter)){
 			try {
 				// Retrieves the new value of the parameter
 				String value = getStringUIParameterValue(PARAM_COLORS);
@@ -186,7 +186,7 @@ public class FiltersPanel extends ConfigurablePanel {
 
 	@Override
 	protected void propertyhasChanged(String propertyName, String newvalue) {
-		if(propertyName.equals(FW_POSITION)){ // making sure the property is FW_POSITION
+		if(FW_POSITION.equals(propertyName)){ // making sure the property is FW_POSITION
 			int pos;
 			try {
 				// Retrieves the current selected position index from the MultiStateUIProperty

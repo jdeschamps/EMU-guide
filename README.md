@@ -231,7 +231,7 @@ protected void propertyhasChanged(String propertyName, String newvalue) {
 	String propertyName1 = getPanelLabel() + " " + LASER_PERCENTAGE;
 	String propertyName2 = getPanelLabel() + " " + LASER_OPERATION;
 		
-	if (propertyName.equals(propertyName1)) {
+	if (propertyName1.equals(propertyName)) {
 		if (EmuUtils.isNumeric(newvalue)) {
 			int val = (int) Double.parseDouble(newvalue);
 
@@ -240,7 +240,7 @@ protected void propertyhasChanged(String propertyName, String newvalue) {
 				label_1.setText(String.valueOf(val) + "%");
 			}
 		}
-	} else if (propertyName.equals(propertyName2)) {
+	} else if (propertyName2.equals(propertyName)) {
 		try {
 			String onValue = ((TwoStateUIProperty) getUIProperty(propertyName2))
                 .getOnStateValue();
@@ -293,7 +293,7 @@ Import the missing classes using Eclipse suggestions. We declared two parameters
 ```java
 @Override
 protected void parameterhasChanged(String parameterName) {
-	if (parameterName.equals(PARAM_TITLE)) {
+	if (PARAM_TITLE.equals(parameterName)) {
 		try {
 			((TitledBorder) this.getBorder())
                 	.setTitle(getStringUIParameterValue(PARAM_TITLE));
@@ -301,7 +301,7 @@ protected void parameterhasChanged(String parameterName) {
 		} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {
 			e.printStackTrace();			
         }
-    } else if (parameterName.equals(PARAM_COLOR)) {
+    } else if (PARAM_COLOR.equals(parameterName)) {
 		try {
 			((TitledBorder) this.getBorder())
                	.setTitleColor(getColorUIParameterValue(PARAM_COLOR));
@@ -392,7 +392,7 @@ Such UIProperty can only take one of those 6 positions. We also define what happ
 ```java
 @Override
 protected void propertyhasChanged(String propertyName, String newvalue) {
-	if(propertyName.equals(FW_POSITION)){
+	if(FW_POSITION.equals(propertyName)){
 		int pos;
 		try {
 			pos = ((MultiStateUIProperty)getUIProperty(FW_POSITION))
@@ -446,7 +446,7 @@ And what happens when they change:
 ```java
 @Override
 protected void parameterhasChanged(String parameter) {
-	if(parameter.equals(PARAM_NAMES)){
+	if(PARAM_NAMES.equals(parameter)){
 		try {
 			String value = getStringUIParameterValue(PARAM_NAMES);
 			
@@ -462,7 +462,7 @@ protected void parameterhasChanged(String parameter) {
 		} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {
 			e.printStackTrace();
 		}
-	} else if(parameter.equals(PARAM_COLORS)){
+	} else if(PARAM_COLORS.equals(parameter)){
 		try {
 			String value = getStringUIParameterValue(PARAM_COLORS);
             
@@ -721,7 +721,7 @@ In the parameterHasChanged(...) method, add a clause to set the maximum v:
 ```java
 if(...){ // other parameter changes
     
-} else if(label.equals(PARAM_SCALING)){
+} else if(PARAM_SCALING.equals(parameterName)){
 	try {
     	// retrieves the scaling (maximum value of the device property)
 		int scaling = getIntegerUIParameterValue(PARAM_SCALING);
