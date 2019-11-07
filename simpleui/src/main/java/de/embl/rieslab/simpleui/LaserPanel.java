@@ -176,7 +176,7 @@ public class LaserPanel extends ConfigurablePanel {
 		 * Here we can modify the UI to reflect this change.
 		 */
 		
-		if(propertyName.equals(getUIPropertyLabel(LASER_PERCENTAGE))) { // if the change concerns the laser percentage
+		if(LASER_PERCENTAGE.equals(getUIPropertyLabel(propertyName))) { // if the change concerns the laser percentage
 			// Let's test if the value is a number
 			if(EmuUtils.isNumeric(newvalue)) {
 				// JSlider accept only an integer, in case it is a double, we round it up
@@ -191,7 +191,7 @@ public class LaserPanel extends ConfigurablePanel {
 					label.setText(String.valueOf(val) + "%");
 				}
 			}
-		} else if(propertyName.equals(getUIPropertyLabel(LASER_OPERATION))) { // if the change pertains to the laser on/off
+		} else if(LASER_OPERATION.equals(getUIPropertyLabel(propertyName))) { // if the change pertains to the laser on/off
 			// the try/catch clause is necessary in case we call an unknown UIProperty
 			try {
 				// Gets the value of the TwoStateUIProperty's ON value.
@@ -215,7 +215,7 @@ public class LaserPanel extends ConfigurablePanel {
 		 * changed.
 		 */
 		
-		if(parameterName.equals(PARAM_TITLE)){
+		if(PARAM_TITLE.equals(parameterName)){
 			try {
 				// retrieves the title as a String
 				String title = getStringUIParameterValue(PARAM_TITLE);	
@@ -228,7 +228,7 @@ public class LaserPanel extends ConfigurablePanel {
 			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {
 				e.printStackTrace();
 			}
-		} else if(parameterName.equals(PARAM_COLOR)){
+		} else if(PARAM_COLOR.equals(parameterName)){
 			try {
 				// retrieves the color at a Color type
 				Color color = getColorUIParameterValue(PARAM_COLOR);
@@ -240,7 +240,7 @@ public class LaserPanel extends ConfigurablePanel {
 			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {
 				e.printStackTrace();
 			}
-		}  else if(parameterName.equals(PARAM_SCALING)){
+		}  else if(PARAM_SCALING.equals(parameterName)){
 			try {
 		        // retrieves the scaling (maximum value of the device property)
 				int scaling = getIntegerUIParameterValue(PARAM_SCALING);

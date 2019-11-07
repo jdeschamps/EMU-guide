@@ -88,9 +88,11 @@ public class BasePluginPanel extends ConfigurablePanel{
 		 * Here, defines what happens when an internal property has changed (if there is any).
 		 * 
 		 * e.g.:
-		 * if(label.equals(INTPROP_NAME)){
+		 * if(INTPROP_NAME.equals(propertyName)){
 		 * 		int val = getIntegerInternalPropertyValue(label);
 		 * 		// do something with the value (for instance: set the maximum of a JSlider)
+		 * } else if (...) {
+		 * 	(...)
 		 * }
 		 */
 	}
@@ -101,8 +103,10 @@ public class BasePluginPanel extends ConfigurablePanel{
 		 * Here, defines what happens when a property has changed.
 		 * 
 		 * e.g.:
-		 * if(propertyName.equals(PROPERTY_NAME)){
+		 * if(PROPERTY_NAME.equals(propertyName)){
 		 * 		// do something with newvalue (for instance: set the value of a JSlider)
+		 * } else if (...){
+		 * 	(...)
 		 * }
 		 */
 	}
@@ -113,7 +117,7 @@ public class BasePluginPanel extends ConfigurablePanel{
 		 * Here, defines what happens when a parameter has changed (only happens when starting the ui).
 		 * 
 		 * e.g.:
-		 * if(parameterName.equals(PARAMETER_NAME)){ 
+		 * if(PARAMETER_NAME.equals(parameterName)){ 
 		 *	 try {
 		 *	 	if(getBoolUIParameterValue(PARAMETER_NAME)) { // that is, if PARAMETER_NAME is a BoolUIParameter
 		 *			// for instance: enable a JToggleButton
@@ -124,6 +128,8 @@ public class BasePluginPanel extends ConfigurablePanel{
 		 *		// these catches are necessary in case PARAMETER_NAME is not a BoolUIParameter
 		 *		e.printStackTrace();
 		 *	 }
+		 * } else if (...){
+		 * 	(...)
 		 * }
 		 */
 	}
