@@ -87,4 +87,9 @@ public class MyFrame extends ConfigurableMainFrame {
 		return settgs;
 	}
 
+	@Override
+	protected String getPluginInfo() {
+		return "Description of the plugin and the author.";
+	}
+
 }

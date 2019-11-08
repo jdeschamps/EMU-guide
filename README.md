@@ -499,7 +499,8 @@ public String getDescription() {
 }
 ```
 
-
+> Note: you can go more in details in the description, for instance describing the properties and parameters intended use.
+>
 
 ## E - Exporting the compiled ConfigurablePanels
 
@@ -566,13 +567,18 @@ protected void initComponents() {
 	
 	[...]
 ```
-**30)** Implement the getDefaultPluginSettings() method by returning an empty HashMap:
+**30)** Implement the getDefaultPluginSettings() method by returning an empty HashMap and the getPluginInfo() method by returning a description for your plugin:
 
 ```java
 @Override
 public HashMap<String, Setting> getDefaultPluginSettings() {
 	HashMap<String, Setting>  settgs = new HashMap<String, Setting>();
 	return settgs;
+}
+
+@Override
+protected String getPluginInfo() {
+	return "Description of the plugin and mention of the author.";
 }
 ```
 
@@ -687,7 +693,7 @@ public HashMap<String, Setting> getDefaultPluginSettings() {
 }
 ```
 
-And in the initComponents() method, add an **If** statement around the FiltersPanel call:
+And in the initComponents() method, add an If statement around the FiltersPanel call:
 
 ```java
 if(((BoolSetting) this.getCurrentPluginSettings().get(SETTING_USE_FW)).getValue()) {
