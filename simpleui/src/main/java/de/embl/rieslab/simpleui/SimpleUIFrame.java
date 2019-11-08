@@ -73,4 +73,9 @@ public class SimpleUIFrame extends ConfigurableMainFrame {
 		return settgs;
 	}
 
+	@Override
+	protected String getPluginInfo() {
+		return "The SimpleUI was developed by Joran Deschamps, EMBL (2019), as an example for EMU interfaces. It controls four lasers and"
+				+ "an optional filterwheel.";
+	}
 }

@@ -45,4 +45,9 @@ public class BasePluginMainFrame extends ConfigurableMainFrame{
         this.setResizable(false);
  	    this.setVisible(true);  
 	}
+	
+	@Override
+	protected String getPluginInfo() {
+		return "Description of the plugin and mention of the author.";
+	}
 }

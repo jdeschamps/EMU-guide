@@ -47,5 +47,11 @@ public class IBeamSmartFrame extends ConfigurableMainFrame{
         this.setResizable(false);
  	    this.setVisible(true);   
 	}
+	
+	@Override
+	protected String getPluginInfo() {
+		return "The iBeamSmart user interface was written by Joran Deschamps, EMBL (2019). It controls a single iBeamSmart laser from Toptica,"
+				+ "and allows hiding/showing the fine or external trigger controls.";
+	}
 
 }
