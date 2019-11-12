@@ -1,5 +1,6 @@
 package de.embl.rieslab.simpleui;
 
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Insets;
 
@@ -53,31 +54,37 @@ public class FilterWheelPanel extends ConfigurablePanel {
 		tglbtnFilter = new JToggleButton("Filter 1");
 		buttonGroup.add(tglbtnFilter);
 		tglbtnFilter.setMargin(new Insets(2, 2, 2, 2));
+		tglbtnFilter.setFont(new Font("Tahoma", Font.BOLD, 12));
 		add(tglbtnFilter);
 		
 		tglbtnFilter_1 = new JToggleButton("Filter 2");
 		buttonGroup.add(tglbtnFilter_1);
 		tglbtnFilter_1.setMargin(new Insets(2, 2, 2, 2));
+		tglbtnFilter_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		add(tglbtnFilter_1);
 		
 		tglbtnFilter_2 = new JToggleButton("Filter 3");
 		buttonGroup.add(tglbtnFilter_2);
 		tglbtnFilter_2.setMargin(new Insets(2, 2, 2, 2));
+		tglbtnFilter_2.setFont(new Font("Tahoma", Font.BOLD, 12));
 		add(tglbtnFilter_2);
 		
 		tglbtnFilter_3 = new JToggleButton("Filter 4");
 		buttonGroup.add(tglbtnFilter_3);
 		tglbtnFilter_3.setMargin(new Insets(2, 2, 2, 2));
+		tglbtnFilter_3.setFont(new Font("Tahoma", Font.BOLD, 12));
 		add(tglbtnFilter_3);
 		
 		tglbtnFilter_4 = new JToggleButton("Filter 5");
 		buttonGroup.add(tglbtnFilter_4);
 		tglbtnFilter_4.setMargin(new Insets(2, 2, 2, 2));
+		tglbtnFilter_4.setFont(new Font("Tahoma", Font.BOLD, 12));
 		add(tglbtnFilter_4);
 		
 		tglbtnFilter_5 = new JToggleButton("Filter 6");
 		buttonGroup.add(tglbtnFilter_5);
 		tglbtnFilter_5.setMargin(new Insets(2, 2, 2, 2));
+		tglbtnFilter_5.setFont(new Font("Tahoma", Font.BOLD, 12));
 		add(tglbtnFilter_5);
 	}
 	
@@ -108,15 +115,15 @@ public class FilterWheelPanel extends ConfigurablePanel {
 		
 		// We create comma separated strings of 6 filters a default parameters values.
 		String names = "None";
-		String colors = "grey";
+		String colors = "gray";
 		for (int i = 0; i < NUM_POS-1; i++) {
 			names += "," + "None";
-			colors += "," + "grey";
+			colors += "," + "gray";
 		}
 
 		// Descriptions of the parameters
 		String helpNames = "Comma separated filter names, e.g.: \"name1,name2,name3,name4,None,None\".";
-		String helpColors = "Comma separated filter colors, e.g: \"blue,dark red, dark green,orange,grey,grey\".";
+		String helpColors = "Comma separated filter colors, e.g: \"blue,dark red, dark green,orange,gray,gray\".";
 				
 		// Finally, we create two StringUIParametesr
 		addUIParameter(new StringUIParameter(this, PARAM_NAMES, helpNames, names));
