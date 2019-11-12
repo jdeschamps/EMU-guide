@@ -1,7 +1,5 @@
 package com.myname.myui;
 
-import javax.swing.JPanel;
-
 import de.embl.rieslab.emu.ui.ConfigurablePanel;
 import de.embl.rieslab.emu.ui.swinglisteners.SwingUIListeners;
 import de.embl.rieslab.emu.ui.uiparameters.StringUIParameter;
@@ -107,15 +105,15 @@ public class FiltersPanel extends ConfigurablePanel {
 		
 		// We create comma separated strings of 6 filters a default parameters values.
 		String names = "None";
-		String colors = "grey";
+		String colors = "gray";
 		for (int i = 0; i < NUM_POS-1; i++) {
 			names += "," + "None";
-			colors += "," + "grey";
+			colors += "," + "gray";
 		}
 
 		// Descriptions of the parameters
 		String helpNames = "Comma separated filter names, e.g.: \"name1,name2,name3,name4,None,None\".";
-		String helpColors = "Comma separated filter colors, e.g: \"blue,dark red, dark green,orange,grey,grey\".";
+		String helpColors = "Comma separated filter colors, e.g: \"blue,dark red, dark green,orange,gray,gray\".";
 				
 		// Finally, we create two StringUIParametesr
 		addUIParameter(new StringUIParameter(this, PARAM_NAMES, helpNames, names));

@@ -425,16 +425,16 @@ We define two UIParameters (names and colors) that we expect to be comma separat
 @Override
 protected void initializeParameters() {
 	String names = "None";
-	String colors = "grey";
+	String colors = "gray";
 	for (int i = 0; i < NUM_POS - 1; i++) {
 		names += "," + "None";
-		colors += "," + "grey";
+		colors += "," + "gray";
 	}
 
 	String helpNames = "Comma separated filter names, e.g.:" 
         +"\"name1,name2,name3,name4,None,None\".";
 	String helpColors = "Comma separated filter colors, e.g: "
-        +"\"blue,dark red, dark green,orange,grey,grey\".";
+        +"\"blue,dark red, dark green,orange,gray,gray\".";
 				
 	addUIParameter(new StringUIParameter(this, PARAM_NAMES, helpNames, names));
 	addUIParameter(new StringUIParameter(this, PARAM_COLORS, helpColors, colors));
