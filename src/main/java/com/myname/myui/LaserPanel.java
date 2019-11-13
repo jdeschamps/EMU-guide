@@ -109,11 +109,11 @@ public class LaserPanel extends ConfigurablePanel {
         String propertyName1 = getPanelLabel() + " " + LASER_PERCENTAGE;
         String propertyName2 = getPanelLabel() + " " + LASER_OPERATION;
 		
-        // We decalre a UIProperty for the laser percentage
-		addUIProperty(new UIProperty(this, propertyName1, text1, new NoFlag()));
+        // We declare a UIProperty for the laser percentage
+		addUIProperty(new UIProperty(this, propertyName1, text1));
 		
 		// and one for the laser on/off
-		addUIProperty(new TwoStateUIProperty(this, propertyName2, text2, new NoFlag()));
+		addUIProperty(new TwoStateUIProperty(this, propertyName2, text2));
 	}
 
 	@Override

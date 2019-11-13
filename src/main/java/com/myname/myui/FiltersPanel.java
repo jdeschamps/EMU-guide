@@ -126,7 +126,7 @@ public class FiltersPanel extends ConfigurablePanel {
 		String description = "Filter wheel position property.";
 		
 		// We create a MultiStateUIProperty with 6 states.
-		addUIProperty(new MultiStateUIProperty(this, FW_POSITION, description, new NoFlag(), NUM_POS));				
+		addUIProperty(new MultiStateUIProperty(this, FW_POSITION, description, NUM_POS));				
 	}
 
 	@Override
@@ -188,7 +188,7 @@ public class FiltersPanel extends ConfigurablePanel {
 			int pos;
 			try {
 				// Retrieves the current selected position index from the MultiStateUIProperty
-				pos = ((MultiStateUIProperty) getUIProperty(FW_POSITION)).getStatePositionNumber(newvalue);
+				pos = ((MultiStateUIProperty) getUIProperty(FW_POSITION)).getStateIndex(newvalue);
 			
 				// Selects the corresponding JToggleButton
 				switch (pos) {
