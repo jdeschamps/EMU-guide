@@ -98,12 +98,12 @@ public class LaserPanel extends ConfigurablePanel {
 		 * having a power percentage even if the device property (in Micro-Manager) is not a percentage
 		 * (for instance "laser power (mW)").
 		 */
-		addUIProperty(new RescaledUIProperty(this, getUIPropertyLabel(LASER_PERCENTAGE), text1, new NoFlag()));
+		addUIProperty(new RescaledUIProperty(this, getUIPropertyLabel(LASER_PERCENTAGE), text1));
 		
 		/*
 		 * A TwoStateUIProperty is appropriate for a on/off property as it takes only two states.
 		 */
-		addUIProperty(new TwoStateUIProperty(this, getUIPropertyLabel(LASER_OPERATION), text2, new NoFlag()));
+		addUIProperty(new TwoStateUIProperty(this, getUIPropertyLabel(LASER_OPERATION), text2));
 	}
 
 	@Override
@@ -180,7 +180,7 @@ public class LaserPanel extends ConfigurablePanel {
 		 * Here we can modify the UI to reflect this change.
 		 */
 		
-		if(LASER_PERCENTAGE.equals(getUIPropertyLabel(propertyName))) { // if the change concerns the laser percentage
+		if(getUIPropertyLabel(LASER_PERCENTAGE).equals(propertyName)) { // if the change concerns the laser percentage
 			// Let's test if the value is a number
 			if(EmuUtils.isNumeric(newvalue)) {
 				// JSlider accept only an integer, in case it is a double, we round it up
@@ -195,7 +195,7 @@ public class LaserPanel extends ConfigurablePanel {
 					label.setText(String.valueOf(val) + "%");
 				}
 			}
-		} else if(LASER_OPERATION.equals(getUIPropertyLabel(propertyName))) { // if the change pertains to the laser on/off
+		} else if(getUIPropertyLabel(LASER_OPERATION).equals(propertyName)) { // if the change pertains to the laser on/off
 			// the try/catch clause is necessary in case we call an unknown UIProperty
 			try {
 				// Gets the value of the TwoStateUIProperty's ON value.
