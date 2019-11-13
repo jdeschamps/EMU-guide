@@ -143,7 +143,7 @@ public class BasePluginPanel extends ConfigurablePanel{
 
 	@Override
 	public String getDescription() {
-		return "Description of the panel: what is it intended to do?";
+		return "Description of the panel: what is it intended for?";
 	}
 
 }
