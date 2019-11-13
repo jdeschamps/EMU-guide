@@ -1,5 +1,118 @@
 package de.embl.rieslab.emuguide.uiproperties;
 
-public class RescaledUIPropertyPercentage {
+import javax.swing.JSlider;
+import javax.swing.SwingConstants;
+
+import de.embl.rieslab.emu.ui.ConfigurablePanel;
+import de.embl.rieslab.emu.ui.swinglisteners.SwingUIListeners;
+import de.embl.rieslab.emu.ui.uiparameters.IntegerUIParameter;
+import de.embl.rieslab.emu.ui.uiproperties.RescaledUIProperty;
+import de.embl.rieslab.emu.utils.EmuUtils;
+import de.embl.rieslab.emu.utils.exceptions.IncorrectUIParameterTypeException;
+import de.embl.rieslab.emu.utils.exceptions.UnknownUIParameterException;
+import de.embl.rieslab.emu.utils.exceptions.UnknownUIPropertyException;
+
+public class RescaledUIPropertyPercentage extends ConfigurablePanel{
+
+	private static final long serialVersionUID = 1L;
+
+	//////// JComponent
+	private JSlider slider;
+	
+	//////// Property and parameter
+	public final static String PROP_PERCENTAGE = "Percentage";
+	public final static String PARAM_MAX = "Max value";
+	
+	public RescaledUIPropertyPercentage(String label) {
+		super(label);
+		
+		// JSlider with values ranging from 0 to 100 (default)
+		slider = new JSlider();
+		slider.setMajorTickSpacing(20);
+		slider.setPaintTicks(true);
+		slider.setPaintLabels(true);
+		slider.setOrientation(SwingConstants.VERTICAL);
+		add(slider);
+	}
+
+	@Override
+	protected void initializeProperties() {
+		// RescaledUIProperty
+		addUIProperty(new RescaledUIProperty(this, PROP_PERCENTAGE, "Percentage property."));
+	}
+
+	@Override
+	protected void propertyhasChanged(String propertyName, String newvalue) {
+		/*
+		 * This method is called when the property has changed outside of this
+		 * ConfigurablePanel. 
+		 */
+		
+		if(PROP_PERCENTAGE.equals(propertyName)) { // if the change concerns the percentage
+			// Let's test if the value is a number
+			if(EmuUtils.isNumeric(newvalue)) {
+				// JSlider accept only an integer, in case it is a double, we round it up
+				int val = (int) Double.parseDouble(newvalue);
+				
+				// We make sure it is a value between 0 and 100
+				if (val >= 0 && val <= 100) {
+					// sets the value of the JSLider
+					slider.setValue(val);
+				}
+			}
+		}
+	}
+
+	@Override
+	protected void initializeInternalProperties() {
+		// Not used here
+	}
+
+	@Override
+	public void internalpropertyhasChanged(String propertyName) {
+		// Not used here
+	}
+
+	@Override
+	protected void initializeParameters() {
+		// IntegerUIParameter used to retrieve what the maximum value (i.e. at 100%) of the property is.
+		int default_val = 100;
+		addUIParameter(new IntegerUIParameter(this, PARAM_MAX, "Value at 100% of the property.",default_val));
+	}
+
+	@Override
+	protected void parameterhasChanged(String parameterName) {
+		if (PARAM_MAX.equals(parameterName)) {
+			try {
+				// Retrieves the scaling (maximum value of the device property)
+				int scaling = getIntegerUIParameterValue(PARAM_MAX);
+
+				// Calculates the scaling factor for a percentage
+				double rescaleFactor = scaling / 100.;
+
+				// Sets the slope of the scaling in the RescaledUIProperty (offset = 0)
+				((RescaledUIProperty) this.getUIProperty(PROP_PERCENTAGE)).setScalingFactors(rescaleFactor, 0.);
+				
+			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException | UnknownUIPropertyException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	@Override
+	protected void addComponentListeners() {
+		// Updates the UIProperty when the user interacts with the JSlider
+		SwingUIListeners.addActionListenerOnIntegerValue(this, PROP_PERCENTAGE, slider);
+	}
+
+	@Override
+	public String getDescription() {
+		return "Example of a RescaledUIProperty and an IntegerUIParameter used for a percentage.";
+	}
+
+	@Override
+	public void shutDown() {
+		// Do nothing
+	}
 
 }
