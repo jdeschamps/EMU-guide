@@ -14,7 +14,6 @@ import de.embl.rieslab.emu.ui.uiparameters.DoubleUIParameter;
 import de.embl.rieslab.emu.ui.uiparameters.IntegerUIParameter;
 import de.embl.rieslab.emu.ui.uiparameters.StringUIParameter;
 import de.embl.rieslab.emu.ui.uiparameters.UIPropertyParameter;
-import de.embl.rieslab.emu.ui.uiproperties.ImmutableMultiStateUIProperty;
 import de.embl.rieslab.emu.ui.uiproperties.MultiStateUIProperty;
 import de.embl.rieslab.emu.ui.uiproperties.RescaledUIProperty;
 import de.embl.rieslab.emu.ui.uiproperties.SingleStateUIProperty;
@@ -22,6 +21,11 @@ import de.embl.rieslab.emu.ui.uiproperties.TwoStateUIProperty;
 import de.embl.rieslab.emu.ui.uiproperties.UIProperty;
 import de.embl.rieslab.emu.ui.uiproperties.flag.NoFlag;
 import de.embl.rieslab.emu.ui.uiproperties.flag.PropertyFlag;
+import de.embl.rieslab.emu.utils.exceptions.IncorrectInternalPropertyTypeException;
+import de.embl.rieslab.emu.utils.exceptions.IncorrectUIParameterTypeException;
+import de.embl.rieslab.emu.utils.exceptions.UnknownInternalPropertyException;
+import de.embl.rieslab.emu.utils.exceptions.UnknownUIParameterException;
+import de.embl.rieslab.emu.utils.exceptions.UnknownUIPropertyException;
 
 public class GuideConfigurablePanel extends ConfigurablePanel{
 
@@ -31,7 +35,6 @@ public class GuideConfigurablePanel extends ConfigurablePanel{
 	private static final String PROP_SINGLE = "SingleState";
 	private static final String PROP_TWOSTATE = "TwoState";
 	private static final String PROP_MULTI = "MultiState";
-	private static final String PROP_IMMUT = "ImmutableMultiState";
 	private static final String PROP_RESCALED = "Rescaled";
 	
 	private static final String INTPROP_INT = "Int InternalProperty";
@@ -73,11 +76,6 @@ public class GuideConfigurablePanel extends ConfigurablePanel{
 		addUIProperty(new MultiStateUIProperty(this, PROP_MULTI, "A UIProperty with N states.", number_states));
 		
 		LinkedHashMap<String,String> states = new LinkedHashMap<String,String>();
-		
-		states.put("Fixed state 0", "val1");
-		states.put("Fixed state 1", "val2");
-		states.put("Fixed state 2", "val3");
-		addUIProperty(new ImmutableMultiStateUIProperty(this, PROP_IMMUT, "A UIProperty with fixed N states.", states));
 		
 		addUIProperty(new RescaledUIProperty(this, PROP_RESCALED, "A UIProperty with rescaled values."));
 	}
@@ -144,52 +142,125 @@ public class GuideConfigurablePanel extends ConfigurablePanel{
 	public void internalpropertyhasChanged(String propertyName) {
 		/*
 		 * Here, defines what happens when an internal property has changed (if there is any).
-		 * 
-		 * e.g.:
-		 * if(INTPROP_NAME.equals(propertyName)){
-		 * 		int val = getIntegerInternalPropertyValue(label);
-		 * 		// do something with the value (for instance: set the maximum of a JSlider)
-		 * } else if (...) {
-		 * 	(...)
-		 * }
 		 */
+
+		if(INTPROP_INT.equals(propertyName)) {
+			try {
+				int newvalue = getIntegerInternalPropertyValue(INTPROP_INT);
+			} catch (IncorrectInternalPropertyTypeException | UnknownInternalPropertyException e) {
+				e.printStackTrace();
+			}
+		} else if(INTPROP_BOOL.equals(propertyName)) {
+			try {
+				boolean newvalue = getBoolInternalPropertyValue(INTPROP_INT);
+			} catch (IncorrectInternalPropertyTypeException | UnknownInternalPropertyException e) {
+				e.printStackTrace();
+			}
+			
+		} else if(INTPROP_DOUBLE.equals(propertyName)) {
+			try {
+				double newvalue = getDoubleInternalPropertyValue(INTPROP_DOUBLE);
+			} catch (IncorrectInternalPropertyTypeException | UnknownInternalPropertyException e) {
+				e.printStackTrace();
+			}
+			
+		}
 	}
 
 	@Override
 	protected void propertyhasChanged(String propertyName, String newvalue) {
 		/*
 		 * Here, defines what happens when a property has changed.
-		 * 
-		 * e.g.:
-		 * if(PROPERTY_NAME.equals(propertyName)){
-		 * 		// do something with newvalue (for instance: set the value of a JSlider)
-		 * } else if (...){
-		 * 	(...)
-		 * }
 		 */
+
+		if(PROP_UIPROP.equals(propertyName)) {
+			// use newvalue
+		} else if(PROP_SINGLE.equals(propertyName)) {
+			// use newvalue
+		} else if(PROP_TWOSTATE.equals(propertyName)) {
+			try {
+				boolean b = ((TwoStateUIProperty) getUIProperty(PROP_TWOSTATE)).isOnState(newvalue);
+				
+				// use b
+				
+			} catch (UnknownUIPropertyException e) { // in case PROP_TWOSTATE is not known
+				e.printStackTrace();
+			}
+		} else if(PROP_MULTI.equals(propertyName)) {
+			try {
+				MultiStateUIProperty mp = (MultiStateUIProperty) getUIProperty(PROP_MULTI);
+				
+				// Get the index of the new state
+				int index = mp.getStateIndex(newvalue);
+
+				// Or get the state name
+				String name = mp.getStateNameFromValue(newvalue);
+				
+				// use index or name
+				
+			} catch (UnknownUIPropertyException e) {
+				e.printStackTrace();
+			}
+		} else if(PROP_RESCALED.equals(propertyName)) {
+			// use newvalue
+		}
 	}
 
 	@Override
 	protected void parameterhasChanged(String parameterName) {
 		/*
 		 * Here, defines what happens when a parameter has changed (only happens when starting the ui).
-		 * 
-		 * e.g.:
-		 * if(PARAMETER_NAME.equals(parameterName)){ 
-		 *	 try {
-		 *	 	if(getBoolUIParameterValue(PARAMETER_NAME)) { // that is, if PARAMETER_NAME is a BoolUIParameter
-		 *			// for instance: enable a JToggleButton
-		 *	 	} else {
-         *			// for instance: disable a JToggleButton
-		 *	 	}
-		 *	 } catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) { 
-		 *		// these catches are necessary in case PARAMETER_NAME is not a BoolUIParameter
-		 *		e.printStackTrace();
-		 *	 }
-		 * } else if (...){
-		 * 	(...)
-		 * }
 		 */
+		
+		if(PARAM_BOOL.equals(parameterName)) {
+			try {
+				boolean newvalue = getBoolUIParameterValue(PARAM_BOOL);
+			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {
+				e.printStackTrace();
+			}
+		} else if(PARAM_COLOR.equals(parameterName)) {
+			try {
+				Color newvalue = getColorUIParameterValue(PARAM_COLOR);
+			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {
+				e.printStackTrace();
+			}
+			
+		} else if(PARAM_COMBO.equals(parameterName)) {
+			try {
+				String newvalue = getComboUIParameterValue(PARAM_COMBO);
+			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {
+				e.printStackTrace();
+			}
+			
+		} else if(PARAM_DOUBLE.equals(parameterName)) {
+			try {
+				double newvalue = getDoubleUIParameterValue(PARAM_DOUBLE);
+			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {
+				e.printStackTrace();
+			}
+			
+		} else if(PARAM_INT.equals(parameterName)) {
+			try {
+				int newvalue = getIntegerUIParameterValue(PARAM_INT);
+			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {
+				e.printStackTrace();
+			}
+			
+		} else if(PARAM_STRING.equals(parameterName)) {
+			try {
+				String newvalue = getStringUIParameterValue(PARAM_STRING);
+			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {
+				e.printStackTrace();
+			}
+			
+		} else if(PARAM_UIPROP.equals(parameterName)) {
+			try {
+				String newvalue = getStringUIParameterValue(PARAM_UIPROP);
+			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {
+				e.printStackTrace();
+			}
+			
+		}
 	}
 
 	@Override
