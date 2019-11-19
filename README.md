@@ -707,43 +707,12 @@ if(((BoolSetting) this.getCurrentPluginSettings().get(SETTING_USE_FW)).getValue(
 
 #### Percentages of a device property
 
-Not all lasers have a percentage device property, for instance many offer a power (mW) set-point instead. How to reconcile this with our power percetage slider? The answer is using a UIParameter and a RescaledUIProperty.
+Not all lasers have a percentage device property, for instance many offer a power (mW) set-point instead. How to reconcile this with our power percetage slider? The answer is using a RescaledUIProperty.
 
-First, in the initializeUIProperties() method, replace the laser percentage property by a RescaledUIProperty: 
+In the initializeUIProperties() method: 
 
 ```java
 addUIProperty(new RescaledUIProperty(this, property1, text, new LaserFlag()));
-```
-
-Add an IntUIParameter in the initializeUIParameters() method:
-
-```java
-String desc = "Value of the laser power property at 100% power.";
-addUIParameter(new IntegerUIParameter(this,PARAM_SCALING,desc,100));
-```
-
-In the parameterHasChanged(...) method, add a clause to set the maximum v:
-
-```java
-if(...){ // other parameter changes
-    
-} else if(PARAM_SCALING.equals(parameterName)){
-	try {
-    	// retrieves the scaling (maximum value of the device property)
-		int scaling = getIntegerUIParameterValue(PARAM_SCALING);
-        
-    	// calculates the scaling factor
-		double rescaleFactor = scaling/100.;
-        
-    	// sets the slope of the scaling in the RescaledUIProperty
-    	String property_label = getPanelLabel()+" "+LASER_PERCENTAGE);
-		((RescaledUIProperty) this.getUIProperty(property_label)
-        				.setScalingFactors(rescaleFactor, 0.);
-	} catch (IncorrectUIParameterTypeException 
-             | UnknownUIParameterException | UnknownUIPropertyException e) {
-		e.printStackTrace();
-	}
-}
 ```
 
 
