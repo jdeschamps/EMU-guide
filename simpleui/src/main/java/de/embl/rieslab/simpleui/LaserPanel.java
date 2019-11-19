@@ -12,11 +12,9 @@ import javax.swing.border.TitledBorder;
 import de.embl.rieslab.emu.ui.ConfigurablePanel;
 import de.embl.rieslab.emu.ui.swinglisteners.SwingUIListeners;
 import de.embl.rieslab.emu.ui.uiparameters.ColorUIParameter;
-import de.embl.rieslab.emu.ui.uiparameters.IntegerUIParameter;
 import de.embl.rieslab.emu.ui.uiparameters.StringUIParameter;
 import de.embl.rieslab.emu.ui.uiproperties.RescaledUIProperty;
 import de.embl.rieslab.emu.ui.uiproperties.TwoStateUIProperty;
-import de.embl.rieslab.emu.ui.uiproperties.flag.NoFlag;
 import de.embl.rieslab.emu.utils.EmuUtils;
 import de.embl.rieslab.emu.utils.exceptions.IncorrectUIParameterTypeException;
 import de.embl.rieslab.emu.utils.exceptions.IncorrectUIPropertyTypeException;
@@ -37,8 +35,6 @@ public class LaserPanel extends ConfigurablePanel {
 	//////// Parameters
 	public final static String PARAM_TITLE = "Name";
 	public final static String PARAM_COLOR = "Color";	
-	public final static String PARAM_SCALING = "Scaling";	
-	public int scaling_;
 
 	/**
 	 * Create the panel.
@@ -90,13 +86,13 @@ public class LaserPanel extends ConfigurablePanel {
 		 * ConfigurableFrame.addUIProperty(UIProperty).
 		 */
 	
-		String text1 = "Property changing the percentage of the laser.";
+		String text1 = "Property changing the percentage of the laser. Set the slope to max/100 and the offset to 0, where max is the maximum value of the property, for instance if "
+				+ "the property is 0-200 mW, then the slope is 2.";
 		String text2 = "Property turning the laser on and off.";
 
 		/* 
-		 * A RescaledUIProperty together with a IntUIParameter (see parameters declaration) allow 
-		 * having a power percentage even if the device property (in Micro-Manager) is not a percentage
-		 * (for instance "laser power (mW)").
+		 * A RescaledUIProperty allow having a power percentage even if the device property 
+		 * (in Micro-Manager) is not a percentage (for instance "laser power (mW)").
 		 */
 		addUIProperty(new RescaledUIProperty(this, getUIPropertyLabel(LASER_PERCENTAGE), text1));
 		
@@ -120,13 +116,6 @@ public class LaserPanel extends ConfigurablePanel {
 	@Override
 	protected void initializeParameters() {
 		/* 
-		 * In this method, we need to declare the UIParameters
-		 * and add them to the ConfigurableFrame using the method
-		 * ConfigurableFrame.addUIParameter(UIParameter).
-		 */
-		scaling_ = 100;
-		
-		/* 
 		 * We retrieve the panel label (defined in the SimpleUIFrame) to set the default
 		 * of the StringUIParameter corresponding to the title parameter.
 		 */
@@ -134,12 +123,6 @@ public class LaserPanel extends ConfigurablePanel {
 		
 		// We declare a ColorUIParameter for the title color (with default being black)
 		addUIParameter(new ColorUIParameter(this, PARAM_COLOR, "Panel title color.",Color.black));
-		
-		/*
-		 * And finally an IntegerUIParameter to get the value at 100% laser power, this value will
-		 * be used to rescale the Micro-Manager device property to a percentage.
-		 */
-		addUIParameter(new IntegerUIParameter(this, PARAM_SCALING, "Value at 100% laser power.",scaling_));
 	}
 
 	@Override
@@ -242,21 +225,6 @@ public class LaserPanel extends ConfigurablePanel {
 				border.setTitleColor(color);
 				this.repaint();
 			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {
-				e.printStackTrace();
-			}
-		}  else if(PARAM_SCALING.equals(parameterName)){
-			try {
-		        // retrieves the scaling (maximum value of the device property)
-				int scaling = getIntegerUIParameterValue(PARAM_SCALING);
-		        
-		        // calculates the scaling factor
-				double rescaleFactor = scaling/100.;
-		        
-		      	// sets the slope of the scaling in the RescaledUIProperty
-		        String prop_label = getUIPropertyLabel(LASER_PERCENTAGE);
-				((RescaledUIProperty) this.getUIProperty(prop_label)).setScalingFactors(rescaleFactor, 0.);
-			} catch (IncorrectUIParameterTypeException 
-		             | UnknownUIParameterException | UnknownUIPropertyException e) {
 				e.printStackTrace();
 			}
 		}
