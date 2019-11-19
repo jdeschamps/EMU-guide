@@ -594,7 +594,7 @@ EMU does not provide other flags than the NoFlag, the flags must be created for 
 
 ##### Examples
 
-- [A ConfigurablePanel with all UIproperty types declared](src/main/java/de/embl/rieslab/emuguide/GuideConfigurablePanel.java)
+- [A ConfigurablePanel with all UIProperty types declared](src/main/java/de/embl/rieslab/emuguide/GuideConfigurablePanel.java)
 - [How to use a MultiStateUIProperty with a ButtonGroup](src/main/java/de/embl/rieslab/emuguide/uiproperties/MultiStateUIPropertyButtonGroup.java)
 - [How to use a MultiStateUIProperty with a JComboBox](src/main/java/de/embl/rieslab/emuguide/uiproperties/MultiStateUIPropertyComboBox.java)
 - [How to use a RescaledUIProperty with a percentage JSlider](src/main/java/de/embl/rieslab/emuguide/uiproperties/RescaledUIPropertyPercentage.java)
@@ -640,7 +640,7 @@ The parameterhasChanged(...) method is called upon configuration of the plugin. 
 ```java
 @Override
 protected void parameterhasChanged(String parameterName) {
-    if(PARAM_KEY.equals(parameterName)){
+    if(PARAM_KEY.equals(parameterName))  {
         
     }
 }

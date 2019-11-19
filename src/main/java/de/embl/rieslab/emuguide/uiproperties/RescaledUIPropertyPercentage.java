@@ -21,7 +21,6 @@ public class RescaledUIPropertyPercentage extends ConfigurablePanel{
 	
 	//////// Property and parameter
 	public final static String PROP_PERCENTAGE = "Percentage";
-	public final static String PARAM_MAX = "Max value";
 	
 	public RescaledUIPropertyPercentage(String label) {
 		super(label);
@@ -37,8 +36,15 @@ public class RescaledUIPropertyPercentage extends ConfigurablePanel{
 
 	@Override
 	protected void initializeProperties() {
-		// RescaledUIProperty
-		addUIProperty(new RescaledUIProperty(this, PROP_PERCENTAGE, "Percentage property."));
+		/*
+		 * RescaledUIProperty:
+		 *
+		 * If the device property linked to this UIProperty is a percentage, then offset
+		 * should be set to 0 and slope to 1. If the device property is not a percentage,
+		 * then the offset should be set to 0 and the slope to (max device property)/100.
+		 */
+		String description = "Percentage property: set the offset to 0 and the slope to (max device property)/100 or 100 if the device property is already a percentage.";
+		addUIProperty(new RescaledUIProperty(this, PROP_PERCENTAGE,description));
 	}
 
 	@Override
@@ -75,29 +81,15 @@ public class RescaledUIPropertyPercentage extends ConfigurablePanel{
 
 	@Override
 	protected void initializeParameters() {
-		// IntegerUIParameter used to retrieve what the maximum value (i.e. at 100%) of the property is.
-		int default_val = 100;
-		addUIParameter(new IntegerUIParameter(this, PARAM_MAX, "Value at 100% of the property.",default_val));
+		// Not used here
 	}
+
 
 	@Override
 	protected void parameterhasChanged(String parameterName) {
-		if (PARAM_MAX.equals(parameterName)) {
-			try {
-				// Retrieves the scaling (maximum value of the device property)
-				int scaling = getIntegerUIParameterValue(PARAM_MAX);
-
-				// Calculates the scaling factor for a percentage
-				double rescaleFactor = scaling / 100.;
-
-				// Sets the slope of the scaling in the RescaledUIProperty (offset = 0)
-				((RescaledUIProperty) this.getUIProperty(PROP_PERCENTAGE)).setScalingFactors(rescaleFactor, 0.);
-				
-			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException | UnknownUIPropertyException e) {
-				e.printStackTrace();
-			}
-		}
+		// Not used here
 	}
+
 
 	@Override
 	protected void addComponentListeners() {
@@ -107,7 +99,7 @@ public class RescaledUIPropertyPercentage extends ConfigurablePanel{
 
 	@Override
 	public String getDescription() {
-		return "Example of a RescaledUIProperty and an IntegerUIParameter used for a percentage.";
+		return "Example of a RescaledUIProperty used for a percentage.";
 	}
 
 	@Override
