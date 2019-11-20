@@ -637,6 +637,14 @@ protected void initializeParameters() {
 
 
 
+###### Naming conventions
+
+If two UIParameter have the same label and the same type (e.g. IntegerUIParameter), then the first one is substituted in the second's ConfigurablePanel. Only a single entry will appear in the configuration wizard table and will affect both ConfigurablePanels.
+
+If the two have different types, then the second encountered UIParameter is discarded.
+
+
+
 ###### UIParameter has changed
 
 The parameterhasChanged(...) method is called upon configuration of the plugin. There, you can retrieve the new value of the parameter and use it to modify accordingly the ConfigurablePanel.
@@ -691,10 +699,16 @@ Note that these methods can throw an UnknownUIParameterException and/or an Incor
 InternalProperties are intended to share values between two ConfigurablePanels. They are declared by using the following method in initializeInternalProperties():
 
 ```java
-addInternalProperty(...);
+public final static String INTERNAL_PROP = "Internal prop";
+
+@Override
+protected void initializeInternalProperties() {
+    int defval = 1;
+	addInternalProperty(new IntegerInternalProperty(this, INTERNAL_PROP, defval));
+}
 ```
 
-If two InternalProperties bear the same label (in their instantiation) and are of the same type, then those two InternalProperties will be fused and the two ConfigurablePanels will share the same one.
+If two InternalProperties bear the same label (in their instantiation) and are of the same type, then those two InternalProperties will be fused and the two ConfigurablePanels will share the same one. The default value will be the one set in the first encountered InternalProperty.
 
 InternalProperties are of the following type:
 
@@ -745,31 +759,70 @@ try {
 
 Then internalpropertyhasChanged(INTERNAL_VALUE) is called in the second ConfigurablePanel #2.
 
+InternalProperty values are queried using the following methods:
+
+```java
+public int getIntegerInternalPropertyValue(String INTPROP_KEY);
+public boolean getBoolInternalPropertyValue(String INTPROP_KEY);
+public double getDoubleInternalPropertyValue(String INTPROP_KEY);
+```
+
 
 
 #### Implementing a ConfigurablePanel  <a name="implconf"></a>  
 
-#### Methods calling order  <a name="orderpane"></a>  
+- Create the layout of the JComponents
 
-All components should be declared and added in the constructor.
+- Declare the UIParameters
 
-1. super-constructor()
-2. initializeProperties() 
-3. initializeParameters()
-4. initializeInternalProperties()
-5. rest of the constructor() (instantiation of the JComponents)
+- Implement parameterhasChanged()
 
-Then call from ConfigurableMainFrame causes:
+- Declare the UIProperties
 
-1. propertyhasChanged() on all UIProperties
-2. parameterhasChanged() on all UIParameters
-3. addComponentListeners() (parameters apply and the first update of the UIProperties does not trigger a changeUIProperty)
+- Implement propertyhasChanged()
 
-Other methods:
+- Screen the SwingUIListeners methods for useful methods
 
-#### Useful methods  <a name="useflpane"></a>  
+- Implement in addSwingListeners() the missing functionalities (not found in SwingUIListeners)
+
+  
 
 ### ConfigurableMainFrame  <a name="confframe"></a>  
+
+There is only a single ConfigurableMainFrame per plugin, instantiated by the plugin class itself. A ConfigurableMainFrame must assemble all ConfigurablePanels. The latter are automatically detected to extract all properties and parameters.
+
+
+
+ConfigurableMainFrame must implement three methods:
+
+```java
+public class MyFrame extends ConfigurableMainFrame {
+	public MyFrame(String title, SystemController controller, 
+                   TreeMap<String, String> 	pluginSettings) {
+		super(title, controller, pluginSettings);
+	}
+
+	@Override
+	public HashMap<String, Setting> getDefaultPluginSettings() {
+		HashMap<String, Setting> settgs = new HashMap<String, Setting>();
+		// Here add Settings to sttgs if applicable.
+		return settgs;
+	}
+
+	@Override
+	protected void initComponents() {
+		// Here add all ConfigurablePanels
+	}
+
+	@Override
+	protected String getPluginInfo() {
+		// Return an informative description of the plugin's aim.
+		return "";
+	}
+}
+```
+
+
 
 #### Plugin Settings  <a name="plugsettgs"></a>  
 
@@ -813,29 +866,19 @@ String b = ((StringSetting) settings.get(SETTING_TITLE_PANE)).getValue();
 
 #### Instantiating the ConfigurablePanels  <a name="instframe"></a>  
 
-#### Methods calling order  <a name="orderframe"></a>  
-
-1. super-constructor(), this includes setting the Settings
-2. register the settings (plugin settings from the configuration)
-3. initComponents() (where all ConfigurablePanels are instanciated)
-4. link all InternalProperties
-   1. if two InternalProperties have the same label and type, then they become shared between the two ConfigurablePanels.
-   2. if they have the same label but different types, then the second discovered InternalProperty is ignored
-5. retrieves UIProperties and UIParameters
-   1. if two properties have the same label, only the last one is kept (unknown order)
-   2. if two parameters have the same label and type they become shared between the two ConfigurablePanels. If not, the second discovered one is ignored.
-
-Upon saving a new configuration or loading one:
-
-1. All of the above in order.
-2. update all ConfigurablePanels (propertyHasChanged(), then parameterHasChanged())
-3. addComponentListeners() on all ConfigurablePanels 
+ConfigurablePanels behave like JPanels and can therefore be added to a ConfigurableMainFrame using the add() method.
 
 
 
 #### Useful methods  <a name="useflframe"></a>  
 
+expose controller and core
+
+
+
 ### UIPlugin  <a name="uiplug"></a>  
+
+
 
 ### Drag and drop softwares  <a name="dragndrop"></a>  
 
