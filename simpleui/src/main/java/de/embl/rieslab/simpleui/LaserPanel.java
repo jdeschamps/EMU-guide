@@ -212,7 +212,7 @@ public class LaserPanel extends ConfigurablePanel {
 				border.setTitle(title);
 				this.repaint();
 				
-			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {
+			} catch (UnknownUIParameterException e) {
 				e.printStackTrace();
 			}
 		} else if(PARAM_COLOR.equals(parameterName)){

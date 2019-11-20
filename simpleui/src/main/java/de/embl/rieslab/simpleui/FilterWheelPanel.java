@@ -12,9 +12,7 @@ import de.embl.rieslab.emu.ui.ConfigurablePanel;
 import de.embl.rieslab.emu.ui.swinglisteners.SwingUIListeners;
 import de.embl.rieslab.emu.ui.uiparameters.StringUIParameter;
 import de.embl.rieslab.emu.ui.uiproperties.MultiStateUIProperty;
-import de.embl.rieslab.emu.ui.uiproperties.flag.NoFlag;
 import de.embl.rieslab.emu.utils.ColorRepository;
-import de.embl.rieslab.emu.utils.exceptions.IncorrectUIParameterTypeException;
 import de.embl.rieslab.emu.utils.exceptions.UnknownUIParameterException;
 import de.embl.rieslab.emu.utils.exceptions.UnknownUIPropertyException;
 
@@ -165,7 +163,7 @@ public class FilterWheelPanel extends ConfigurablePanel {
 					buttons[i].setText(astr[i]);
 				}
 				
-			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) { // necessary in case PARAM_NAMES is not a StringParameter
+			} catch (UnknownUIParameterException e) { // necessary in case PARAM_NAMES is unknown
 				e.printStackTrace();
 			}
 		} else if(PARAM_COLORS.equals(parameter)){
@@ -186,7 +184,7 @@ public class FilterWheelPanel extends ConfigurablePanel {
 				for(int i=0;i<maxind;i++) {
 					buttons[i].setForeground(ColorRepository.getColor(astr[i]));
 				}
-			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {// necessary in case PARAM_COLORS is not a StringParameter
+			} catch (UnknownUIParameterException e) {// necessary in case PARAM_COLORS is unknown
 				e.printStackTrace();
 			}
 		}

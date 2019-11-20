@@ -125,7 +125,7 @@ public class BasePluginPanel extends ConfigurablePanel{
          *			// for instance: disable a JToggleButton
 		 *	 	}
 		 *	 } catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) { 
-		 *		// these catches are necessary in case PARAMETER_NAME is not a BoolUIParameter
+		 *		// these catches are necessary in case PARAMETER_NAME is not known or a BoolUIParameter
 		 *		e.printStackTrace();
 		 *	 }
 		 * } else if (...){
