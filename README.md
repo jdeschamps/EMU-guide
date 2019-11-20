@@ -158,6 +158,7 @@ There are three types of such properties:
 - Single-state: the property requires only one state value to be specified.
 - Two-state: the property requires two state values, corresponding to an On and an Off states.
 - Multi-state: the property requires a specified number of state values, labeled state 0, state 1,...
+- Scaled property: the property requires a slope and offset parameters. These can be used for instance to make a percentage (offset = 0, slope = (max device property value)/100).
 
 > In the previous example, htSMLM has a "Filter wheel position" UI property with 6 states. Therefore, 6 values of the "Position1" device property should be entered. Another UI property, "Focus-lock enable fine" requires an On and Off states, with two values of the device property to set.   
 
@@ -549,7 +550,9 @@ public double getOffset();
 public boolean haveSlopeOffsetBeenSet();
 ```
 
-For now, the offset and the slop can be set through DoubleUIParameters by the user.
+
+
+In the configuration wizard, a RescaledUIProperty automatically generates a slope and offset entries with default values.
 
 example: percentage of a device property.
 
@@ -633,76 +636,53 @@ protected void initializeParameters() {
 ```
 
 
+
 ###### UIParameter has changed
 
-The parameterhasChanged(...) method is called upon configuration of the plugin. There, you can retrieve the new value of the parameter and use it to modify accordingly the ConfigurablePanel 
+The parameterhasChanged(...) method is called upon configuration of the plugin. There, you can retrieve the new value of the parameter and use it to modify accordingly the ConfigurablePanel.
 
 ```java
 @Override
 protected void parameterhasChanged(String parameterName) {
     if(PARAM_KEY.equals(parameterName))  {
-        
+        // retrieve the value of the UIParameter
+        try {
+			boolean newvalue = getBoolUIParameterValue(PARAM_BOOL);
+            
+            // Do something with the value
+		} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {
+			e.printStackTrace();
+		}
     }
 }
 ```
 
-
-
-##### BoolUIParameter
-
-##### ColorUIParameter
-
-##### ComboUIParameter
-
-##### DoubleUIParameter
-
-##### IntegerUIParameter
-
-##### StringUIParameter
-
-##### UIPropertyUIParameter
-
-
+The ConfigurablePanel class has the following methods to retrieve parameter values:
 
 ```java
-// parameter
-public final static String PARAM_LABEL = "Name of the parameter"; 
+public boolean getBoolUIParameterValue(String PARAMETER_KEY);
+public Color getColorUIParameterValue(String PARAMETER_KEY); 
+public double getDoubleUIParameterValue(String PARAMETER_KEY); 
+public int getIntegerUIParameterValue(String PARAMETER_KEY); 
 
-@Override
-protected void initializeParameters() {
-	
-    String description = "Description of the parameter";
-    boolean default_val = true;
-    this.addUIParameter(new BoolUIParameter(this, PARAM_LABEL, 
-                                            description, default_val));
-}
-
-@Override
-protected void parameterhasChanged(String parameterName) {
-	if(PARAM_LABEL.equals(parameterName)) { 
-		try {
-			boolean b  = getBoolUIParameterValue(PARAM_LABEL);
-            // do something with b
-		} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) { 
-			e.printStackTrace();
-		}
-	}
-}
+// For StringUIParameter, ComboUIParameter and UIPropertyUIParameter
+// (note that it would work for any UIParameter)
+public String getStringUIParameterValue(String PARAMETER_KEY);
 ```
 
-
+Note that these methods can throw an UnknownUIParameterException and/or an IncorrectUIParameterTypeException in case the PARAMETER_KEY is unknown or of the wrong type (therefore the method cannot return anything).
 
 ##### Examples
 
-- BoolEnableComponent.java
-- BoolShowPanel.java
-- ColorBorderTitle.java
-- ComboDefaultValue.java
-- DoubleAttributeValue.java
-- IntAttributeValue.java
-- StringBorderTitle.java
-- StringButtonText.java
-- StringMultipleTextsAndColors.java
+- [Enable/disable a component using a BoolUIParameter](src/main/java/de/embl/rieslab/emuguide/uiparameters/BoolEnableComponent.java)
+- [Hide/show a panel using a BoolUIParameter](src/main/java/de/embl/rieslab/emuguide/uiparameters/BoolShowPanel.java)
+- [Change the color of border title using a ColorUIParameter](src/main/java/de/embl/rieslab/emuguide/uiparameters/ColorBorderTitle.java)
+- [Select a default JComboBox element using a ComboUIParameter](src/main/java/de/embl/rieslab/emuguide/uiparameters/ComboDefaultValue.java)
+- [Set a double value using a DoubleUIParameter](src/main/java/de/embl/rieslab/emuguide/uiparameters/DoubleAttributeValue.java)
+- [Set an integer value using an IntegerUIParameter](src/main/java/de/embl/rieslab/emuguide/uiparameters/IntAttributeValue.java)
+- [Change a border title using a StringUIParameter](src/main/java/de/embl/rieslab/emuguide/uiparameters/StringBorderTitle.java)
+- [Change a button text using a StringUIParameter](src/main/java/de/embl/rieslab/emuguide/uiparameters/StringButtonText.java)
+- [Use a StringUIParameter to change multiple colors or texts](src/main/java/de/embl/rieslab/emuguide/uiparameters/StringMultipleTextsAndColors.java)
 
 
 

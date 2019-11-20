@@ -7,7 +7,6 @@ import javax.swing.border.TitledBorder;
 
 import de.embl.rieslab.emu.ui.ConfigurablePanel;
 import de.embl.rieslab.emu.ui.uiparameters.StringUIParameter;
-import de.embl.rieslab.emu.utils.exceptions.IncorrectUIParameterTypeException;
 import de.embl.rieslab.emu.utils.exceptions.UnknownUIParameterException;
 
 public class StringBorderTitle extends ConfigurablePanel {
@@ -64,7 +63,7 @@ public class StringBorderTitle extends ConfigurablePanel {
 				 * TitledBorder border = (TitledBorder) this.getBorder();
 				 * border.setTitle(newTitle);
 				 */
-			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) { // In case PARAM_LABEL is not known or not a StringUIParameter
+			} catch (UnknownUIParameterException e) { // In case PARAM_LABEL is not known
 				e.printStackTrace();
 			}
 		}

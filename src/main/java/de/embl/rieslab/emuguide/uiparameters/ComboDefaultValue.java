@@ -1,11 +1,9 @@
 package de.embl.rieslab.emuguide.uiparameters;
 
-
 import javax.swing.JComboBox;
 
 import de.embl.rieslab.emu.ui.ConfigurablePanel;
 import de.embl.rieslab.emu.ui.uiparameters.ComboUIParameter;
-import de.embl.rieslab.emu.utils.exceptions.IncorrectUIParameterTypeException;
 import de.embl.rieslab.emu.utils.exceptions.UnknownUIParameterException;
 
 public class ComboDefaultValue extends ConfigurablePanel {
@@ -54,9 +52,9 @@ public class ComboDefaultValue extends ConfigurablePanel {
 	protected void parameterhasChanged(String parameterName) {
 		if(PARAM_LABEL.equals(parameterName)) { // if parameterName is indeed PARAM_LABEL
 			try {
-				String value = this.getComboUIParameterValue(PARAM_LABEL);
+				String value = this.getStringUIParameterValue(PARAM_LABEL);
 				cb.setSelectedItem(value);
-			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) { // In case PARAM_LABEL is not known or not a ComboUIParameter
+			} catch (UnknownUIParameterException e) { // In case PARAM_LABEL is not known
 				e.printStackTrace();
 			}
 		}

@@ -5,12 +5,8 @@ import javax.swing.SwingConstants;
 
 import de.embl.rieslab.emu.ui.ConfigurablePanel;
 import de.embl.rieslab.emu.ui.swinglisteners.SwingUIListeners;
-import de.embl.rieslab.emu.ui.uiparameters.IntegerUIParameter;
 import de.embl.rieslab.emu.ui.uiproperties.RescaledUIProperty;
 import de.embl.rieslab.emu.utils.EmuUtils;
-import de.embl.rieslab.emu.utils.exceptions.IncorrectUIParameterTypeException;
-import de.embl.rieslab.emu.utils.exceptions.UnknownUIParameterException;
-import de.embl.rieslab.emu.utils.exceptions.UnknownUIPropertyException;
 
 public class RescaledUIPropertyPercentage extends ConfigurablePanel{
 

@@ -7,7 +7,6 @@ import javax.swing.JToggleButton;
 import de.embl.rieslab.emu.ui.ConfigurablePanel;
 import de.embl.rieslab.emu.ui.uiparameters.StringUIParameter;
 import de.embl.rieslab.emu.utils.ColorRepository;
-import de.embl.rieslab.emu.utils.exceptions.IncorrectUIParameterTypeException;
 import de.embl.rieslab.emu.utils.exceptions.UnknownUIParameterException;
 
 public class StringMultipleTextsAndColors extends ConfigurablePanel {
@@ -85,14 +84,14 @@ public class StringMultipleTextsAndColors extends ConfigurablePanel {
 			try {
 				String texts = this.getStringUIParameterValue(PARAM_TEXT);
 				setTexts(texts);
-			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {// In case PARAM_TEXT is not known or not a StringUIParameter
+			} catch (UnknownUIParameterException e) {// In case PARAM_TEXT is not known 
 				e.printStackTrace();
 			}
 		} else if(PARAM_COLOR.equals(parameterName)) { // if parameterName is indeed PARAM_COLOR
 			try {
 				String colors = this.getStringUIParameterValue(PARAM_COLOR);
 				setColors(colors);
-			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {// In case PARAM_COLOR is not known or not a StringUIParameter
+			} catch (UnknownUIParameterException e) {// In case PARAM_COLOR is not known
 				e.printStackTrace();
 			}
 		}

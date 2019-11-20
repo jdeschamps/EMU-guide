@@ -227,8 +227,8 @@ public class GuideConfigurablePanel extends ConfigurablePanel{
 			
 		} else if(PARAM_COMBO.equals(parameterName)) {
 			try {
-				String newvalue = getComboUIParameterValue(PARAM_COMBO);
-			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {
+				String newvalue = getStringUIParameterValue(PARAM_COMBO);
+			} catch (UnknownUIParameterException e) {
 				e.printStackTrace();
 			}
 			
@@ -249,14 +249,14 @@ public class GuideConfigurablePanel extends ConfigurablePanel{
 		} else if(PARAM_STRING.equals(parameterName)) {
 			try {
 				String newvalue = getStringUIParameterValue(PARAM_STRING);
-			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {
+			} catch (UnknownUIParameterException e) {
 				e.printStackTrace();
 			}
 			
 		} else if(PARAM_UIPROP.equals(parameterName)) {
 			try {
 				String newvalue = getStringUIParameterValue(PARAM_UIPROP);
-			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {
+			} catch (UnknownUIParameterException e) {
 				e.printStackTrace();
 			}
 			
