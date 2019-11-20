@@ -298,7 +298,7 @@ protected void parameterhasChanged(String parameterName) {
 			((TitledBorder) this.getBorder())
                 	.setTitle(getStringUIParameterValue(PARAM_TITLE));
 			this.repaint();
-		} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {
+		} catch (UnknownUIParameterException e) {
 			e.printStackTrace();			
         }
     } else if (PARAM_COLOR.equals(parameterName)) {
@@ -459,7 +459,7 @@ protected void parameterhasChanged(String parameter) {
 				buttons[i].setText(astr[i]);
 			}
 				
-		} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {
+		} catch (UnknownUIParameterException e) {
 			e.printStackTrace();
 		}
 	} else if(PARAM_COLORS.equals(parameter)){
@@ -474,7 +474,7 @@ protected void parameterhasChanged(String parameter) {
 			for(int i=0;i<maxind;i++) {
 				buttons[i].setForeground(ColorRepository.getColor(astr[i]));
 			}
-		} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {
+		} catch (UnknownUIParameterException e) {
 			e.printStackTrace();
 		}
 	}

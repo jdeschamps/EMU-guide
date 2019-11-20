@@ -6,7 +6,6 @@ import de.embl.rieslab.emu.ui.uiparameters.ColorUIParameter;
 import de.embl.rieslab.emu.ui.uiparameters.StringUIParameter;
 import de.embl.rieslab.emu.ui.uiproperties.TwoStateUIProperty;
 import de.embl.rieslab.emu.ui.uiproperties.UIProperty;
-import de.embl.rieslab.emu.ui.uiproperties.flag.NoFlag;
 import de.embl.rieslab.emu.utils.EmuUtils;
 import de.embl.rieslab.emu.utils.exceptions.IncorrectUIParameterTypeException;
 import de.embl.rieslab.emu.utils.exceptions.IncorrectUIPropertyTypeException;
@@ -130,7 +129,7 @@ public class LaserPanel extends ConfigurablePanel {
 				
 				// repaints
 				this.repaint();
-			} catch (IncorrectUIParameterTypeException | UnknownUIParameterException e) {
+			} catch (UnknownUIParameterException e) {
 				e.printStackTrace();
 			}
 	
