@@ -2,7 +2,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<groupId>de.embl.rieslab</groupId>
 	<artifactId>emu-examples</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -11,7 +11,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-	
+
 	<developers>
 		<developer>
 			<id>jdeschamps</id>
@@ -28,7 +28,7 @@
 			</roles>
 		</developer>
 	</developers>
-	
+
 	<modules>
 		<module>ibeamsmart</module>
 		<module>simpleui</module>
