@@ -48,5 +48,5 @@ This repository contains examples of EMU plugins:
 3. Verify that the source folder is "src/main/java". In the Libraries tab, add an external JAR and navigate to the emu jar present in your Micro-Manager folder ("Micro-Manager/mmplugins/" if EMU was correctly installed). Then, click on finish.
 4. You can then rename the package to match your institution, name and project name, as well as renaming the different classes.
 
-> Note 1: If you change the name of BasePlugin.java, you will need to change the path in the "src/main/resources/META-INF/services/de.embl.rieslab.emu.plugin.UIPlugin" file accordingly (the file name itself should NOT change).
+> Note: When you change the name of the packages and of BasePlugin.java, you will need to change the path in the "src/main/resources/META-INF/services/de.embl.rieslab.emu.plugin.UIPlugin" file accordingly (the file name itself should NOT change).
 
