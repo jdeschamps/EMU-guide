@@ -44,7 +44,7 @@ Tailored interfaces have the advantage of rendering the control of the microscop
 Easier Micro-manager User interface (EMU) offers means to make your Micro-Manager interface reconfigurable:
 
 - Rapid design compatible with **drag and drop softwares** (e.g. Eclipse WindowBuilder).
-- Functional UI with only few lines of code thanks to EMU's back-end.
+- Functional Micro-Manager UI with only few lines of code thanks to EMU's back-end.
 - Flexible and transferable: easy and intuitive configuration through EMU's interface.
 
 
