@@ -53,7 +53,7 @@ Easier Micro-manager User interface (EMU) offers means to make your Micro-Manage
 
 ##### Plugin
 
-While EMU is a Micro-Manager plugin, it also loads its own plugins: user interfaces. These UIs need to be implemented in agreement with EMU classes and plugin system. Once compiled into a .jar file, the plugin must be placed under the EMU folder in Micro-Manager.
+While EMU is a Micro-Manager plugin, it also loads its own plugins: user interfaces. These UIs need to be implemented in agreement with EMU classes and plugin system. Once compiled into a .jar file, the plugin must be placed under the EMU folder in Micro-Manager (C:/Path/to/MicroManager/EMU/).
 
 ##### Settings, properties and parameters
 
@@ -591,7 +591,7 @@ Flags can be queried using the getFlag() method:
 public Flag getFlag();
 ```
 
-EMU does not provide other flags than the NoFlag, the flags must be created for the purpose of the plugin. For instance, [htSMLM]( https://github.com/jdeschamps/htSMLM ) uses a variety of flags to distinguish laser, focus-related or filterwheel properties.
+EMU does not provide other flags than the NoFlag, the flags must be created for the purpose of the plugin. For instance, [htSMLM]( https://github.com/jdeschamps/htSMLM ) uses a variety of flags to distinguish laser, focus-related or filterwheel properties. In addition, UIPropertyUIParameters make use of a flag to filter UIProperties available as a value for the UIParameter.
 
 
 
@@ -791,8 +791,6 @@ public double getDoubleInternalPropertyValue(String INTPROP_KEY);
 
 There is only a single ConfigurableMainFrame per plugin, instantiated by the plugin class itself. A ConfigurableMainFrame must assemble all ConfigurablePanels. The latter are automatically detected to extract all properties and parameters.
 
-
-
 ConfigurableMainFrame must implement three methods:
 
 ```java
@@ -826,7 +824,9 @@ public class MyFrame extends ConfigurableMainFrame {
 
 #### Plugin Settings  <a name="plugsettgs"></a>  
 
+A ConfigurableMainFrame may declared Settings that will appear in the configuration wizard under the "Plugin Settings" tab. Settings are a mechanism for saving parameters related to ConfigurableMainFrame  in the configuration. These Settings are to be used as options, such as using or not a ConfigurablePanel. Plugin Settings are read from the configuration and used in the ConfigurableMainFrame  constructor.
 
+Plugin Settings are originally declared as a default HasMap in the getDefaultPluginSettings() method. If there are no plugin settings, then just return an empty HashMap. Here is an example of three different types of plugin Settings: 
 
 ```java
 private final static String SETTING_USE_PANEL = "Use panel";
@@ -854,12 +854,16 @@ public HashMap<String, Setting> getDefaultPluginSettings() {
 }
 ```
 
-
+Since the plugin Settings are passed as parameters to the constructor, they can be used during instantiation of the ConfigurablePanels. Their values are queried as follows:
 
 ```java
+// retrieves the plugin settings
+HashMap<String, Setting> settings = this.getCurrentPluginSettings();
+
+// get the setting value
 boolean b = ((BoolSetting) settings.get(SETTING_USE_PANEL)).getValue();
-int b = ((IntSetting) settings.get(SETTING_NB_BUTTONS)).getValue();
-String b = ((StringSetting) settings.get(SETTING_TITLE_PANE)).getValue();
+int i = ((IntSetting) settings.get(SETTING_NB_BUTTONS)).getValue();
+String s = ((StringSetting) settings.get(SETTING_TITLE_PANE)).getValue();
 ```
 
 
@@ -872,11 +876,103 @@ ConfigurablePanels behave like JPanels and can therefore be added to a Configura
 
 #### Useful methods  <a name="useflframe"></a>  
 
-expose controller and core
+ConfigurableMainFrames  expose the EMU SystemController and Micro-Manager core. Through the SystemController, a ConfigurableMainFrame and the necessary ConfigurablePanels can get a reference to the Micro-Manager Studio and therefore the whole Micro-Manager Java API.
 
 
 
 ### UIPlugin  <a name="uiplug"></a>  
+
+The UIPlugin interface is the class detected by EMU. The plugin system uses Java ServiceLoader. 
+
+First implement the interface, returning your ConfigurableMainFrame in the getMainFrame() method:
+
+```java
+public class GuideUIPlugin implements UIPlugin{
+
+	@Override
+	public String getName() {
+		return "Guide plugin";
+	}
+
+	@Override
+	public ConfigurableMainFrame getMainFrame(SystemController controller,
+                                              TreeMap<String, String> pluginSettings) {
+        return new GuideConfigurableMainFrame("Guide plugin", controller,
+                                              pluginSettings);
+	}
+}
+```
+
+####  
+
+#### Provider-configuration file 
+
+In order for the ServiceLoader to discover your plugin, you need to make sure the jar files contains the provider-configuration file. This file should be named "de.embl.rieslab.emu.plugin.UIPlugin" and contain the UIPlugin implementation's fully-qualified [binary name](https://docs.oracle.com/javase/7/docs/api/java/lang/ClassLoader.html#name), for instance:
+
+```
+de.embl.rieslab.emuguide.GuideUIPlugin
+```
+
+In order for the file to appear in the jar, you must respect the following project organization:
+
+```
+src/main/
+      |
+      ---> java/de/embl/rieslab/emuguide/
+                                   |
+                                   ---> GuideUIPlugin.java
+      ---> resources/META-INF/services/
+                                   |
+                                   ---> de.embl.rieslab.emu.plugin.UIPlugin
+              
+```
+
+In your project, the "de.embl.rieslab.emuguide.GuideUIPlugin.java" must be replaced by your own package structure and plugin name, in both the projects and the provider-configuration file. 
+
+Make sure that resources is set as a source folder and explore the exported jar to make sure that the META-INF folder contains the /services/de.embl.rieslab.emu.plugin.UIPlugin file.
+
+The most common errors causing the plugin to be ignored by the ServiceLoader are:
+
+- Wrong folder structure
+- Mistake in the file name ("de.embl.rieslab.emu.plugin.UIPlugin")
+- Mistake in the path to the plugin (in the example: de.embl.rieslab.emuguide.GuideUIPlugin)
+
+
+
+#### Export as jar
+
+Finally, your project must be exported as a .jar. Make sure the configuration file is present in the jar under the correct path. Then place the archive in the EMU folder of your Micro-manager installation folder.
+
+
+
+### Setting up an EMU project with Eclipse
+
+1. Right-click on the package explorer and create a new java project.
+2. Name the project and click on next.
+3. In the Source tab, right-click and add successively two new source folders: "src/main/java" and "src/main/resources". Remove the "src" source folder.
+4. In the Librairies tab, add an external jar and point to the EMU jar in C:/Path/to/Micro-Manager/mmplugins. Click on finish.
+5. Create your packages in the src/main/java folder. Then right click on the relevant package and select new class. Create successively three classes:
+   1. A class with a UIPlugin interface.
+   2. A class with ConfigurableMainFrame as a superclass
+   3. A class with ConfigurablePanel as a superclass
+6. Add the provider-configuration file to the src/main/resources/META-INF/services folder. Add the fully-qualified binary name of your implementation of UIPlugin.
+7. Once you will have replaced all null returns from your classes method and have no errors, export the project as a jar and place it in the EMU folder. Check that EMU can load the plugin.
+
+Then you are ready to start implementing your plugin.
+
+
+
+####  Testing the plugin
+
+After having tested the export to a jar and import in EMU of your base plugin, you can set-up a run configuration in Eclipse to directly start Micro-Manager with your changes included in your plugin without exporting the jar. This would allow you to use the Eclipse debugger and have access to the Java console.
+
+1. Right-click on your project and select Properties. Then go to Java Build path and in the Librairies tab, add the ij.jar from your Micro-Manager folder (add External jar). Then add all jars from the C:/Path/to/Micro-Manager/plugins/Micro-manager folder. Apply and close.
+2. Right-click on your project and select Run as then Run configurations.
+3. In the configuration window, add a new configuration and name it. Then in Main class, select ImageJ.
+4. In the Arguments tab, select other in working directory and point to the Micro-Manager directory. Apply and then close.
+5. Click on the arrow next to the run button and make sure your run your newly created configuration.
+
+Micro-Manager should start. You can use Micro-Manager demo device adapter to fake the presence of hardware or directly test on your microscope.
 
 
 
@@ -889,6 +985,8 @@ Popular drag and drop Swing designers include:
 - [Eclipse WindowBuilder]( https://www.eclipse.org/windowbuilder/ )
 - [IntelliJ GUI Designer]( https://www.jetbrains.com/help/idea/gui-designer-basics.html ) (not tested)
 - [NetBeans GUI Builder]( https://netbeans.org/kb/docs/java/quickstart-gui.html ) (not tested)
+
+
 
 ## Resources  <a name="res"></a>  
 

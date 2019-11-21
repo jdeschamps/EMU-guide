@@ -30,7 +30,7 @@ public class GuideConfigurableMainFrame extends ConfigurableMainFrame{
 		HashMap<String, Setting> defaultSettings = new HashMap<String, Setting>();
 
 		/*
-		 * Here create and add entries to the HashMap here to create Settings. These can
+		 * Here, create and add entries to the HashMap here to create Settings. These can
 		 * be used to configure certain aspects of the UI upon loading it in EMU. For
 		 * instance, BoolSettings can be used to decide if a ConfigurablePanel will be
 		 * used or not. StringSettings can give you runtime names and labels.
@@ -56,12 +56,31 @@ public class GuideConfigurableMainFrame extends ConfigurableMainFrame{
 	@Override
 	protected void initComponents() {
 		/*
-		 * Here create the panels and add them.
-		 * 
+		 * Here create the ConfigurablePanels and add them. You can querry the values
+		 * of the plugin Settings.
 		 */
-		GuideConfigurablePanel myPanel = new GuideConfigurablePanel("My Panel");
+		
+		// gets the plugin settings
+    	HashMap<String, Setting> settings = this.getCurrentPluginSettings();
+		
+		// for instance optional ConfigurablePanel
+		if(((BoolSetting) settings.get(SETTING_BOOL)).getValue()) {
+			// Instantiates a configurable panel
+			GuideConfigurablePanel myPanel = new GuideConfigurablePanel("My Panel");
+			
+			// Adds it to the JFrame
+			this.add(myPanel);
+		}
+		
+		// Retrieves the other plugin settings
+		int i = ((IntSetting) settings.get(SETTING_INT)).getValue();
+		double d = ((DoubleSetting) settings.get(SETTING_DOUBLE)).getValue();
+		String s = ((StringSetting) settings.get(SETTING_STRING)).getValue();
+		
+		// adds another ConfigurablePanel
+		GuideConfigurablePanel myPanel = new GuideConfigurablePanel("My Panel2");
 		this.add(myPanel);
-        
+		
         this.pack(); 
         this.setResizable(false);
  	    this.setVisible(true);  
