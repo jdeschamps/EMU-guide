@@ -81,7 +81,7 @@ The configuration is a JSON file saved in your Micro-Manager folder under the EM
 
 Configuration related actions are accessible through the menu bar, by selecting *Configuration*.
 
-![menu-config](img\menu-config.png)
+![menu-config](img/menu-config.png)
 
 
 
@@ -96,7 +96,7 @@ Configuration related actions are accessible through the menu bar, by selecting 
 
 Once EMU is loaded in Micro-manager, the user can configure the UI graphically by using the *configuration wizard*, accessible through "**Configuration/Modify configuration**". It is automatically started if no configuration is found.
 
-![config_wizard](img\config_wizard.PNG)
+![config_wizard](img/config_wizard.PNG)
 
 The configuration wizard displays four tabs:
 
@@ -119,7 +119,7 @@ Selecting the *help* button opens the *help window*. Select a row of the propert
 
 ###### Example: htSMLM
 
-![config_wizard_plugsettings](img\config_wizard_plugsettings.PNG)
+![config_wizard_plugsettings](img/config_wizard_plugsettings.PNG)
 
 
 
@@ -145,7 +145,7 @@ For each relevant UI *property*, select the corresponding device from the drop d
 
 ###### Example: htSMLM
 
-![config_wizard](img\config_wizard.PNG)
+![config_wizard](img/config_wizard.PNG)
 
 > In this example, htSMLM has a "Camera exposure" UI property, therefore one must select the camera in the devices (here "Andor") and choose its "Exposure" device property.
 
@@ -186,7 +186,7 @@ There are several types of UI parameters:
 
 ###### Example: htSMLM
 
-![param](img\param.png)
+![param](img/param.png)
 
 
 
@@ -202,7 +202,7 @@ The *configuration manager* is accessible through the menu "Configuration/Manage
 
 
 
-![config_manager](img\config_manager.PNG)
+![config_manager](img/config_manager.PNG)
 
 
 
@@ -210,7 +210,7 @@ The *configuration manager* is accessible through the menu "Configuration/Manage
 
 ### Plugin  <a name="user-plug"></a>  
 
-![menu-plugin](img\menu-plugin.png)
+![menu-plugin](img/menu-plugin.png)
 
 
 
