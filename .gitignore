@@ -1,0 +1,12 @@
+# maven created folders
+*/target/
+*/*/target/
+
+# Eclipse project files
+*.classpath
+*.settings/
+*.project
+*/bin/
+
+# General 
+*.jar
