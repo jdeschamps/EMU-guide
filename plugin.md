@@ -21,7 +21,7 @@ public class GuideUIPlugin implements UIPlugin{
 }
 ```
 
-####  
+
 
 ## Provider-configuration file 
 
@@ -65,13 +65,11 @@ Finally, your project must be exported as a .jar. Make sure the configuration fi
 
 ## Example
 
-- [An implementation of a UIPlugin](guide\src\main\java\de\embl\rieslab\emuguide\GuideUIPlugin.java)
-- [The corresponding provider-configuration file](guide\src\main\resources\META-INF\services\de.embl.rieslab.emu.plugin.UIPlugin)
+- [GuideUIPlugin.java: an implementation of a UIPlugin]( https://github.com/jdeschamps/EMU-guide/tree/master/guide/src/main/java/de/embl/rieslab/emuguide )
+- [The corresponding provider-configuration file]( https://github.com/jdeschamps/EMU-guide/tree/master/guide/src/main/resources/META-INF/services )
 
 
 
-
-
-[Back to the ConfigurablePanel](configurablepanel.md)
+[Back to the programming guide](programmingguide.md)
 
 [Back to the menu](index.md)
