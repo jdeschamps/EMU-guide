@@ -16,15 +16,14 @@ EMU is designed to involve minimum heavy lifting and coding in the plugin in ord
 
 1. [JComponents](jcomponents.md)
 2. [ConfigurablePanel](configurablepanel.md)
-	1. [UIProperty](uiproperty.md)
-   2. [SwingUIListeners](uiproperty.md#swing)
-   3. [UIParameter](uiparameter.md)
-   4. [InternalProperty](internalproperty.md)
-3. [ConfigurableMainFrame](configurablemainframe.md)
-   1. [Methods to implement](configurablemainframe.md)
-   2. [Plugin Settings](configurablemainframe.md#settings)
-4. [UIPlugin](plugin)
-5. [Using Eclipse](usingeclipse.md)
+3. [UIProperty](uiproperty.md)
+4. [SwingUIListeners](uiproperty.md#swing)
+5. [UIParameter](uiparameter.md)
+6. [InternalProperty](internalproperty.md)
+7. [ConfigurableMainFrame](configurablemainframe.md)
+8. [Plugin Settings](configurablemainframe.md#settings)
+9. [UIPlugin](plugin)
+10. [Using Eclipse](usingeclipse.md)
 
 
 
