@@ -12,14 +12,14 @@ EMU therefore makes the UI easily configurable and transferable, without hard-co
 
 1. [Principle](#principle)
 2. [Configuration](#configuration)
-3. [Configuration wizard](#confwiz)
-4. [Help](#help)
-5. [Plugin settings](#pluginsett)
-6. [Global settings](#glob)
-7. [Properties](#prop)
-8. [Parameters](#param)
-9. [Configuration name](#name)
-10. [Configuration manager](#confwiz)
+   1. [Configuration wizard](#confwiz)
+      1. [Help](#help)
+      2. [Plugin settings](#pluginsett)
+      3. [Global settings](#glob)
+      4. [Properties](#prop)
+      5. [Parameters](#param)
+      6. [Configuration name](#name)
+   2. [Configuration manager](#confwiz)
 11. [Plugin menu](#plugmenu)
 
 [Back to the menu](README.md#guide)
@@ -198,8 +198,6 @@ The *configuration manager* is accessible through the menu "Configuration/Manage
 
 
 ## Plugin menu  <a name="plugmenu"></a>
-
-###### 
 
 <p align="center">
 <img src="img/menu-plugin.png">
