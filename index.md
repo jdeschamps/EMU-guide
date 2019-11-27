@@ -1,5 +1,11 @@
 # EMU guide
+li li{
+    list-style-type: lower-alpha;
+}
 
+li li li{
+    list-style-type: lower-roman;
+}
 
 
 ## Why use EMU?    <a name="why"></a>  
