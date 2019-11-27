@@ -67,7 +67,13 @@ Configuration related actions are accessible through the menu bar, by selecting 
 
 Once EMU is loaded in Micro-manager, the user can configure the UI graphically by using the *configuration wizard*, accessible through "**Configuration/Modify configuration**". It is automatically started if no configuration is found.
 
-![config_wizard](img/config_wizard.PNG)
+
+
+<p align="center">
+<img src="img/config_wizard.PNG">
+</p>
+
+
 
 The configuration wizard displays four tabs:
 
@@ -90,7 +96,9 @@ Selecting the *help* button opens the *help window*. Select a row of the propert
 
 ###### Example: htSMLM
 
-![config_wizard_plugsettings](img/config_wizard_plugsettings.PNG)
+<p align="center">
+<img src="img/config_wizard_plugsettings.PNG">
+</p>
 
 
 
@@ -116,7 +124,11 @@ For each relevant UI *property*, select the corresponding device from the drop d
 
 ###### Example: htSMLM
 
-![config_wizard](img/config_wizard.PNG)
+<p align="center">
+<img src="img/config_wizard.PNG">
+</p>
+
+
 
 > In this example, htSMLM has a "Camera exposure" UI property, therefore one must select the camera in the devices (here "Andor") and choose its "Exposure" device property.
 
@@ -157,7 +169,9 @@ There are several types of UI parameters:
 
 ###### Example: htSMLM
 
-![param](img/param.png)
+<p align="center">
+<img src="img/param.png">
+</p>
 
 
 
@@ -173,15 +187,19 @@ The *configuration manager* is accessible through the menu "Configuration/Manage
 
 
 
-![config_manager](img/config_manager.PNG)
-
-
+<p align="center">
+<img src="img/config_manager.PNG">
+</p>
 
 
 
 ## Plugin menu  <a name="plugmenu"></a>
 
-![menu-plugin](img/menu-plugin.png)
+###### 
+
+<p align="center">
+<img src="img/menu-plugin.png">
+</p>
 
 
 
