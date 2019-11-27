@@ -71,5 +71,4 @@ Finally, your project must be exported as a .jar. Make sure the configuration fi
 
 
 [Back to the programming guide](programmingguide.md)
-
 [Back to the menu](index.md)
