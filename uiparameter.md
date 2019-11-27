@@ -77,6 +77,8 @@ Note that these methods can throw an UnknownUIParameterException and/or an Incor
 
 ## Examples
 
+All examples are available in the [source folder]( https://github.com/jdeschamps/EMU-guide/tree/master/guide/src/main/java/de/embl/rieslab/emuguide/uiparameters ).
+
 - [Enable/disable a component using a BoolUIParameter](guide/src/main/java/de/embl/rieslab/emuguide/uiparameters/BoolEnableComponent.java)
 - [Hide/show a panel using a BoolUIParameter](guide/src/main/java/de/embl/rieslab/emuguide/uiparameters/BoolShowPanel.java)
 - [Change the color of border title using a ColorUIParameter](guide/src/main/java/de/embl/rieslab/emuguide/uiparameters/ColorBorderTitle.java)
