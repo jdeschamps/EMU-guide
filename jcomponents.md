@@ -8,5 +8,5 @@ JComponents are the Swing elements the user interacts with and are central to bu
 
 [Back to the programming guide](programmingguide.md)
 
-[Back to the menu](README.md#guide)
+[Back to the menu](index.md)
 

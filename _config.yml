@@ -16,5 +16,6 @@ include:
  - usingeclipse.md
  - installation.md
  - jcomponents.md
+ - /img/
 
 theme: jekyll-theme-tactile

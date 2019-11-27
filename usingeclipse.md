@@ -33,4 +33,4 @@ Micro-Manager should start. You can use Micro-Manager demo device adapter to fak
 
 [Back to the ConfigurablePanel](configurablepanel.md)
 
-[Back to the menu](README.md#guide)
+[Back to the menu](index.md)

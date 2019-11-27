@@ -74,4 +74,4 @@ Finally, your project must be exported as a .jar. Make sure the configuration fi
 
 [Back to the ConfigurablePanel](configurablepanel.md)
 
-[Back to the menu](README.md#guide)
+[Back to the menu](index.md)

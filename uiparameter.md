@@ -91,4 +91,4 @@ Note that these methods can throw an UnknownUIParameterException and/or an Incor
 
 [Back to the ConfigurablePanel](configurablepanel.md)
 
-[Back to the menu](README.md#guide)
+[Back to the menu](index.md)
