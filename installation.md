@@ -21,7 +21,7 @@
    $ ./compileAndDeploy.sh "C:\Path\to\MicroManager2gamma"
    ```
 
-   > Note: the script requires bash, which is shipped with the git console on Windows.
+   Note: the script requires bash, which is shipped with the git console on Windows.
 
    
 
