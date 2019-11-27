@@ -10,16 +10,18 @@ Here is a preview of the UI:
 
 #### Prerequisite
 
-- [Eclipse](https://www.eclipse.org/) with the [WindowBuilder plugin]() running java 8.
+- [Eclipse]( https://www.eclipse.org/downloads/packages/ ) with the WindowBuilder+SwingDesigner plugin running java 8.
 - Micro-Manager 2gamma installed.
-- EMU installed (refer to the [installing section](https://github.com/jdeschamps/EMU)).
+- EMU installed (refer to the [installing section]( https://jdeschamps.github.io/EMU-guide/installation.html )).
+
+> If the WindowBuilder and SwingDesigner are not installed, you will have to go to Help -> Install New Software and using "All available sites", search and install both.
 
 
 
 #### During the tutorial
 
-- You can consult the [guide]() for more in-depth details.
-- The [source code]() can be found in the "source" folder.
+- You can consult the [guide]( https://jdeschamps.github.io/EMU-guide/ ) for more in-depth details.
+- The [source code]( https://github.com/jdeschamps/EMU-guide/tree/master/tutorial ) can be found in the "src" folder.
 
 
 
@@ -61,11 +63,11 @@ Right-click on the project and select "**Properties**". In **Java Build Path** a
 
 ## C - Setting up the laser panel: ConfigurablePanel
 
-In this section, we will encounter the first EMU class: [ConfigurablePanel](). ConfigurablePanels are the building blocks of an EMU UI. The important steps before building a ConfigurablePanel are:
+In this section, we will encounter the first EMU class: [ConfigurablePanel]( https://jdeschamps.github.io/EMU-guide/configurablepanel.html ). ConfigurablePanels are the building blocks of an EMU UI. The important steps before building a ConfigurablePanel are:
 
-- What will the panel look like? (what [JComponents](), in which order)
-- What configurable [parameters]() do we want? (title, title color, names...etc...)
-- What [properties]() should be modified by the panel? (e.g. a laser on/off)
+- What will the panel look like? (what [JComponents]( https://jdeschamps.github.io/EMU-guide/jcomponents.html ), in which order)
+- What configurable [parameters]( https://jdeschamps.github.io/EMU-guide/uiparameter.html ) do we want? (title, title color, names...etc...)
+- What [properties]( https://jdeschamps.github.io/EMU-guide/uiproperty.html ) should be modified by the panel? (e.g. a laser on/off)
 
 In our case, here we want:
 
@@ -126,11 +128,14 @@ Eclipse should generate a new Constructor with a String parameter. This paramete
 
 <p align="center">
 <img src="img/4_design.PNG">
+</p>
 
 **12)** We are now going to use the drag and drop tools to build the laser panel. Here is an animated gif of the different steps:
 
 <p align="center">
 <img src="img/LaserPanel.gif">
+</p>
+
 
 
 
@@ -335,6 +340,8 @@ This time we want:
 
 <p align="center">
 <img src="img/FiltersPanel.gif">
+</p>
+
 
 
 
@@ -536,6 +543,8 @@ Fix the imports of SystemController and TreeMap.
 
 <p align="center">
 <img src="img/5_import_jar.png">
+</p>
+
 
 > Note: If the panels don't appear in the Palette, try deleting the jar from the package explorer, exporting it new and importing it in the Palette again.
 
@@ -545,6 +554,8 @@ Fix the imports of SystemController and TreeMap.
 
 <p align="center">
 <img src="img/MyFrame.gif">
+</p>
+
 
 
 
@@ -621,6 +632,8 @@ The package explorer should look as follows:
 
 <p align="center">
 <img src="img/6_final_package.png">
+</p>
+
 
 
 
