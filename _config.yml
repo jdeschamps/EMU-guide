@@ -1,0 +1,18 @@
+plugins:
+ - jekyll-relative-links
+relative_links:
+ enabled: true
+ collections: true
+include:
+ - README.md
+ - guide.md
+ - userguide.md
+ - programmingguide.md
+ - configurablepanel.md
+ - uiproperty.md
+ - uiparameter.md
+ - internalproperty.md
+ - configurablemainframe.md
+ - plugin.md
+ - usingeclipse.md
+ - installation.md
