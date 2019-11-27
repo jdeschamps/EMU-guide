@@ -515,7 +515,7 @@ public String getDescription() {
 
 
 
-## F - Assembling the panels in a ConfigurableMainFrame
+## F - Assembling the ConfigurableMainFrame
 
 **25)** Right click on your package (here "com.myname.myui") and select "**new -\> other**". In the pop-up, select "**WindowBuilder/Swing Designer/JFrame**". Click **next** and, in the **superclass** field , select "**ConfigurableMainFrame**". Click on **finish**.
 
