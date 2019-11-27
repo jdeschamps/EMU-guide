@@ -2,6 +2,10 @@
 
 There is only a single ConfigurableMainFrame per plugin, instantiated by the plugin class itself. A ConfigurableMainFrame must assemble all ConfigurablePanels. The latter are automatically detected to extract all properties and parameters.
 
+
+
+## Methods to implement
+
 ConfigurableMainFrame must implement three methods:
 
 ```java
@@ -31,7 +35,7 @@ public class MyFrame extends ConfigurableMainFrame {
 }
 ```
 
-It is important that all ConfigurablePanels are instantiated and added to the ConfigurableMainFrame  in the initComponents() method. As ConfigurablePanels extend the Swing class JPanel, they are added to the ConfigurableMainFrame using the add() method.
+It is important that **all ConfigurablePanels are instantiated and added to the ConfigurableMainFrame  in the initComponents() method**. As ConfigurablePanels extend the Swing class JPanel, they are added to the ConfigurableMainFrame using the add() method.
 
 
 

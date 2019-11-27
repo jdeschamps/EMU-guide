@@ -21,7 +21,7 @@ EMU is designed to involve minimum heavy lifting and coding in the plugin in ord
    3. [UIParameter](uiparameter.md)
    4. [InternalProperty](internalproperty.md)
 3. [ConfigurableMainFrame](configurablemainframe.md)
-   1. [Method to implement](configurablemainframe.md)
+   1. [Methods to implement](configurablemainframe.md)
    2. [Plugin Settings](configurablemainframe.md#settings)
 4. [UIPlugin](plugin)
 5. [Using Eclipse](usingeclipse.md)

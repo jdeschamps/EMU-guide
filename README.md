@@ -34,7 +34,7 @@ Easier Micro-manager User interface (EMU) offers means to make your Micro-Manage
       3. [UIParameter](uiparameter.md)
       4. [InternalProperty](internalproperty.md)
    4. [ConfigurableMainFrame](configurablemainframe.md)
-      1. [Method to implement](configurablemainframe.md)
+      1. [Methods to implement](configurablemainframe.md)
       2. [Plugin Settings](configurablemainframe.md#settings)
    5. [UIPlugin](plugin.md)
    6. [Using Eclipse](usingeclipse.md)
