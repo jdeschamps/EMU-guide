@@ -19,7 +19,8 @@ Tailored interfaces have the advantage of rendering the control of the microscop
 1. [Installation](installation.md)
 2. [EMU: a user perspective](userguide.md)
 3. [Programming guide](programmingguide.md)
-4. [Resources](#resources)
+
+   
 
 
 ## Resources  <a name="resources"></a>  
