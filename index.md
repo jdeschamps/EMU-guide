@@ -20,7 +20,7 @@ Tailored interfaces have the advantage of rendering the control of the microscop
 
 1. [Installation](installation.md)
 2. [EMU: a user perspective](userguide.md)
-   1. [Principle](userguide.md#principle)
+			1. [Principle](userguide.md#principle)
    2. [Configuration](userguide.md#configuration)
       1. [Configuration wizard](userguide.md#confwiz)
       2. [Configuration manager](userguide.md#confwiz)
