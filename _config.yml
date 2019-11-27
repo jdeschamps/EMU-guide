@@ -16,6 +16,6 @@ include:
  - usingeclipse.md
  - installation.md
  - jcomponents.md
- - /img/
+ - img/menu-congif.png
 
 theme: jekyll-theme-slate
