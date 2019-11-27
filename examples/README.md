@@ -4,15 +4,15 @@
 
 This repository contains examples of EMU plugins:
 
-- [Base plugin]( https://github.com/jdeschamps/EMU-guide/tree/master/examples/ baseplugin): An empty plugin with comments within each method, explaining what needs to be implemented. Can be used as basis for a [new project](#newproject).
+- [Base plugin]( https://github.com/jdeschamps/EMU-guide/tree/master/examples/baseplugin): An empty plugin with comments within each method, explaining what needs to be implemented. Can be used as basis for a [new project](#newproject).
 
-- [iBeamSmart]( https://github.com/jdeschamps/EMU-guide/tree/master/examples/ ibeamsmart): A simple UI controlling a single iBeamSmart laser (Toptica), including on/off, power percentage, fine percentages and external trigger.
+- [iBeamSmart]( https://github.com/jdeschamps/EMU-guide/tree/master/examples/ibeamsmart): A simple UI controlling a single iBeamSmart laser (Toptica), including on/off, power percentage, fine percentages and external trigger.
 
   ![iBeamSmart](img/iBeamSmart.PNG)
 
 
 
-- [Simple UI]( https://github.com/jdeschamps/EMU-guide/tree/master/examples/ simpleui): A UI similar to the example developed in the [EMU tutorial]( https://github.com/jdeschamps/EMU-guide/tutorial ), albeit with optional scaling of laser power (mW) to laser percentage (%).
+- [Simple UI]( https://github.com/jdeschamps/EMU-guide/tree/master/examples/simpleui): A UI similar to the example developed in the [EMU tutorial]( https://github.com/jdeschamps/EMU-guide/tutorial ), albeit with optional scaling of laser power (mW) to laser percentage (%).
 
   ![SimpleUI](img/simpleUI.PNG)
   
