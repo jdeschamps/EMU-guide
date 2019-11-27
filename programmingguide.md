@@ -16,7 +16,7 @@ EMU is designed to involve minimum heavy lifting and coding in the plugin in ord
 
 1. [JComponents](jcomponents.md)
 2. [ConfigurablePanel](configurablepanel.md)
-	1. [UIProperty](uiproperty.md)
+   * [UIProperty](uiproperty.md)
    2. [SwingUIListeners](uiproperty.md#swing)
    3. [UIParameter](uiparameter.md)
    4. [InternalProperty](internalproperty.md)
