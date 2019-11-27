@@ -8,7 +8,7 @@ Micro-Manager controls the devices on your microscope using device properties (e
 
 Tailored interfaces have the advantage of rendering the control of the microscope intuitive. However, tailoring the UI often means hard-coded references to the specific device properties and a need to recompile it every time something changes on the microscope.
 
-Easier Micro-manager User interface (EMU) offers means to make your Micro-Manager interface reconfigurable:
+[Easier Micro-manager User interface (EMU)]( https://github.com/jdeschamps/EMU ) offers means to make your Micro-Manager interface reconfigurable:
 
 - Rapid design compatible with **drag and drop softwares** (e.g. Eclipse WindowBuilder).
 - Functional Micro-Manager UI with only few lines of code thanks to EMU's back-end.
@@ -66,4 +66,4 @@ htSMLM is a complex EMU plugin used by the Ries lab (EMBL) to control their auto
 
 ### Javadoc<a name="javadoc"></a>    
 
-The [Javadoc]() is available on the EMU repository.
+The [Javadoc]( https://jdeschamps.github.io/EMU/ ) is available on the [EMU repository]( https://github.com/jdeschamps/EMU ).

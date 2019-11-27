@@ -30,7 +30,7 @@ EMU is designed to involve minimum heavy lifting and coding in the plugin in ord
 
 Note that the [guide](guide) folder contains examples implementations of the different classes. The [tutorial](tutorial) folder is a detailed walk-through of a plugin implementation using a drag and drop software, while the [examples](examples) folder consist of three example plugins.
 
-
+The [Javadoc](https://jdeschamps.github.io/EMU/) is available in the [EMU repository]( https://github.com/jdeschamps/EMU ).
 
 [Back to the menu](README.md#guide)
 

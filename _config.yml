@@ -5,7 +5,6 @@ relative_links:
  collections: true
 include:
  - README.md
- - guide.md
  - userguide.md
  - programmingguide.md
  - configurablepanel.md
@@ -16,3 +15,4 @@ include:
  - plugin.md
  - usingeclipse.md
  - installation.md
+ - jcomponents.md
