@@ -93,10 +93,10 @@ ConfigurableMainFrames  expose the EMU SystemController and Micro-Manager core. 
 
 ## Example
 
-- [A ConfigurableMainFrame declaring all types of plugin Settings](guide\src\main\java\de\embl\rieslab\emuguide\GuideConfigurableMainFrame.java)
+- [GuideConfigurableMainFrame.java: a ConfigurableMainFrame declaring all types of plugin Settings](https://github.com/jdeschamps/EMU-guide/tree/master/guide/src/main/java/de/embl/rieslab/emuguide)
 
 
 
-[Back to the ConfigurablePanel](configurablepanel.md)
+[Back to the programming guide](programmingguide.md)
 
 [Back to the menu](index.md)

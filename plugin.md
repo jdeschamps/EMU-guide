@@ -65,7 +65,7 @@ Finally, your project must be exported as a .jar. Make sure the configuration fi
 
 ## Example
 
-- [GuideUIPlugin.java: an implementation of a UIPlugin]( https://github.com/jdeschamps/EMU-guide/tree/master/guide/src/main/java/de/embl/rieslab/emuguide )
+- [GuideUIPlugin.java: an implementation of a UIPlugin](https://github.com/jdeschamps/EMU-guide/tree/master/guide/src/main/java/de/embl/rieslab/emuguide)
 - [The corresponding provider-configuration file]( https://github.com/jdeschamps/EMU-guide/tree/master/guide/src/main/resources/META-INF/services )
 
 
