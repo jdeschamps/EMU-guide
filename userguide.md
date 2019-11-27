@@ -52,7 +52,11 @@ The configuration is a JSON file saved in your Micro-Manager folder under the EM
 
 Configuration related actions are accessible through the menu bar, by selecting *Configuration*.
 
-![menu-config](/img/menu-config.png)
+
+
+<p align="center">
+<img src="img/menu-config.png">
+</p>
 
 
 
