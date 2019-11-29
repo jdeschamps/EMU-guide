@@ -32,7 +32,7 @@ protected void initializeParameters() {
 
 ## Naming conventions
 
-If two UIParameter have the same label and the same type (e.g. IntegerUIParameter), then the first one is substituted in the second's ConfigurablePanel. Only a single entry will appear in the configuration wizard table and will affect both ConfigurablePanels.
+If two UIParameters have the same label and the same type (e.g. IntegerUIParameter), then the first one is substituted in the second's ConfigurablePanel. Only a single entry will appear in the configuration wizard table and will affect both ConfigurablePanels.
 
 If the two have different types, then the second encountered UIParameter is discarded.
 

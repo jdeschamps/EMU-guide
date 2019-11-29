@@ -4,9 +4,9 @@
 
 EMU is based on the Swing library. The main building blocks of EMU are **ConfigurablePanels**, which extend a JPanel (Swing). They declare **UIProperties** (e.g. laser power percentage), **InternalProperties** (values shared between panels) and **UIParameters** (e.g. title color). A ConfigurablePanel should be a unit of control corresponding to a device on the microscope. This can for instance be a laser controller (power, on/off) or a filterwheel (position).
 
-ConfigurablePanels are assembled in a single **ConfigurableMainFrame**. The latter defines **Settings**, allowing for instance having optional panels or defining how many panels of a certain type there are. The ConfigurableMainFrame is instantiated by a **UIPlugin** implementation, which serves as a plugin for EMU. Plugins are discovered by EMU using the Java ServiceLoader mechanism and is run in the EMU subfolder of Micro-Manager.
+ConfigurablePanels are assembled in a single **ConfigurableMainFrame**. The latter defines **Settings**, allowing for instance having optional panels or defining how many panels of a certain type there are. The ConfigurableMainFrame is instantiated by a **UIPlugin** implementation, which serves as a plugin for EMU. Plugins are discovered by EMU using the Java ServiceLoader mechanism run in the EMU subfolder of Micro-Manager.
 
-UIproperties, UIParameters and Settings appear in the configuration wizard, the graphical interface enabling the rapid configuration of the plugin by the user. After configuration, the UIProperties are mapped to Micro-Manager device properties. Then, any user interaction with the a ConfigurablePanel component triggers a UIProperty, which in turn changes the state of the device property it has been allocated to.
+UIproperties, UIParameters and Settings appear in the configuration wizard, the graphical interface enabling the rapid configuration of the plugin by the user. After configuration, the UIProperties are mapped to Micro-Manager device properties. Then, any user interaction with a ConfigurablePanel component triggers a UIProperty that, in turn, changes the state of the device property to which it has been allocated.
 
 EMU is designed to involve minimum heavy lifting and coding in the plugin in order to obtain a functional UI.
 

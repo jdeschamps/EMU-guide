@@ -14,7 +14,7 @@ protected void initializeInternalProperties() {
 }
 ```
 
-If two InternalProperties bear the same label (in their instantiation) and are of the same type, then those two InternalProperties will be fused and the two ConfigurablePanels will share the same one. The default value will be the one set in the first encountered InternalProperty.
+If two InternalProperties bear the same label (passed as a parameter to their constructor) and are of the same type, then those two InternalProperties will be fused and the two ConfigurablePanels will share the same one. The default value will be the one set in the first encountered InternalProperty.
 
 InternalProperties are of the following type:
 

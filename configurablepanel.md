@@ -2,24 +2,13 @@
 
 It is important to plan some aspects of a ConfigurablePanel before starting building it. Here are few points worth considering:
 
-- What will the panel look like? List the components necessary and lay out their organization.
+- What will the panel look like? List the components and lay out their organization.
 
-- What function will it fulfill? List the type of device properties it will modify, then decide on the required UIProperties.
+- What function will it fulfill? List the type of device properties it will modify, then decide on the corresponding UIProperties (e.g. device on/off pairs with a TwoStateUIProperty).
 
-- What aspect should be parametrized? Picture which elements should be easily changed by the user (title, colors...etc...) and decide on UIParameters.
+- What aspects of it should be parametrized? Picture which elements should be easily changed by the user (title, colors...etc...) and decide on UIParameters.
 
   
-
-The following sections dive into the different aspects of the object declared by a ConfigurablePanel:
-
-1. [UIProperty](uiproperty.md)
-2. [SwingUIListeners](uiproperty.md#swing)
-3. [UIParameter](uiparameter.md)
-4. [InternalProperty](internalproperty.md)
-
-In particular, you will find examples on how to implement the different methods of a ConfigurablePanel.
-
-
 
 ## ConfigurablePanel methods
 
@@ -107,6 +96,17 @@ Finally, upon configuration (at the start-up of EMU):
 1. propertyhasChanged(...) looped call on all UIProperties
 2. parameterhasChanged(...) looped call on all UIParameters
 3. addComponentListeners(...), which allows using the UIParameter's values
+
+
+
+The following sections dive into the different objects declared by a ConfigurablePanel:
+
+1. [UIProperty](uiproperty.md)
+2. [SwingUIListeners](uiproperty.md#swing)
+3. [UIParameter](uiparameter.md)
+4. [InternalProperty](internalproperty.md)
+
+In particular, you will find examples on how to implement the different methods of a ConfigurablePanel.
 
 
 

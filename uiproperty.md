@@ -1,6 +1,8 @@
 # UIProperty  
 
-UIProperties are the link between Micro-Manager device properties and the JComponents. Different types of UIProperties are available in EMU:
+UIProperties are the link between Micro-Manager device properties and the JComponents. They are declared and added to a ConfigurablePanel in the initializeProperties() method. Interaction between the user and the JComponents should trigger a UIProperty change. Because the UIProperties are paired by the user in the configuration wizard, the UIProperties propagate the value change to the Micro-Manager device properties.
+
+Different types of UIProperties are available in EMU:
 
 | UIProperty type       | Note                                | Compatible JComponents (e.g.)                                |
 | --------------------- | ----------------------------------- | ------------------------------------------------------------ |
@@ -17,8 +19,8 @@ UIProperties are the link between Micro-Manager device properties and the JCompo
 1. [Creating a UIProperty](#creating)
 2. [Retrieving a UIProperty](#retrieving)
 3. [Changing the state of a UIProperty](#changing)
-4. [Implementing propertyhasChanged](#implementing)
-5. [UIProperty extensions](#creating)
+4. [Implementing propertyhasChanged](#haschanged)
+5. [UIProperty extensions](#extensions)
 6. [SwingUIListeners](#swing)
 7. [Flags](#flags)
 8. [Examples](#examples)
@@ -68,6 +70,24 @@ Calling this method ensures two things: that the update does not take place duri
 
 
 
+**example**: Setting the value of UIProperty based on an integer value entered by the user in a JTextField.
+
+```java
+JTextField txtf = new JTextField();
+txtf.addActionListener(new java.awt.event.ActionListener() {
+	public void actionPerformed(java.awt.event.ActionEvent evt) {
+		String s = txtf.getText();
+		if (EmuUtils.isInteger(s)) {
+			cp.setUIPropertyValue(propertyKey, s);
+		}
+	}
+});
+```
+
+Note that EMU provides static methods to add action listeners to Swing components, see [SwingUIListeners](#swing) section.
+
+
+
 ## Implementing propertyhasChanged(...)<a name="haschanged"></a>  
 
 This method should modify the JComponents based on a newvalue from the UIProperty propertyName.
@@ -76,7 +96,7 @@ This method should modify the JComponents based on a newvalue from the UIPropert
 @Override
 protected void propertyhasChanged(String propertyName, String newvalue) {
     if(PROP_KEY.equals(propertyName)){
-        // Here change the corresponding JComponents accordingly to newvalue
+        // Here change the corresponding JComponents accordingly to the newvalue
     }
 }
 ```
@@ -84,6 +104,8 @@ protected void propertyhasChanged(String propertyName, String newvalue) {
 
 
 ## UIProperty extensions<a name="extensions"></a>  
+
+A UIProperty has no restriction on the input of the new value requested by the user. EMU also provide extensions with some constraints, making them suitable for certain functions.
 
 
 
@@ -99,9 +121,9 @@ In the configuration wizard, a SingleStateUIProperty automatically generates an 
 
 ### TwoStateUIProperty<a name="two"></a>  
 
-A TwoStateUIProperty can only set the device property to an On state or to an Off state. These states are set in the configuration. TwoStateUIProperties are particularly suitable for components with two states such as JToggleButton, JCheckBox, JRadioButton or even JComboBox/ButtonGroup with only two elements.
+A TwoStateUIProperty can only set the device property to an **On state** or to an **Off state**. The state values are set in the configuration by the user. TwoStateUIProperties are particularly suitable for components with two states such as JToggleButton, JCheckBox, JRadioButton or even JComboBox/ButtonGroup with only two elements.
 
-TwoStateUIProperties accept the following values:
+TwoStateUIProperties accept the following values (in order of priority):
 
 - On state: 
   - The actual On state value (as set in the configuration)
@@ -136,8 +158,8 @@ In the configuration wizard, a SingleStateUIProperty automatically generates two
 A MultiStateUIProperty has a fixed number of states, declared during instantiation:
 
 ```java
-int number_states = 4;
-addUIProperty(new MultiStateUIProperty(this, PROP_KEY, "Property with 4 states.", number_states));
+int nStates = 4;
+addUIProperty(new MultiStateUIProperty(this, PROP_KEY, "4-state property.", nStates));
 ```
 
 MultiStateUIProperties are useful in translating multi-state components to a set of device property values. They are in particular well suited for ButtonGroups or JComboBoxes.
@@ -145,7 +167,7 @@ MultiStateUIProperties are useful in translating multi-state components to a set
 Because the actual state values are not relevant to the UI (only to the device property), using state indices or names is more useful:
 
 ```java
-public boolean setStateNames(String[] stateNames); // for instance with StringUIParameter
+public boolean setStateNames(String[] stateNames); // for instance with a StringUIParameter in the parameterhasChanged() method of a ConfigurablePanel
 
 // get name from index or value
 public String getStateName(int pos);
@@ -194,7 +216,7 @@ private boolean isEqual(String stateval, String valToCompare);
 
 
 
-In the configuration wizard, a MultiStateUIProperty automatically generates as many additional lines as states to allow the user to set their values.
+In the configuration wizard, a MultiStateUIProperty automatically generates as many additional lines as there are states to allow the user to set their values.
 
 **example**: the different filters of a filterwheel.
 
@@ -204,11 +226,7 @@ In the configuration wizard, a MultiStateUIProperty automatically generates as m
 
 A RescaledUIProperty is a UIProperty that is only compatible with Float and Integer device properties with limits (a minimum and a maximum). 
 
-It has two parameters that can be set post-initialization: slope and offset. 
-
-```java
-public boolean setScalingFactors(double slope, double offset);
-```
+In the configuration wizard, a RescaledUIProperty automatically generates a **slope** and **offset** entries with default values.
 
 Each value submitted to a RescaledUIProperty  will be scaled to *slope\*value+offset* before setting the device property. Similarly, any new value will be forwarded to the RescaledUIProperty  as *(value-offset)/slope*.
 
@@ -220,30 +238,26 @@ public double getOffset();
 public boolean haveSlopeOffsetBeenSet();
 ```
 
-
-
-In the configuration wizard, a RescaledUIProperty automatically generates a slope and offset entries with default values.
-
 **example**: percentage of a device property.
 
 
 
 ## SwingUIListeners <a name="swing"></a>  
 
-The last method to implement in the ConfigurablePanel that is related directly to the UIProperties is addComponentListeners(). In this method, one should add the action or change listeners on the JComponents that dictate the effect of user interactions (e.g.: user clicking on a button).
+The last method to implement in the ConfigurablePanel that is related directly to the UIProperties is addComponentListeners(). In this method, one should add the actions or change listeners on the JComponents that dictate the effect of user interactions (e.g.: user clicking on a button).
 
-For each relevant JComponent, a UIproperty can be affected and propagate change to its corresponding device property. EMU provides many static methods in the SwingUIListeners class to avoid implementing these actions:
+For each relevant JComponent, a UIProperty can be affected and propagate changes to its corresponding device property. EMU provides many static methods in the SwingUIListeners class to avoid implementing these actions:
 
-| Method                                 | JComponent input                                             | JComponents                   |
+| Method                                 | JComponent output / UIProperty inpur                         | JComponents                   |
 | -------------------------------------- | ------------------------------------------------------------ | ----------------------------- |
 | addActionListenerOnDoubleValue(...)    | double<br />double within [min,max]                          | JTextField                    |
 | addActionListenerOnIntegerValue(...)   | integer<br />integer within [min,max]<br />integer with feedback | JTextField<br />JSlider<br /> |
 | addActionListenerOnSelectedIndex(...)  | selected index                                               | ButtonGroup<br />JComboBox    |
 | addActionListenerToSingleState(...)    | button clicked                                               | JButton                       |
-| addActionListenerToTwoState(...)       | button state                                                 | JToggleButton                 |
+| addActionListenerToTwoState(...)       | button state (selected/deselected)                           | JToggleButton                 |
 | addActionListenerOnNumericalValue(...) | double                                                       | JSpinner                      |
 
-The feedback mechanism in addActionListenerOnIntegerValue(...) allows for instance the value to also be updated on a another JComponent.
+Few more methods are available, including feedback to another component. For instance, a JSlider can then modify a UIProperty and change the text of a JLabel or a JTextField to show the use the new value. 
 
 Finally, some additional static methods (addActionListenerToAction) use lambda expressions to trigger a method instead of a UIProperty change.
 
@@ -266,6 +280,8 @@ EMU does not provide other flags than the NoFlag, the flags must be created for 
 
 
 ## Examples<a name="examples"></a>  
+
+All examples are available in the [source folder](https://github.com/jdeschamps/EMU-guide/tree/master/guide/src/main/java/de/embl/rieslab/emuguide/uiproperties).
 
 - [A ConfigurablePanel with all UIProperty types declared](guide/src/main/java/de/embl/rieslab/emuguide/GuideConfigurablePanel.java)
 - [How to use a MultiStateUIProperty with a ButtonGroup](guide/src/main/java/de/embl/rieslab/emuguide/uiproperties/MultiStateUIPropertyButtonGroup.java)
