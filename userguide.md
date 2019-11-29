@@ -140,7 +140,7 @@ For each relevant UI *property*, select the corresponding device from the drop d
 
 Some property require also specific states. After selecting the device property, use the device property browser (Micro-Manager) to determine which are the device property values required. 
 
-There are three types of such properties:
+There are four types of such properties:
 
 - Single-state: the property requires only one state value to be specified.
 - Two-state: the property requires two state values, corresponding to an On and an Off states.
