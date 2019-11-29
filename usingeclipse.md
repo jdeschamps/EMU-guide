@@ -33,4 +33,4 @@ Micro-Manager should start. You can use Micro-Manager demo device adapter to fak
 
 [Back to the programming guide](programmingguide.md)
 
-[Back to the menu](index.md)
+[Back to the main menu](index.md)

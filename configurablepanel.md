@@ -137,4 +137,4 @@ Finally, upon configuration (at the start-up of EMU):
 
 [Back to the programming guide](programmingguide.md)
 
-[Back to the menu](index.md)
+[Back to the main menu](index.md)

@@ -17,6 +17,5 @@ include:
  - installation.md
  - jcomponents.md
  - /img/
-title: [EMU guide]
-description: [User and programming guide to EMU plugins]
+ 
 theme: jekyll-theme-slate

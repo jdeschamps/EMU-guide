@@ -81,4 +81,4 @@ Then internalpropertyhasChanged(INTERNAL_VALUE) is called in the second Configur
 
 [Back to the ConfigurablePanel](configurablepanel.md)
 
-[Back to the menu](index.md)
+[Back to the main menu](index.md)

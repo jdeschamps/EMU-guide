@@ -22,7 +22,7 @@ EMU therefore makes the UI easily configurable and transferable, without hard-co
    2. [Configuration manager](#confwiz)
 11. [Plugin menu](#plugmenu)
 
-[Back to the menu](README.md#guide)
+[Back to the main menu](index.md)
 
 
 
@@ -217,4 +217,4 @@ The description is automatically generated from the panels own description and s
 
 
 
-[Back to the menu](index.md)
+[Back to the main menu](index.md)

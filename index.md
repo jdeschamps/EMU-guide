@@ -39,7 +39,7 @@ This repository offers [example plugins for EMU](examples):
 
 ### htSMLM  <a name="htsmlm"></a>    
 
-htSMLM is a complex EMU plugin used by the Ries lab (EMBL) to control their automated localization microscopes. 
+[htSMLM]( https://github.com/jdeschamps/htSMLM ) is a complex EMU plugin used by the Ries lab (EMBL) to control their automated localization microscopes. 
 
 ### Javadoc<a name="javadoc"></a>    
 

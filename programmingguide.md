@@ -32,5 +32,5 @@ Note that the [guide](guide) folder contains examples implementations of the dif
 
 The [Javadoc](https://jdeschamps.github.io/EMU/) is available in the [EMU repository]( https://github.com/jdeschamps/EMU ).
 
-[Back to the menu](index.md)
+[Back to the main menu](index.md)
 

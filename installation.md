@@ -23,8 +23,8 @@
 
    > Note: the script requires bash, which is shipped with the git console on Windows.
 >
-   
+
    
 
-[Back to the menu](index.md)
+[Back to the main menu](index.md)
 

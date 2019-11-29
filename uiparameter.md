@@ -93,4 +93,4 @@ All examples are available in the [source folder]( https://github.com/jdeschamps
 
 [Back to the ConfigurablePanel](configurablepanel.md)
 
-[Back to the menu](index.md)
+[Back to the main menu](index.md)

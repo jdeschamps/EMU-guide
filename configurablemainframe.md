@@ -99,4 +99,4 @@ ConfigurableMainFrames  expose the EMU SystemController and Micro-Manager core. 
 
 [Back to the programming guide](programmingguide.md)
 
-[Back to the menu](index.md)
+[Back to the main menu](index.md)
