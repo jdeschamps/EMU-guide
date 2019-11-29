@@ -136,9 +136,9 @@ For each relevant UI *property*, select the corresponding device from the drop d
 
 > In this example, htSMLM has a "Camera exposure" UI property, therefore one must select the camera in the devices (here "Andor") and choose its "Exposure" device property.
 
+Note that the device list (second column) includes an entry called "Preset groups", which allows you to select one of the configuration preset group from Micro-manager (they are appear in Micro-Manager main window).
 
-
-Some property require also specific states. After selecting the device property, use the device property browser (Micro-Manager) to determine which are the device property values required. 
+Some properties require the user to state specific state values (see the filter wheel position states in the previous example). After selecting the device property, use the device property browser (Micro-Manager) to determine which are the device property values corresponding to each state. 
 
 There are four types of such properties:
 
