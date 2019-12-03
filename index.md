@@ -43,4 +43,4 @@ This repository offers [example plugins for EMU](examples):
 
 ### Javadoc<a name="javadoc"></a>    
 
-The [Javadoc]( https://jdeschamps.github.io/EMU/ ) is available on the [EMU repository]( https://github.com/jdeschamps/EMU ).
+The [Javadoc]( https://jdeschamps.github.io/EMU/ ) is available in the [EMU repository]( https://github.com/jdeschamps/EMU ).

@@ -1,11 +1,5 @@
 # EMU: a user perspective
 
-In EMU, user interfaces declare **properties** and **parameters**. EMU  a menu to map the UI properties to **Micro-Manager device properties** and to set the values of the parameters.
-
-Then, the parameters are applied to the UI, changing its look. Interacting with the components of the UI (buttons, sliders, text area...etc...) triggers the UI properties, which in turn change the state of the device properties to which they are allocated.
-
-EMU therefore makes the UI easily configurable and transferable, without hard-coding and need to recompile each time a device changes.
-
 
 
 ## Table of contents
@@ -28,7 +22,13 @@ EMU therefore makes the UI easily configurable and transferable, without hard-co
 
 ## Principle <a name="principle"></a>
 
-#### Plugin
+In EMU, user interfaces are plugins that declare some **properties** and **parameters**. EMU provides a graphical menu to map the UI properties to **Micro-Manager device properties** and to set the values of the parameters.
+
+Then, the parameters are applied to the UI, changing its look. Interacting with the components of the UI (buttons, sliders, text area...etc...) triggers the UI properties, which in turn change the state of the device properties to which they are allocated.
+
+EMU therefore makes the UI easily configurable and transferable, without hard-coding and need to recompile each time a device changes.
+
+#### Plugins
 
 While EMU is a Micro-Manager plugin, it also loads its own plugins: user interfaces. Once compiled into a .jar file, the plugins must be placed under the EMU folder in Micro-Manager (C:/Path/to/MicroManager/EMU/).
 
@@ -46,9 +46,9 @@ In EMU, UIs consist of a **single frame** composed of multiple **panels**. The f
 
 Once installed, EMU is accessible from Micro-Manager by clicking on "**Plugins/Interface/EMU**" in the main window. If a single plugin is present in the EMU folder, then it will be automatically loaded. If more than one plugin is present, then the user will be prompted with a choice. Then, the chosen UI will be loaded.
 
-The first step in using EMU and one of its plugin is to create a *plugin configuration* containing the values of each *setting*, *property* and *parameter*. Later on, the default *plugin configuration* is loaded automatically at start.
+The first step in using EMU and one of its plugins is to create a *plugin configuration* containing the values of each *setting*, *property* and *parameter*. Later on, the default *plugin configuration* is loaded automatically at start.
 
-The configuration is a JSON file saved in your Micro-Manager folder under the EMU folder (e.g.: Micro-Manager/EMU/config.uicfg). It can contain the name of the default *plugin configuration* and one or more *plugin configurations* as pairs of key and values. 
+The configuration is a JSON file saved in your Micro-Manager folder under the EMU folder (e.g.: Micro-Manager/EMU/config.uicfg). It contains the name of the default *plugin configuration* and one or more *plugin configurations* as pairs of key and values. 
 
 Configuration related actions are accessible through the menu bar, by selecting *Configuration*.
 
@@ -98,7 +98,7 @@ Selecting the *help* button opens the *help window*. Select a row of the propert
 
 *Plugin settings* allow options at the level of the main frame. For instance, they can be used to name a panel or to make it optional (show/hide setting).
 
-###### Example: htSMLM
+###### Example: htSMLM plugin
 
 <p align="center">
 <img src="img/config_wizard_plugsettings.PNG">
@@ -171,7 +171,7 @@ There are several types of UI parameters:
 
 
 
-###### Example: htSMLM
+###### Example: htSMLM plugin
 
 <p align="center">
 <img src="img/param.png">
