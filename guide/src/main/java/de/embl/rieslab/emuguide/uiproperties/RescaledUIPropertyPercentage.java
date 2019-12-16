@@ -16,7 +16,7 @@ public class RescaledUIPropertyPercentage extends ConfigurablePanel{
 	private JSlider slider;
 	
 	//////// Property and parameter
-	public final static String PROP_PERCENTAGE = "Percentage";
+	public final String PROP_PERCENTAGE = "Percentage";
 	
 	public RescaledUIPropertyPercentage(String label) {
 		super(label);

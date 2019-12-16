@@ -11,7 +11,7 @@ public class UIPropertyText extends ConfigurablePanel{
 
 	private static final long serialVersionUID = 1L;
 	
-	private final static String PROP = "Property";
+	private final String PROP = "Property";
 	
 	private JTextField txtf;
 

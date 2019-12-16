@@ -11,7 +11,7 @@ public class IntAttributeValue extends ConfigurablePanel {
 	private static final long serialVersionUID = 1L;
 	
 	// parameter
-	public final static String PARAM_LABEL = "Attribute value"; 
+	public final String PARAM_LABEL = "Attribute value"; 
 	
 	// declares the attribute to access it in all methods
 	private int attribute;

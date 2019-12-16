@@ -31,23 +31,23 @@ public class GuideConfigurablePanel extends ConfigurablePanel{
 
 	private static final long serialVersionUID = 1L;
 
-	private static final String PROP_UIPROP = "UIProperty";
-	private static final String PROP_SINGLE = "SingleState";
-	private static final String PROP_TWOSTATE = "TwoState";
-	private static final String PROP_MULTI = "MultiState";
-	private static final String PROP_RESCALED = "Rescaled";
+	private final String PROP_UIPROP = "UIProperty";
+	private final String PROP_SINGLE = "SingleState";
+	private final String PROP_TWOSTATE = "TwoState";
+	private final String PROP_MULTI = "MultiState";
+	private final String PROP_RESCALED = "Rescaled";
 	
-	private static final String INTPROP_INT = "Int InternalProperty";
-	private static final String INTPROP_BOOL = "Bool InternalProperty";
-	private static final String INTPROP_DOUBLE = "Double InternalProperty";
+	private final String INTPROP_INT = "Int InternalProperty";
+	private final String INTPROP_BOOL = "Bool InternalProperty";
+	private final String INTPROP_DOUBLE = "Double InternalProperty";
 
-	private static final String PARAM_BOOL = "Bool UIParameter";
-	private static final String PARAM_COLOR = "Color UIParameter";
-	private static final String PARAM_COMBO = "Combo UIParameter";
-	private static final String PARAM_DOUBLE = "Double UIParameter";
-	private static final String PARAM_INT = "Int UIParameter";
-	private static final String PARAM_STRING = "String UIParameter";
-	private static final String PARAM_UIPROP = "UIProp UIParameter";
+	private final String PARAM_BOOL = "Bool UIParameter";
+	private final String PARAM_COLOR = "Color UIParameter";
+	private final String PARAM_COMBO = "Combo UIParameter";
+	private final String PARAM_DOUBLE = "Double UIParameter";
+	private final String PARAM_INT = "Int UIParameter";
+	private final String PARAM_STRING = "String UIParameter";
+	private final String PARAM_UIPROP = "UIProp UIParameter";
 	
 	public GuideConfigurablePanel(String label) {
 		super(label);

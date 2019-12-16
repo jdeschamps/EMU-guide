@@ -65,19 +65,20 @@ Right-click on the project and select "**Properties**". In **Java Build Path** a
 
 In this section, we will encounter the first EMU class: [ConfigurablePanel]( https://jdeschamps.github.io/EMU-guide/configurablepanel.html ). ConfigurablePanels are the building blocks of an EMU UI. The important steps before building a ConfigurablePanel are:
 
+- What [properties]( https://jdeschamps.github.io/EMU-guide/uiproperty.html ) should be modified by the panel? (e.g. a laser on/off)
 - What will the panel look like? (what [JComponents]( https://jdeschamps.github.io/EMU-guide/jcomponents.html ), in which order)
 - What configurable [parameters]( https://jdeschamps.github.io/EMU-guide/uiparameter.html ) do we want? (title, title color, names...etc...)
-- What [properties]( https://jdeschamps.github.io/EMU-guide/uiproperty.html ) should be modified by the panel? (e.g. a laser on/off)
 
 In our case, here we want:
+
+- UIProperties: laser on/off and laser power percentage.
 
 - JComponents: a JToggleButton for on/off and a JSlider to set the power percentage.
 
 - UIParameters: name and color of the laser.
 
-- UIProperties: laser on/off and laser power percentage.
-
   
+
 
 **6)** Right click on your package (here "com.myname.myui") and select "**new -\> other**". In the pop-up, select "**WindowBuilder/Swing Designer/JPanel**". Click **next**.
 
@@ -91,7 +92,7 @@ In our case, here we want:
 
 
 
-**8)** Delete the LaserPanel() constructor, you "LaserPanel.java" should then look like the following:
+**8)** Delete the LaserPanel() constructor, your "LaserPanel.java" should then look like the following:
 
 ```java
 package com.myname.myui;
@@ -172,7 +173,7 @@ public String getDescription() {
 
 
 
-**16)** Let's create the two properties. First we create two convenience variables:
+**16)** Let's create the two properties. First we create two variables for the property names (LASER_PERCENTAGE and LASER_OPERATION):
 
 ```java
 public class LaserPanel extends ConfigurablePanel {
@@ -181,8 +182,8 @@ public class LaserPanel extends ConfigurablePanel {
 	private JToggleButton tglbtnOnoff;
 	
 	//////// Properties
-	public final static String LASER_PERCENTAGE = "power percentage";
-	public final static String LASER_OPERATION = "enable";
+	public final String LASER_PERCENTAGE = "power percentage";
+	public final String LASER_OPERATION = "enable";
     
 	[...]
 ```
@@ -197,8 +198,8 @@ protected void initializeProperties() {
 	String propertyPercentage = getPanelLabel() + " " + LASER_PERCENTAGE;
 	String propertyOperation = getPanelLabel() + " " + LASER_OPERATION;
 		
-	addUIProperty(new UIProperty(this, propertyName1, text1, new NoFlag()));
-	addUIProperty(new TwoStateUIProperty(this, propertyName2, text2, new NoFlag()));
+	addUIProperty(new UIProperty(this, propertyPercentage, text1, new NoFlag()));
+	addUIProperty(new TwoStateUIProperty(this, propertyOperation, text2, new NoFlag()));
 }
 ```
 
@@ -257,13 +258,13 @@ protected void propertyhasChanged(String propertyName, String newvalue) {
 }
 ```
 
-Here, we first check which property has changed. If the percentage property has changed, we make sure that the String a number, then we round it up to an Integer. If the value is a percentage, we update the JSlider and the JLabel. If the propery is the laser on/off, we retrieve the "ON state" of the TwoStateUIProperty (which, depending on the laser, can be "enable" or "1" or "on"). Then depending on whether the new value corresponds to the "ON state" or not, we update the JToggleButton.
+Here, we first check which property has changed. If the percentage property has changed, we make sure that the String represents a number, then we round it up to an Integer. If the value is a percentage, we update the JSlider and the JLabel. If the propery is the laser on/off, we retrieve the "ON state" of the TwoStateUIProperty (which, depending on the laser, can be "enable" or "1" or "on"). Then depending on whether the new value corresponds to the "ON state" or not, we update the JToggleButton.
 
 Now that the UIProperties have been tackled, let's turn our attention to the UIParameters.
 
 
 
-**19)** We want two UIParameters: the panel title (TitledBorder's title) and its color. As for the properties, let's define some convenience variables:
+**19)** We want two UIParameters: the panel title (TitledBorder's title) and its color. As for the properties, let's define some variables:
 
 ```java
 public class LaserPanel extends ConfigurablePanel {
@@ -272,8 +273,8 @@ public class LaserPanel extends ConfigurablePanel {
 	private JToggleButton tglbtnOnoff;
 	
 	//////// Parameters
-	public final static String PARAM_TITLE = "Name";
-	public final static String PARAM_COLOR = "Color";	
+	public final String PARAM_TITLE = "Name";
+	public final String PARAM_COLOR = "Color";	
     
     [...]
 ```
@@ -328,11 +329,9 @@ We have now a fully functional EMU ConfigurablePanel with two UIProperties and t
 
 This time we want:
 
-- JComponents: a ButtonGroup with six JToggleButtons (button group means only one button can be selected at a time, just like in a filter wheel).
-
-- UIParameters: name and color of the six filters.
-
 - UIProperties: filter wheel position (with value 1 to 6).
+- JComponents: a ButtonGroup with six JToggleButtons (button group means only one button can be selected at a time, just like in a filter wheel).
+- UIParameters: name and color of the six filters.
 
 **21)** Repeat steps **6** to **10**, albeit with a "FiltersPanel" class.
 
@@ -356,7 +355,7 @@ This time we want:
 
 
 
-**23)** Let's now create the UIProperties and UIParameters. First, let's declare some convenience static strings:
+**23)** Let's now create the UIProperties and UIParameters. First, let's declare some variables:
 
 ```java
 public class FiltersPanel extends ConfigurablePanel {
@@ -371,14 +370,14 @@ public class FiltersPanel extends ConfigurablePanel {
 	private JToggleButton tglbtnFilter_3;
 
 	//////// Properties
-	public final static String FW_POSITION = "Filterwheel position";
+	public final String FW_POSITION = "Filterwheel position";
 	
 	//////// Parameters
-	public final static String PARAM_NAMES = "Filter names";
-	public final static String PARAM_COLORS = "Filter colors";
+	public final String PARAM_NAMES = "Filter names";
+	public final String PARAM_COLORS = "Filter colors";
 	
 	//////// Initial parameter
-	public final static int NUM_POS = 6;
+	public final int NUM_POS = 6;
     
     [...]
 ```
@@ -506,7 +505,7 @@ public String getDescription() {
 }
 ```
 
-> Note: you can go more in details in the description, for instance describing the properties and parameters intended use.
+> Note: you can go more in details in the description, for instance describing the intended use of the properties and parameters.
 >
 
 ## E - Exporting the compiled ConfigurablePanels
@@ -685,11 +684,11 @@ In order to debug the import into EMU or the operation of the panels, you need t
 
 #### Bonus: Optional panel
 
-Using plugin settings, we could make the FiltersPanel optional. First, add a static String in MyFrame: 
+Using plugin settings, we could make the FiltersPanel optional. First, add a String in MyFrame: 
 
 ```java
 public class MyFrame extends ConfigurableMainFrame {
-	public static final String SETTING_USE_FW = "Use FW";
+	public final String SETTING_USE_FW = "Use FW";
 	
 	[...]
 ```

@@ -15,9 +15,9 @@ public class BoolShowPanel extends ConfigurablePanel {
 	private static final long serialVersionUID = 1L;
 	
 	// parameter
-	public final static String PARAM_LABEL = "Show/hide panel"; 
-	public final static String SHOW = "show";
-	public final static String HIDE = "hide";
+	public final String PARAM_LABEL = "Show/hide panel"; 
+	public final String SHOW = "show";
+	public final String HIDE = "hide";
 	
 	// declares the component to access it in all methods
 	private JToggleButton toggle;

@@ -13,7 +13,7 @@ public class TwoStateUIPropertyToggleButton extends ConfigurablePanel{
 	private static final long serialVersionUID = 1L;
 
 	////// Property
-	private final static String PROP = "Property";
+	private final String PROP = "Property";
 	
 	////// JComponent
 	private JToggleButton button;

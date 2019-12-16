@@ -13,7 +13,7 @@ public class BoolEnableComponent extends ConfigurablePanel{
 	private static final long serialVersionUID = 1L;
 	
 	// parameter
-	public final static String PARAM_LABEL = "Enable/disable button"; 
+	public final String PARAM_LABEL = "Enable/disable button"; 
 	
 	// declares the component to access it in all methods
 	private JToggleButton toggle;

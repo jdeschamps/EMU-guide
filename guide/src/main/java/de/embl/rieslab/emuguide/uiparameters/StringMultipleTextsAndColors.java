@@ -14,14 +14,14 @@ public class StringMultipleTextsAndColors extends ConfigurablePanel {
 	private static final long serialVersionUID = 1L;
 	
 	// parameter
-	public final static String PARAM_TEXT = "Button text"; 
-	public final static String PARAM_COLOR = "Button color"; 
+	public final String PARAM_TEXT = "Button text"; 
+	public final String PARAM_COLOR = "Button color"; 
 	
 	// declares the attributes to access it in all methods
 	private JToggleButton[] toggles;
-	private final static int NUM = 6;
-	private final static String text = "Do nothing";
-	private final static Color black = Color.black;
+	private final int NUM = 6;
+	private final String text = "Do nothing";
+	private final Color black = Color.black;
 
 	public StringMultipleTextsAndColors(String label) {
 		super(label);

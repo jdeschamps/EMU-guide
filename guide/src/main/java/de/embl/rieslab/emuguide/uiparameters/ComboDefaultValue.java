@@ -11,7 +11,7 @@ public class ComboDefaultValue extends ConfigurablePanel {
 	private static final long serialVersionUID = 1L;
 	
 	// parameter
-	public final static String PARAM_LABEL = "Combo default value"; 
+	public final String PARAM_LABEL = "Combo default value"; 
 	
 	// declares the attribute to access it in all methods
 	private final static String[] values = {"authorized value 1", "authorized value 2", "authorized value 3"};

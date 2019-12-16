@@ -11,7 +11,7 @@ public class SingleStateUIPropertyButton extends ConfigurablePanel {
 
 	private static final long serialVersionUID = 1L;
 
-	private static final String PROP = "Property";
+	private final String PROP = "Property";
 	private JButton button;
 	
 	public SingleStateUIPropertyButton(String label) {

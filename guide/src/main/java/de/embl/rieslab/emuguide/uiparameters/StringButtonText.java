@@ -11,7 +11,7 @@ public class StringButtonText extends ConfigurablePanel {
 	private static final long serialVersionUID = 1L;
 	
 	// parameter
-	public final static String PARAM_LABEL = "Button text"; 
+	public final String PARAM_LABEL = "Button text"; 
 	
 	// declares the component to access it in all methods
 	private JToggleButton toggle;

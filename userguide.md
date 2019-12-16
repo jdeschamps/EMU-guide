@@ -62,7 +62,7 @@ Configuration related actions are accessible through the menu bar, by selecting 
 
 - **Modify configuration**: Starts the *configuration wizard*, allowing the user to modify the values of the *settings*, *properties* and *parameters*. The *configuration wizard* is automatically launched at start-up if no *plugin configuration* exists. 
 - **Manage configurations**: Starts the *configuration manager*, allowing the user to delete *plugin configurations*.
-- **Switch plugin**: Allows loading a different plugin instead of the current one. It also makes the new *plugin configuration* default.
+- **Switch plugin**: Allows loading a different plugin instead of the current one. The *plugin configuration* corresponding to the plugin becomes the default one.
 - **Switch configuration**:  Allows loading a different *plugin configuration*. The default is set to the new configuration.
 
 
@@ -81,7 +81,7 @@ Once EMU is loaded in Micro-manager, the user can configure the UI graphically b
 
 The configuration wizard displays four tabs:
 
-- Properties: mapping of a property to a Micro-Manager device and device property.
+- Properties: mapping of a UI property to a Micro-Manager device property.
 - Parameters: parameters to customize the UI.
 - Plugin Settings: plugin options. 
 - Global Settings: EMU options.
@@ -136,22 +136,22 @@ For each relevant UI *property*, select the corresponding device from the drop d
 
 > In this example, htSMLM has a "Camera exposure" UI property, therefore one must select the camera in the devices (here "Andor") and choose its "Exposure" device property.
 
-Note that the device list (second column) includes an entry called "Preset groups", which allows you to select one of the configuration preset group from Micro-manager (they are appear in Micro-Manager main window).
+Note that the device list (second column) includes an entry called "Preset groups", which allows you to select one of the configuration preset group from Micro-manager (they are found in Micro-Manager main window).
 
-Some properties require the user to state specific state values (see the filter wheel position states in the previous example). After selecting the device property, use the device property browser (Micro-Manager) to determine which are the device property values corresponding to each state. 
+Some properties require the user to state specific state values. This value can be numerical (filter wheel position in the previous example) or a text (e.g.: focus lock enable fine). After selecting the device property, use the device property browser (Micro-Manager) to determine which are the device property values corresponding to each state. 
 
 There are four types of such properties:
 
 - Single-state: the property requires only one state value to be specified.
-- Two-state: the property requires two state values, corresponding to an On and an Off states.
+- Two-state: the property requires two state values, corresponding to On and Off states.
 - Multi-state: the property requires a specified number of state values, labeled state 0, state 1,...
-- Scaled property: the property requires a slope and offset parameters. These can be used for instance to make a percentage (offset = 0, slope = (max device property value)/100).
+- Scaled property: the property requires a slope and offset parameters. These can be used for instance to control a device from 0 to 100% (offset = 0, slope = (max device property value)/100).
 
 > In the previous example, htSMLM has a "Filter wheel position" UI property with 6 states. Therefore, 6 values of the "Position1" device property should be entered. Another UI property, "Focus-lock enable fine" requires an On and Off states, with two values of the device property to set.   
 
 If the values are not set correctly, or only partially set, then a pop-up will appear after saving the configuration.
 
-If two UI properties are set to the same device property, then updating one through the UI will update the second on.
+If two UI properties are set to the same device property, then updating one also changes the UI controls linked to the second one. This allows duplicate controls in the UI.
 
 
 
@@ -165,7 +165,7 @@ There are several types of UI parameters:
 - Color: a drop-down list to select a color.
 - Combo: a drop-down list to select an item among a list.
 - Double: a number with decimals.
-- Integer: a positive or negative whole number.
+- Integer: a positive or negative integer number.
 - String: a chain of characters.
 - UIProperty: a drop-down list containing UI properties to select from.
 
@@ -181,7 +181,7 @@ There are several types of UI parameters:
 
 #### Configuration name<a name="name"></a>
 
-On top of the *configuration wizard*, one can modify the name of the *plugin configuration*. As prompted when doing so, modifying the name will create a new *plugin configuration* upon saving. Configuration can be deleted in the *configuration manager*.
+At the top of the *configuration wizard*, one can modify the name of the *plugin configuration*. As prompted when doing so, modifying the name will create a new *plugin configuration* upon saving. Configuration can be deleted in the *configuration manager*.
 
 
 
@@ -209,11 +209,11 @@ The Plugin menu gives access to two actions: refresh UI and show description.
 
 #### Refresh
 
-Modifying device properties outside the UI plugin does not impact the state of the UI, whether it is done by interacting with configuration group presets, the device property browser or scrips. Thereby synchronizing the UI with the current state of the device properties.
+Modifying device properties outside the UI plugin, for example by interacting with configuration group presets, the device property browser, or scripts, does not impact the state of the UI. The refresh button synchronizes the UI with the current state of the device properties.
 
 #### Description
 
-The description is automatically generated from the panels own description and should tell the user what each panel is intended for.
+The description describes each panel and their intended use.
 
 
 

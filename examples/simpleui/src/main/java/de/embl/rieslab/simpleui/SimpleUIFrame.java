@@ -16,7 +16,7 @@ public class SimpleUIFrame extends ConfigurableMainFrame {
 	private static final long serialVersionUID = 1L;
 	
 	// Plugin setting for an optional filterwheel panel
-	public static final String SETTING_USE_FW = "Use FW";
+	public final String SETTING_USE_FW = "Use FW";
 	
 	public SimpleUIFrame(String arg0, SystemController arg1, TreeMap<String, String> arg2) {
 		super(arg0, arg1, arg2);

@@ -27,12 +27,12 @@ public class LaserPanel extends ConfigurablePanel {
 	private JToggleButton tglbtnOnoff;
 	
 	//////// Constant parameter labels
-	public final static String PARAM_TITLE = "Name";
-	public final static String PARAM_COLOR = "Color";	
+	public final String PARAM_TITLE = "Name";
+	public final String PARAM_COLOR = "Color";	
 	
     //////// Constant String used in the property labels
-    public final static String LASER_PERCENTAGE = "power percentage";
-    public final static String LASER_OPERATION = "enable";
+    public final String LASER_PERCENTAGE = "power percentage";
+    public final String LASER_OPERATION = "enable";
 
 	public LaserPanel(String label) {
 		super(label);

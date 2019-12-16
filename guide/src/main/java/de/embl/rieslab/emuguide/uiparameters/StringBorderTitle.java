@@ -14,7 +14,7 @@ public class StringBorderTitle extends ConfigurablePanel {
 	private static final long serialVersionUID = 1L;
 	
 	// parameter
-	public final static String PARAM_LABEL = "Border title"; 
+	public final String PARAM_LABEL = "Border title"; 
 
 	// to access the border in all methods
 	private TitledBorder border;

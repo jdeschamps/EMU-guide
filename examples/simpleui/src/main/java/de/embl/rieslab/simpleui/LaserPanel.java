@@ -29,12 +29,12 @@ public class LaserPanel extends ConfigurablePanel {
 	private JToggleButton tglbtnNewToggleButton;
 	
 	//////// Properties
-	public final static String LASER_PERCENTAGE = "power percentage";
-	public final static String LASER_OPERATION = "on/off";
+	public final String LASER_PERCENTAGE = "power percentage";
+	public final String LASER_OPERATION = "on/off";
 
 	//////// Parameters
-	public final static String PARAM_TITLE = "Name";
-	public final static String PARAM_COLOR = "Color";	
+	public final String PARAM_TITLE = "Name";
+	public final String PARAM_COLOR = "Color";	
 
 	/**
 	 * Create the panel.

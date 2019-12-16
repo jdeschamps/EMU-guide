@@ -4,7 +4,7 @@
 
 2. Install git (for windows users: [git bash](https://gitforwindows.org/))
 
-3. Download the [Java SE Development Kit 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+3. Download the [Java SE Development Kit 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Set the environment variable [JAVA_HOME to the JDK 1.8 folder path](https://confluence.atlassian.com/doc/setting-the-java_home-variable-in-windows-8895.html).
 
 4. Download and install [Maven](https://maven.apache.org/install.html).
 
@@ -22,7 +22,6 @@
    ```
 
    > Note: the script requires bash, which is shipped with the git console on Windows.
->
 
    
 

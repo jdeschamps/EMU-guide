@@ -16,7 +16,7 @@ import java.awt.GridLayout;
 public class MyFrame extends ConfigurableMainFrame {
 
 	// Bonus: optional filters panel
-	public static final String SETTING_USE_FW = "Use FW";
+	public final String SETTING_USE_FW = "Use FW";
 	
 	/**
 	 * Launch the application.

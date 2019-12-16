@@ -13,10 +13,10 @@ public class MultiStateUIPropertyButtonGroup extends ConfigurablePanel{
 	private static final long serialVersionUID = 1L;
 	
 	//////// Property
-	public final static String PROP = "Property";
+	public final String PROP = "Property";
 	
 	//////// Initial parameter
-	public final static int NUM_POS = 6;
+	public final int NUM_POS = 6;
 	
 	//////// JComponents
 	private final ButtonGroup buttonGroup;;

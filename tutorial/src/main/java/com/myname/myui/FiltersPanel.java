@@ -29,11 +29,11 @@ public class FiltersPanel extends ConfigurablePanel {
 	public static String FW_POSITION = "Filterwheel position";
 	
 	//////// Parameters
-	public final static String PARAM_NAMES = "Filter names";
-	public final static String PARAM_COLORS = "Filter colors";
+	public final String PARAM_NAMES = "Filter names";
+	public final String PARAM_COLORS = "Filter colors";
 	
 	//////// Initial parameter
-	public final static int NUM_POS = 6;
+	public final int NUM_POS = 6;
 	
 	public FiltersPanel(String label) {
 		super(label);

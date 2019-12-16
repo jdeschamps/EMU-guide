@@ -11,8 +11,8 @@ public class MultiStateUIPropertyComboBox extends ConfigurablePanel{
 
 	private static final long serialVersionUID = 1L;
 	
-	private static final String PROP = "Property";
-	private static final int NUM_POS = 6;
+	private final String PROP = "Property";
+	private final int NUM_POS = 6;
 	private JComboBox<String> cbx;
 
 	public MultiStateUIPropertyComboBox(String label) {
