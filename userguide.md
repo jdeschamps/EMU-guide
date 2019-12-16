@@ -126,19 +126,27 @@ The *properties* tab contains three columns: the UI properties, device names fro
 
 For each relevant UI *property*, select the corresponding device from the drop down list.  Use the *help window* to get more details on which type of device to select. Then, select the appropriate device property.
 
-###### Example: htSMLM
+###### Example: Choosing the exposure device property in htSMLM
 
 <p align="center">
-<img src="img/config_wizard.PNG">
+<img src="img/device_droplist.png">
 </p>
 
-
+<p align="center">
+<img src="img/property_droplist.png">
+</p>
 
 > In this example, htSMLM has a "Camera exposure" UI property, therefore one must select the camera in the devices (here "Andor") and choose its "Exposure" device property.
 
 Note that the device list (second column) includes an entry called "Preset groups", which allows you to select one of the configuration preset group from Micro-manager (they are found in Micro-Manager main window).
 
-Some properties require the user to state specific state values. This value can be numerical (filter wheel position in the previous example) or a text (e.g.: focus lock enable fine). After selecting the device property, use the device property browser (Micro-Manager) to determine which are the device property values corresponding to each state. 
+Some properties require the user to state specific state values. These values can be numerical (e.g.: filter wheel position) or text (e.g.: focus lock enable fine). After selecting the device property, use the device property browser (Micro-Manager) to determine which are the device property values corresponding to each state. 
+
+<p align="center">
+<img src="img/property_states.PNG">
+</p>
+
+
 
 There are four types of such properties:
 
