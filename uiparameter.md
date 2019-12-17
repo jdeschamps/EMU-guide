@@ -19,7 +19,7 @@ In the configuration wizard, BoolUIParameter appear as a checkbox. The ColorUIPa
 ## Declaring a UIParameter
 
 ```java
-private final static String PARAM_KEY = "MyParameter";
+private final String PARAM_KEY = "MyParameter";
 
 @Override
 protected void initializeParameters() {

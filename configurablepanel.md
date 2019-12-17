@@ -2,9 +2,9 @@
 
 It is important to plan some aspects of a ConfigurablePanel before starting building it. Here are few points worth considering:
 
-- What will the panel look like? List the components and lay out their organization.
-
 - What function will it fulfill? List the type of device properties it will modify, then decide on the corresponding UIProperties (e.g. device on/off pairs with a TwoStateUIProperty).
+
+- What will the panel look like? List the components and lay out their organization, as well as which component interacts with which UIProperty.
 
 - What aspects of it should be parametrized? Picture which elements should be easily changed by the user (title, colors...etc...) and decide on UIParameters.
 

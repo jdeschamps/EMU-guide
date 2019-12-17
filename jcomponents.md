@@ -1,6 +1,6 @@
 # JComponents 
 
-JComponents are the Swing elements the user interacts with and are central to building a ConfigurablePanel. Here are examples of the most common components:
+JComponents are the Swing elements the user interacts with and are central to building a ConfigurablePanel. Here are examples of useful components:
 
 ![JComponents](img/jcomponents.png)
 

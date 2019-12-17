@@ -36,7 +36,7 @@ Different types of UIProperties are available in EMU:
 UIProperties should be instantiated and added to a [ConfigurablePanel](configurablepanel.md) in the initializeUIProperties() method:
 
 ```java
-private final static String PROP_KEY = "MyProperty";
+private final String PROP_KEY = "MyProperty";
 
 @Override
 protected void initializeProperties() {
@@ -44,7 +44,7 @@ protected void initializeProperties() {
 }
 ```
 
-We recommend using a static String as UIProperty key and not making the UIProperty global in the class. Note that the UIProperty label (PROP_KEY) **should be unique** otherwise only one will be kept by EMU. The label should be easily understandable by the user, as it will appear as "[Panel name] [UIProperty label]" in the configuration wizard (without brackets).
+Note that the UIProperty label (PROP_KEY) **should be unique** otherwise only one UIProperty will be kept by EMU. The label should be easily understandable by the user, as it will appear as "[Panel name] [UIProperty label]" in the configuration wizard (without brackets).
 
 **example**: A ConfigurablePanel named "Laser0" with a UIProperty labeled "power (mW)" will appear in the configuration wizard as "Laser0 power (mW)" 
 
