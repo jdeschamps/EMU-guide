@@ -59,9 +59,9 @@ public class IBeamSmartPanel extends ConfigurablePanel{
 	public final String LASER_EXTERNALTRIGGER = "enable external trigger";	
 	
 	//////// Parameters
-	public final static String PARAM_ENABLE_FINE = "fine available";
-	public final static String PARAM_ENABLE_EXT_TRIGGER = "external trigger available";
-	public final static String PARAM_TITLE = "laser name";
+	public final String PARAM_ENABLE_FINE = "fine available";
+	public final String PARAM_ENABLE_EXT_TRIGGER = "external trigger available";
+	public final String PARAM_TITLE = "laser name";
 	
 	/////// Misc variables
 	private int max_power;
