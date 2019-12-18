@@ -4,13 +4,13 @@ UIProperties are the link between Micro-Manager device properties and the JCompo
 
 Different types of UIProperties are available in EMU:
 
-| UIProperty type       | Note                                | Compatible JComponents (e.g.)                                |
-| --------------------- | ----------------------------------- | ------------------------------------------------------------ |
-| UIProperty            | general UI property, no restriction | JTextFields<br />JSpinners<br />JSliders                     |
-| SingleStateUIProperty | accepts a single state only         | JButtons                                                     |
-| TwoStateUIProperty    | accepts an On and an Off state      | JToggleButtons<br />JCheckBoxes<br />JRadioButtons<br />ButtonGroups (N=2) |
-| MultiStateUIProperty  | accepts a fixed number of states    | ButtonGroups<br />JComboBoxes                                |
-| RescaledUIProperty    | rescales a property value           | JTextFields<br />JSpinners<br />JSliders                     |
+| UIProperty type       | Note                                         | Compatible JComponents (e.g.)                                |
+| --------------------- | -------------------------------------------- | ------------------------------------------------------------ |
+| UIProperty            | general UI property, no restriction          | JTextFields<br />JSpinners<br />JSliders                     |
+| SingleStateUIProperty | accepts a single state only                  | JButtons                                                     |
+| TwoStateUIProperty    | accepts an On and an Off state               | JToggleButtons<br />JCheckBoxes<br />JRadioButtons<br />ButtonGroups (N=2) |
+| MultiStateUIProperty  | accepts a fixed number of states             | ButtonGroups<br />JComboBoxes                                |
+| RescaledUIProperty    | rescales value passed to the device property | JTextFields<br />JSpinners<br />JSliders                     |
 
 
 
@@ -20,7 +20,7 @@ Different types of UIProperties are available in EMU:
 2. [Retrieving a UIProperty](#retrieving)
 3. [Changing the state of a UIProperty](#changing)
 4. [Implementing propertyhasChanged](#haschanged)
-5. [UIProperty extensions](#extensions)
+5. [UIProperty subclasses](#extensions)
 6. [SwingUIListeners](#swing)
 7. [Flags](#flags)
 8. [Examples](#examples)
@@ -103,9 +103,9 @@ protected void propertyhasChanged(String propertyName, String newvalue) {
 
 
 
-## UIProperty extensions<a name="extensions"></a>  
+## UIProperty subclasses<a name="extensions"></a>  
 
-A UIProperty has no restriction on the input of the new value requested by the user. EMU also provide extensions with some constraints, making them suitable for certain functions.
+A UIProperty has no restriction on the input of the new value requested by the user. EMU also provide extensions with some constraints, making them suitable for particular cases.
 
 
 
