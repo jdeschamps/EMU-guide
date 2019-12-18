@@ -12,7 +12,7 @@ This repository contains examples of EMU plugins:
 
 
 
-- [Simple UI]( https://github.com/jdeschamps/EMU-guide/tree/master/examples/simpleui): A UI similar to the example developed in the [EMU tutorial]( https://github.com/jdeschamps/EMU-guide/tutorial ), albeit with optional scaling of laser power (mW) to laser percentage (%).
+- [Simple UI]( https://github.com/jdeschamps/EMU-guide/tree/master/examples/simpleui): A UI similar to the example developed in the [EMU tutorial]( https://github.com/jdeschamps/EMU-guide/tree/master/tutorial ), albeit with optional scaling of laser power (mW) to laser percentage (%).
 
   ![SimpleUI](img/simpleUI.PNG)
   
