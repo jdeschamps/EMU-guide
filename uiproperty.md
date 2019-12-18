@@ -1,6 +1,6 @@
 # UIProperty  
 
-UIProperties are the link between Micro-Manager device properties and the JComponents. They are declared and added to a ConfigurablePanel in the initializeProperties() method. Interaction between the user and the JComponents should trigger a UIProperty change. Because the UIProperties are paired by the user in the configuration wizard, the UIProperties propagate the value change to the Micro-Manager device properties.
+UIProperties are the link between Micro-Manager device properties and the JComponents. They are declared and added to a ConfigurablePanel in the initializeProperties() method. Interaction between the user and the JComponents should trigger a UIProperty change. Because the UIProperties are paired by the user in the configuration wizard, they propagate the value change to the Micro-Manager device properties.
 
 Different types of UIProperties are available in EMU:
 
