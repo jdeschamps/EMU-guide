@@ -91,7 +91,7 @@ public class LaserPanel extends ConfigurablePanel {
 		String text2 = "Property turning the laser on and off.";
 
 		/* 
-		 * A RescaledUIProperty allow having a power percentage even if the device property 
+		 * A RescaledUIProperty allows having a power percentage even if the device property 
 		 * (in Micro-Manager) is not a percentage (for instance "laser power (mW)").
 		 */
 		addUIProperty(new RescaledUIProperty(this, getUIPropertyLabel(LASER_PERCENTAGE), text1));
