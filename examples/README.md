@@ -25,17 +25,18 @@ This repository contains examples of EMU plugins:
 2. Using the console, go to the folder you wish to install **EMU-examples** in and type (omitting the $):
 
    ```bash
-   $ git clone https://github.com/jdeschamps/EMU-examples.git
+   $ git clone https://github.com/jdeschamps/EMU-guide.git
    ```
 
 3. Finally, compile all the examples using Maven
 
    ```bash
-   $ cd emu-examples
+   $ cd emu-guide/examples
    $ mvn clean install
    ```
 
-4. Then for each example, copy the .jar file generated in the **example-name/target/** folder to **/Micro-Manager/EMU/**. e.g.: "emu-examples/ibeamsmart/target/ibeamsmart-1.0.jar".
+4. Then for each example, copy the .jar file generated in the **example-name\target\\** folder to **C:\Path\To\Micro-Manager2gamma\EMU\\**. 
+   e.g.: "emu-examples/ibeamsmart/target/ibeamsmart-1.0.jar".
 
 5. Start Micro-Manager and select **Plugins->Interface->EMU**.
 
@@ -48,5 +49,5 @@ This repository contains examples of EMU plugins:
 3. Verify that the source folder is "src/main/java". In the Libraries tab, add an external JAR and navigate to the emu jar present in your Micro-Manager folder ("Micro-Manager/mmplugins/" if EMU was correctly installed). Then, click on finish.
 4. You can then rename the package to match your institution, name and project name, as well as renaming the different classes.
 
-> Note: When you change the name of the packages and of BasePlugin.java, you will need to change the path in the "src/main/resources/META-INF/services/de.embl.rieslab.emu.plugin.UIPlugin" file accordingly (the file name itself should NOT change).
+> Note: When you change the name of the packages and of BasePlugin.java, you will need to change the path in the "src/main/resources/META-INF/services/de.embl.rieslab.emu.plugin.UIPlugin" file accordingly (the file name itself should NOT change) to point to your own implementation of UIPlugin.
 
