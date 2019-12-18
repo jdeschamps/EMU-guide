@@ -23,7 +23,17 @@
 
    > Note: the script requires bash, which is shipped with the git console on Windows.
 
-   
+7. Install an EMU plugin by placing the plugin compiled .jar file in "C:\Path\to\MicroManager2gamma\EMU\".
+
+
+
+#### EMU plugins
+
+- [EMU plugin examples]( https://github.com/jdeschamps/EMU-guide/tree/master/examples )
+- [Build your own plugin with Eclipse Windows Builder](  https://jdeschamps.github.io/EMU-guide/tutorial/ )
+- [htSMLM](https://github.com/jdeschamps/htSMLM), the Ries group EMU plugin.
+
+
 
 [Back to the main menu](index.md)
 
