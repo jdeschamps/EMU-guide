@@ -16,6 +16,8 @@ This repository contains examples of EMU plugins:
 
   ![SimpleUI](img/simpleUI.PNG)
   
+  > Note that all colors and names of the lasers and filters are configurable through the EMU interface and can therefore be changed easily.
+  
   
 
 # Installation
