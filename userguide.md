@@ -81,9 +81,9 @@ Once EMU is loaded in Micro-manager, the user can configure the UI graphically b
 
 The configuration wizard displays four tabs:
 
+- Plugin Settings: plugin options. 
 - Properties: mapping of a UI property to a Micro-Manager device property.
 - Parameters: parameters to customize the UI.
-- Plugin Settings: plugin options. 
 - Global Settings: EMU options.
 
 
@@ -106,9 +106,7 @@ Selecting the *help* button opens the *help window*. Select a row of the propert
 
 
 
-Changing *plugin settings* might cause a change in the list of properties and parameters. For instance, if a *plugin setting* is an option to show an extra panel, the properties and parameters corresponding to this panel will not yet be in the properties and parameters tabs. They will however appear next time you start the configuration wizard.
-
-**Therefore**,  whenever you modify the *plugin settings*, save the configuration and start the *configuration wizard* anew.
+Changing *plugin settings* might cause a change in the list of properties and parameters. For instance, if a *plugin setting* is an option to show an extra panel, the properties and parameters corresponding to this panel will appear when selecting the other tabs.
 
 
 
