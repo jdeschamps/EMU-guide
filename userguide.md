@@ -226,7 +226,7 @@ The description describes each panel and their intended use.
 
 ## Bug reporting <a name="bugs"></a>
 
-Please report bugs as [Github issue](https://github.com/jdeschamps/EMU/issues).
+Please report bugs as [Github issues](https://github.com/jdeschamps/EMU/issues).
 
  
 
