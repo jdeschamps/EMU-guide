@@ -15,6 +15,7 @@
       6. [Configuration name](#name)
    2. [Configuration manager](#confwiz)
 11. [Plugin menu](#plugmenu)
+4. [Bug reporting](#bugs)
 
 [Back to the main menu](index.md)
 
@@ -222,5 +223,11 @@ Modifying device properties outside the UI plugin, for example by interacting wi
 The description describes each panel and their intended use.
 
 
+
+## Bug reporting <a name="bugs"></a>
+
+Please report bugs as [Github issue](https://github.com/jdeschamps/EMU/issues).
+
+ 
 
 [Back to the main menu](index.md)
