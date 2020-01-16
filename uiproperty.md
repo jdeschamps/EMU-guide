@@ -84,7 +84,7 @@ txtf.addActionListener(new java.awt.event.ActionListener() {
 });
 ```
 
-Note that EMU provides static methods to add action listeners to Swing components, see [SwingUIListeners](#swing) section.
+Note that EMU provides static methods to add action listeners to Swing components, see [SwingUIListeners](#swing) section.  Snippets of code illustrating the Swing action listeners are available in the [JComponent chapter](jcomponents.md) (without modification of a UIProperty). Also check out the [examples](#examples) at the end of this chapter.
 
 
 
@@ -100,6 +100,8 @@ protected void propertyhasChanged(String propertyName, String newvalue) {
     }
 }
 ```
+
+In general, property updates modify the state of JComponents. Snippets of code are available in the [JComponent chapter](jcomponents.md) or in the [examples](#examples) at the end of this chapter.
 
 
 

@@ -60,6 +60,8 @@ This repository offers [example plugins for EMU](examples):
 - A plugin controlling a single iBeamSmart laser (Toptica).
 - A simple UI controlling four lasers and a filterwheel.
 
+Note that the latter two plugins are distributed with EMU in Micro-Manager 2-gamma.
+
 ### htSMLM  <a name="htsmlm"></a>    
 
 [htSMLM]( https://github.com/jdeschamps/htSMLM ) is a complex EMU plugin used by the Ries lab (EMBL) to control their automated localization microscopes. 

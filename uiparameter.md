@@ -73,7 +73,7 @@ public String getStringUIParameterValue(String PARAMETER_KEY);
 
 Note that these methods can throw an UnknownUIParameterException and/or an IncorrectUIParameterTypeException in case the PARAMETER_KEY is unknown or of the wrong type (therefore the method cannot return anything).
 
-
+In general, parameters will update a JComponent. Snippets of code are available in the [JComponent chapter](jcomponents.md) or in the next section.
 
 ## Examples
 

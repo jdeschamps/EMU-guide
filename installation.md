@@ -1,5 +1,7 @@
 # Installing EMU
 
+EMU is now distributed with Micro-Manager. If you wish to install EMU from the source code, then follows the next steps:
+
 1. Download and install [Micro-Manager 2-gamma](https://micro-manager.org/wiki/Download Micro-Manager_Latest Release).
 
 2. Install git (for windows users: [git bash](https://gitforwindows.org/))
