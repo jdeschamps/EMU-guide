@@ -12,6 +12,10 @@ Note that the action listeners are already implemented as static methods in Swin
 
 The list is not exhaustive.
 
+
+
+------
+
 ## Table of contents
 
 1. [JTextField](#jtextfield)
@@ -27,6 +31,8 @@ The list is not exhaustive.
 [Back to the programming guide](programmingguide.md)
 
 [Back to the main menu](index.md)
+
+------
 
 
 
@@ -90,6 +96,8 @@ String s = "1";
 txtf.setText(s);
 ```
 
+------
+
 
 
 ### JToggleButton/JCheckBox<a name="jtogglebutton"></a>  
@@ -146,6 +154,8 @@ boolean b = false;
 tglb.setEnable(b);
 ```
 
+------
+
 
 
 ### JButton<a name="jbutton"></a>  
@@ -168,6 +178,8 @@ JButton tglb = new JButton("Click me");
 boolean b = false;
 tglb.setEnable(b);
 ```
+
+------
 
 
 
@@ -200,6 +212,8 @@ cbx.setSelectedItem(strarr[2]);
 
 Note that this will trigger the action listener of the previous section.
 
+------
+
 
 
 ### JSlider<a name="jslider"></a>  
@@ -225,6 +239,8 @@ JSlider sld = new JSlider();
 sld.setValue(10);
 ```
 
+------
+
 
 
 ### JSpinner<a name="jspinner"></a>  
@@ -246,7 +262,7 @@ spnr.addChangeListener(new ChangeListener() {
 });
 ```
 
-### 
+ 
 
 #### Modifying a JSpinner
 
@@ -255,6 +271,8 @@ SpinnerNumberModel model = new SpinnerNumberModel(0,-5,5,1);
 JSpinner spnr = new JSpinner(model);
 spnr.setValue(2);
 ```
+
+------
 
 
 
@@ -288,7 +306,9 @@ while(enm.hasMoreElements()) {
 }
 ```
 
-### 
+------
+
+ 
 
 ### JLabel<a name="jlabel"></a>  
 
@@ -305,6 +325,8 @@ lbl.setText("New text");
 JLabel lbl = new JLabel("Label");
 lbl.setFont(new Font("Tahoma", Font.BOLD, 12));
 ```
+
+------
 
 
 
