@@ -71,7 +71,7 @@ In this section, we will encounter the first EMU class: [ConfigurablePanel]( htt
 
 In our case, here we want:
 
-- UIProperties: laser on/off and laser power percentage.
+- UIProperties: laser on/off (TwoStateUIProperty) and laser power percentage (UIProperty, although better would be to use a RescaledUIProperty).
 
 - JComponents: a JToggleButton for on/off and a JSlider to set the power percentage.
 
