@@ -87,6 +87,8 @@ The configuration wizard displays four tabs:
 - Parameters: parameters to customize the UI.
 - Global Settings: EMU options.
 
+Note that since EMU v1.1 the plugin settings tab has been moved to the first position.
+
 
 
 #### Help<a name="help"></a>

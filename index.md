@@ -31,7 +31,7 @@ The [EMU tutorial](tutorial) offers a detailed walk through of how to build a UI
 
 ### Examples   <a name="expl"></a>  
 
-This repository offers [example plugins for EMU](examples):
+[This repository](examples) offers example plugins for EMU:
 
 - A base plugin to help kick-start a new EMU plugin.
 - A plugin controlling a single iBeamSmart laser (Toptica).
