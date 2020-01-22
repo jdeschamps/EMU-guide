@@ -21,6 +21,7 @@ Here is a preview of the UI:
 #### During the tutorial
 
 - You can consult the [guide]( https://jdeschamps.github.io/EMU-guide/ ) for more in-depth details.
+- The [JComponents page](https://jdeschamps.github.io/EMU-guide/jcomponents.html) of the guide has code snippets to help creating/modifying Swing JComponents. These are useful when implementing methods related to the UIProperties and the UIParameters.
 - The [source code]( https://github.com/jdeschamps/EMU-guide/tree/master/tutorial ) can be found in the "src" folder.
 
 

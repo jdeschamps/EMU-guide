@@ -1,6 +1,8 @@
 # EMU examples
 
-[Easier Micro-manager User interface (EMU)]( https://github.com/jdeschamps/EMU ) is a [Micro-Manager](https://micro-manager.org/wiki/Micro-Manager) plugin that loads easily reconfigurable user interfaces to control your microscope. 
+**Note**: The SimpleUI and iBeamSmart plugins are now distributed with EMU in Micro-Manager 2-gamma. Therefore they are no longer maintained here. For the latest source code, refer to the [EMU repository](https://github.com/jdeschamps/EMU). 
+
+
 
 This repository contains examples of EMU plugins:
 
