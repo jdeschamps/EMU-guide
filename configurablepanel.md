@@ -6,7 +6,7 @@ It is important to plan some aspects of a ConfigurablePanel before starting buil
 
 - What will the panel look like? List the components and lay out their organization, as well as which component interacts with which UIProperty.
 
-- What aspects of it should be parametrized? Picture which elements should be easily changed by the user (title, colors...etc...) and decide on UIParameters.
+- What aspects of it should be parameterized? Picture which elements should be easily changed by the user (title, colors...etc...) and decide on UIParameters.
 
   
 
