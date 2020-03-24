@@ -44,6 +44,8 @@ Tailored interfaces have the advantage of rendering the control of the microscop
    3. [htSMLM](#htsmlm)
    4. [Javadoc](#javadoc)
 
+## Cite us
+Joran Deschamps and Jonas Ries, ["EMU: reconfigurable graphical user interfaces for Micro-Manager", bioRxiv 2020.03.18.997494.](https://www.biorxiv.org/content/10.1101/2020.03.18.997494v1)
 
 
 ## Resources  <a name="resources"></a>  
