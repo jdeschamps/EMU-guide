@@ -1,12 +1,14 @@
 # Installing EMU
 
-EMU is now distributed with Micro-Manager. If you wish to install EMU from the source code, then follow the next steps:
+**EMU is now distributed with Micro-Manager 2.0-gamma (nightly build). To download the latest Micro-Manager 2.0-gamma nightly build, refer [to this page and choose your platform](https://micro-manager.org/wiki/Micro-Manager_Nightly_Builds). EMU is then available from the Plugin menu, under "User Interface".** 
 
-1. Download and install [Micro-Manager 2-gamma](https://micro-manager.org/wiki/Download Micro-Manager_Latest Release).
+If you wish to install it from the source code, then follow the next steps:
 
-2. Install git (for windows users: [git bash](https://gitforwindows.org/))
+1. Download and install [Micro-Manager 2-gamma](https://micro-manager.org/wiki/Download_Micro-Manager_Latest_Release).
 
-3. Download the [Java SE Development Kit 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Set the environment variable [JAVA_HOME to the JDK 1.8 folder path](https://confluence.atlassian.com/doc/setting-the-java_home-variable-in-windows-8895.html).
+2. Install git (for windows users: [git bash](https://gitforwindows.org/), or for os mac users: [source forge](https://sourceforge.net/projects/git-osx-installer/files/))
+
+3. Download the [Java SE Development Kit 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Set the environment variable [JAVA_HOME to the JDK 1.8 folder path](https://confluence.atlassian.com/doc/setting-the-java_home-variable-in-windows-8895.html) (windows).
 
 4. Download and install [Maven](https://maven.apache.org/install.html).
 
@@ -17,17 +19,24 @@ EMU is now distributed with Micro-Manager. If you wish to install EMU from the s
    ```
 
 6. Navigate to the EMU folder and compile it using the path to Micro-manager:
-
+   
+   Windows (git bash)
    ```bash
    $ cd emu
-   $ ./compileAndDeploy.sh "C:\Path\to\MicroManager2gamma"
+   $ ./compileAndDeploy-Win.sh "C:\Program\Path\to\MicroManager2gamma"
+   ```
+  
+   macOs (terminal)
+   ```bash
+   $ cd emu
+   $ sh compileAndDeploy-Mac.sh /Application/Path/to/MicroManager2gamma/
    ```
 
    > Note: the script requires bash, which is shipped with the git console on Windows.
+   
+   > Note: the EMU .jar shipped with Micro-Manager will be overwritten (it is located in the /mmplugins/ folder).
 
-7. Install an EMU plugin by placing the plugin compiled .jar file in "C:\Path\to\MicroManager2gamma\EMU\".
-
-
+7. Install an EMU plugin by placing the plugin compiled .jar file in "C:\Program\Path\to\MicroManager2gamma\EMU\" or use the default plugins.
 
 #### EMU plugins
 
