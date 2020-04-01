@@ -17,8 +17,9 @@ Tailored interfaces have the advantage of rendering the control of the microscop
 ## Guide <a name="guide"></a>  
 
 1. [Installation](installation.md)
-2. [EMU: a user perspective](userguide.md)
-3. [Programming guide](programmingguide.md)
+2. [Quick introduction](quickintro.md)
+3. [EMU: user guide](userguide.md)
+4. [Programming guide](programmingguide.md)
 
 ## Cite us
 Joran Deschamps and Jonas Ries, ["EMU: reconfigurable graphical user interfaces for Micro-Manager", bioRxiv 2020.03.18.997494.](https://www.biorxiv.org/content/10.1101/2020.03.18.997494v1)
