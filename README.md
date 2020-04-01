@@ -69,6 +69,6 @@ Note that the latter two plugins are distributed with EMU in Micro-Manager 2-gam
 
 [htSMLM]( https://github.com/jdeschamps/htSMLM ) is a complex EMU plugin used by the Ries lab (EMBL) to control their automated localization microscopes. 
 
-### Javadoc<a name="javadoc"></a>    
+### Source-code and javadoc<a name="javadoc"></a>    
 
 The [Javadoc]( https://jdeschamps.github.io/EMU/ ) is available is the [EMU repository]( https://github.com/jdeschamps/EMU ).
