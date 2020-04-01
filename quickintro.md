@@ -26,7 +26,7 @@ In this section, we demonstrate how to quickly test EMU with one of its default 
    <img src="img/qi-wizard.png">
    </p>
 
-   The **plugin settings** tab in this case have only one entry: hiding or showing the filters. The **properties** should be paired with Micro-Manager devices. The **parameters** can be configured to make the UI more intuitive. The **global settings** are EMU options.
+   The **plugin settings** tab in this case has a single entry: hiding or showing the filters. The purpose of the other tabs are as following: the **properties** should be paired with Micro-Manager devices, the **parameters** can be configured to make the UI more intuitive and the **global settings** are EMU options.
 
 5. In the **Properties** tab, pair UI properties with Micro-Manager devices and select a device property. Then, input allowed values in the state values.
 
@@ -45,7 +45,7 @@ In this section, we demonstrate how to quickly test EMU with one of its default 
    <img src="img/qi-help.PNG">
    </p>
 
-7. Then, we move on to the **Parameters** tab. Here you can choose the name and colors that will appear in the interface for the filters of the filterwheel or the various lasers. You can also disable the on/off buttons of the lasers.
+7. Then, we move on to the **Parameters** tab. Here you can choose the name and colors that will appear in the interface. You can also disable the on/off buttons of the lasers.
 
    <p align="center">
    <img src="img/qi-params.PNG">
@@ -65,16 +65,18 @@ In this section, we demonstrate how to quickly test EMU with one of its default 
 
 10. The warning message from 8 can be disabled in the **Global settings** tab of the configuration.
 
-We have now successfully used the EMU configuration wizard to set-up an EMU plugin and used it to change Micro-Manager device properties. In the real world, changing the device properties will change the state of your hardware!
+We have now successfully used the EMU configuration wizard to set-up an EMU plugin and used it to change Micro-Manager device properties. In the real world, changing the device properties will change the state of your hardware! Thanks to the configuration menu, a single UI is transferable to instruments with different devices and can be set-up in the matter of minutes.
 
-What else can we do?
+What else can we do in the interface?
 
 - Create multiple configurations by changing the configuration name in the configuration wizard.
 - Switch between configurations.
 - Switch between plugins.
 - Delete configuration from the configuration manager.
 
-Refer to the [user guide](userguide.md) for more details on how to use EMU plugin and to the [programming guide](programmingguide.md) in order to implement your own plugins (a [tutorial](tutorial) is also available).
+All plugin settings, properties and parameters come from the plugin itself and will vary from plugin to plugin. EMU provides a framework to configure the plugins and takes care of the interaction with the devices, the decision of which aspects of the UI are configurable lies with the plugin developers.
+
+Refer to the [user guide](userguide.md) for more details on how to use EMU plugin and to the [programming guide](programmingguide.md) in order to implement your own plugins. A [tutorial](tutorial) demonstrating how to build a user interface for EMU using graphical tools is also available.
 
 [Back to the main menu](index.md)
 
