@@ -24,6 +24,16 @@ Tailored interfaces have the advantage of rendering the control of the microscop
 ## Cite us
 Joran Deschamps and Jonas Ries, ["EMU: reconfigurable graphical user interfaces for Micro-Manager", bioRxiv 2020.03.18.997494.](https://www.biorxiv.org/content/10.1101/2020.03.18.997494v1)
 
+
+
+## Contact us
+
+By email:  joran.deschamps(at)embl(dot)de
+
+Or join us on [Gitter](https://gitter.im/emu-dev/community). 
+
+
+
 ## Resources  <a name="resources"></a>  
 
 ### Tutorial  <a name="tuto"></a>  
@@ -47,3 +57,4 @@ The latter two are distributed with EMU in Micro-Manager 2-gamma.
 ### Source-code and javadoc<a name="javadoc"></a>    
 
 The [Javadoc]( https://jdeschamps.github.io/EMU/ ) is available in the [EMU repository]( https://github.com/jdeschamps/EMU ).
+
