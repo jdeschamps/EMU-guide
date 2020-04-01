@@ -8,7 +8,7 @@ In this section, we demonstrate how to quickly test EMU with one of its default 
    <img src="img/qi-start.png">
    </p>
 
-2. By clicking on "Devices/Device Property Browser" in the Micro-Manager menu, you have access to all device properties that can be used to control the (here only simulated) hardware. In particular, you can check with value is accepted by the device properties. Later on, we will use this to check what to input in EMU configuration.
+2. By clicking on "Devices/Device Property Browser" in the Micro-Manager menu, you have access to all device properties that can be used to control the hardware (here only simulated). In particular, you can check which values are accepted by the device properties. Later on, we will use this to input values in the EMU configuration.
 
    <p align="center">
    <img src="img/qi-dpb.png">
@@ -20,7 +20,7 @@ In this section, we demonstrate how to quickly test EMU with one of its default 
    <img src="img/qi-select-plugin.png">
    </p>
 
-4. Several windows open, including the plugin itself and EMU configuration menu (configuration wizard):
+4. Several windows open, including the plugin itself and the EMU configuration menu (configuration wizard):
 
    <p align="center">
    <img src="img/qi-wizard.png">
@@ -31,8 +31,9 @@ In this section, we demonstrate how to quickly test EMU with one of its default 
 5. In the **Properties** tab, pair UI properties with Micro-Manager devices and select a device property. Then, input allowed values in the state values.
 
    <p align="center">
-   <img src="img/qi-props.png">
+   <img src="img/qi-props.PNG">
    </p>
+
 
    For instance here, for the **filter wheel position** UI property, we selected the **Emission** device and its **Label** device property. Then, looking at the **Device Property Browser** (see point 2), we identified allowed values and input them in the state rows. Alternatively, we could have used the **State** device property.
    We also filled in **Laser0 on/off** and **Laser0 power percentage** UI properties, according to values observed in the **Device Property Browser**.
@@ -41,21 +42,22 @@ In this section, we demonstrate how to quickly test EMU with one of its default 
 6. By clicking on the Help button and selecting a row, you have access to a description of the property or parameter. Here for the **Laser0 power percentage** UI property:
 
    <p align="center">
-   <img src="img/qi-help.png">
+   <img src="img/qi-help.PNG">
    </p>
 
 7. Then, we move on to the **Parameters** tab. Here you can choose the name and colors that will appear in the interface for the filters of the filterwheel or the various lasers. You can also disable the on/off buttons of the lasers.
 
    <p align="center">
-   <img src="img/qi-params.png">
+   <img src="img/qi-params.PNG">
    </p>
+
 
    The help window on the first parameter tells us which color we can use in the coma-separated entry. We also entered few filter names (ideally they should be the same, and in the same order, than in the property tab). Finally, we named the lasers, gave them a color and disabled some on/off buttons. Save the configuration.
 
 8. Ignore the message indicating that some UI properties have not be set. The UI looks as it was defined in the parameters.
 
    <p align="center">
-   <img src="img/qi-ui.PNG">
+   <img src="img/qi-ui.png">
    </p>
 
 9. Now, by clicking on the UI buttons (specifically the filter wheel and the first lasers) and refreshing the Device Property Browser, you can verify that the device properties that we mapped to the UI properties are changed by interacting with the UI. For instance, the first laser percentage brings the TestProperty2 from Camera from 0 to 200 (because the slope was set to 2), and the filter wheel labels are consistent with the order with which we input them.
