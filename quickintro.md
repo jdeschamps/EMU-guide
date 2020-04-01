@@ -14,7 +14,7 @@ In this section, we demonstrate how to quickly test EMU with one of its default 
    <img src="img/qi-dpb.png">
    </p>
 
-3. In Micro-Manager, start EMU under "Plugins/User Interface/EMU" and select SimpleUI.
+3. In Micro-Manager, start EMU under "Plugins/User Interface/EMU" and select SimpleUI. SimpleUI and the other default interface are EMU plugins.
 
    <p align="center">
    <img src="img/qi-select-plugin.png">
@@ -52,20 +52,21 @@ In this section, we demonstrate how to quickly test EMU with one of its default 
    </p>
 
 
-   The help window on the first parameter tells us which color we can use in the coma-separated entry. We also entered few filter names (ideally they should be the same, and in the same order, than in the property tab). Finally, we named the lasers, gave them a color and disabled some on/off buttons. Save the configuration.
+   The help window on the first parameter tells us which color we can use in the coma-separated entry. We also entered few filter names (ideally they should correspond, and be in the same order, than in the property tab). Finally, we named the lasers, gave them a color and disabled some on/off buttons. 
 
-8. Ignore the message indicating that some UI properties have not be set. The UI looks as it was defined in the parameters.
+8. Save the configuration. Ignore the message indicating that some UI properties have not be set. It can be disabled in the **Global settings** tab of the configuration. The UI looks as follows:
 
    <p align="center">
    <img src="img/qi-ui.png">
    </p>
 
-9. Now, by clicking on the UI buttons (specifically the filter wheel and the first lasers) and refreshing the Device Property Browser, you can verify that the device properties that we mapped to the UI properties are changed by interacting with the UI. For instance, the first laser percentage brings the TestProperty2 from Camera from 0 to 200 (because the slope was set to 2), and the filter wheel labels are consistent with the order with which we input them.
+   As we can see, colors and names corresponds the properties entry.
+
+9. Now, by clicking on the UI buttons (specifically the filter wheel and the first lasers) and refreshing the Device Property Browser, you can verify that the device properties that we mapped to the UI properties are changed by interacting with the UI. For instance, the first laser percentage brings the TestProperty2 from Camera from 0 to 200 (because the slope was set to 2), and the filter wheel labels are consistent with the order in which we set them.
    Since we did not map the UI properties of the three other lasers, the other buttons have no effect.
 
-10. The warning message from 8 can be disabled in the **Global settings** tab of the configuration.
 
-We have now successfully used the EMU configuration wizard to set-up an EMU plugin and used it to change Micro-Manager device properties. In the real world, changing the device properties will change the state of your hardware! Thanks to the configuration menu, a single UI is transferable to instruments with different devices and can be set-up in the matter of minutes.
+We have now successfully used the EMU configuration wizard to set-up an EMU plugin and used it to change Micro-Manager device properties. In the real world, changing the device properties will change the state of your hardware! Thanks to the configuration menu, a single UI is transferable to instruments with different devices and can be set-up in a matter of a few minutes.
 
 What else can we do in the interface?
 
@@ -74,9 +75,9 @@ What else can we do in the interface?
 - Switch between plugins.
 - Delete configuration from the configuration manager.
 
-All plugin settings, properties and parameters come from the plugin itself and will vary from plugin to plugin. EMU provides a framework to configure the plugins and takes care of the interaction with the devices, the decision of which aspects of the UI are configurable lies with the plugin developers.
+All plugin settings, properties and parameters come from the EMU plugin itself and will vary from plugin to plugin. EMU provides a framework to configure the interfaces and take care of the interaction with the devices, the decision of which aspects of the interface are configurable lies with the plugin developers.
 
-Refer to the [user guide](userguide.md) for more details on how to use EMU plugin and to the [programming guide](programmingguide.md) in order to implement your own plugins. A [tutorial](tutorial) demonstrating how to build a user interface for EMU using graphical tools is also available.
+Refer to the [user guide](userguide.md) for more details on how to use EMU plugins and to the [programming guide](programmingguide.md) in order to implement your own interface plugin. A [tutorial](tutorial) demonstrating how to build a user interface for EMU using graphical tools is also available.
 
 [Back to the main menu](index.md)
 
