@@ -138,7 +138,7 @@ TwoStateUIProperties accept the following values (in order of priority):
   - "0"
   - "false"
 
-Note that 0/1 or true/false have lower priority and in case of redundancy the actual On/Off states or the static methods will prevail.
+Note that 0/1 or true/false have lower priority and in case of redundancy the actual On/Off states or the static methods will prevail. The methods TwoStateUIProperty::setUIpropertyValueByState or TwoStateUIProperty::setUIpropertyValueByStateIndex can also help avoid collision.
 
 TwoStateUIProperties provide also the following convenience methods:
 
@@ -184,6 +184,8 @@ MultiStateUIProperties accept by order of priority the following values:
 1. The actual value of a state
 2. The name of a state
 3. The index of a state
+
+To avoid collision, the methods MultiStateUIProperty::setUIpropertyValueByState or MultiStateUIProperty::setUIpropertyValueByStateIndex can be called to specifically set the value using the state name or the state index.
 
 Querying the index or the state name can be done as follow: 
 
@@ -250,7 +252,7 @@ The last method to implement in the ConfigurablePanel that is related directly t
 
 For each relevant JComponent, a UIProperty can be affected and propagate changes to its corresponding device property. EMU provides many static methods in the SwingUIListeners class to avoid implementing these actions:
 
-| Method                                 | JComponent output / UIProperty inpur                         | JComponents                   |
+| Method                                 | JComponent output / UIProperty input                         | JComponents                   |
 | -------------------------------------- | ------------------------------------------------------------ | ----------------------------- |
 | addActionListenerOnDoubleValue(...)    | double<br />double within [min,max]                          | JTextField                    |
 | addActionListenerOnIntegerValue(...)   | integer<br />integer within [min,max]<br />integer with feedback | JTextField<br />JSlider<br /> |

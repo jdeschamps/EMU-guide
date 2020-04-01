@@ -162,7 +162,7 @@ If the values are not set correctly, or only partially set, then a pop-up will a
 
 If two UI properties are set to the same device property, then updating one also changes the UI controls linked to the second one. This allows duplicate controls in the UI.
 
-:important: **in case of integer state values (e.g. 1), if the value is smaller than the number of states a collision can occur. Indeed, depending on the plugin implementation, the value passed to the property can actually be the state number (e.g. state "1") and not the value (e.g. "12"). If that is the case and one of the other state values is "1", then the value "1" will be set (and not the requested state value "12"). To avoid collisions, place the integer value in the state with equal state number (e.g. value "1" in "state 1").**
+:important: **Depending on how the plugin has been implemented, collisions between a property state value and state number can occur. For example if "state 3" has a value "0", selecting "state 0" can trigger "state 3". If this happens, map the state value "0" to "state 0".**
 
 #### Parameters<a name="param"></a>
 
