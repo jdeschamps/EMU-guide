@@ -8,7 +8,7 @@ This repository contains examples of EMU plugins:
 
 - [Base plugin]( https://github.com/jdeschamps/EMU-guide/tree/master/examples/baseplugin): An empty plugin with comments within each method, explaining what needs to be implemented. Can be used as basis for a [new project](#newproject).
 
-- [BMC-example](bmc-example): The plugin built from the code snippets from the BMC publication.
+- [BMC-example](https://github.com/jdeschamps/EMU-guide/tree/master/examples/bmc-example): The plugin built from the code snippets from the BMC publication.
 
 - [iBeamSmart]( https://github.com/jdeschamps/EMU-guide/tree/master/examples/ibeamsmart): A simple UI controlling a single iBeamSmart laser (Toptica), including on/off, power percentage, fine percentages and external trigger.
 
