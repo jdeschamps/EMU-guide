@@ -52,7 +52,7 @@ Joran Deschamps and Jonas Ries, ["EMU: reconfigurable graphical user interfaces 
 ## Contact us
 
 By email:  joran.deschamps(at)embl(dot)de
-
+On [image.sc](https://forum.image.sc/): post and tag @jdeschamps.
 
 ## Resources  <a name="resources"></a>  
 
