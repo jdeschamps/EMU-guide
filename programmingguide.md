@@ -30,7 +30,7 @@ EMU is designed to involve minimum heavy lifting and coding in the plugin in ord
 
 #### Code example
 
-Note that the [guide](guide) folder contains examples implementations of the different classes. The [tutorial](tutorial) folder is a detailed walk-through of a plugin implementation using a drag and drop software, while the [examples](examples) folder consist of three example plugins.
+Note that the [guide](guide) folder contains examples implementations of the different classes. The [tutorial](tutorial) folder is a detailed walk-through of a plugin implementation using a drag and drop software, while the [examples](examples) folder consist of four example plugins. In particular, you can find in the examples the plugins used in the BMC publication: SimpleUI in the figures and BMC-example for the code snippets.
 
 The [Javadoc](https://jdeschamps.github.io/EMU/) is available in the [EMU repository]( https://github.com/jdeschamps/EMU ).
 

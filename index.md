@@ -16,12 +16,16 @@ Tailored interfaces have the advantage of rendering the control of the microscop
 
 ## Guide <a name="guide"></a>  
 
+The guide contains
+
 1. [Installation](installation.md)
 2. [Quick introduction](quickintro.md)
 3. [EMU: user guide](userguide.md)
 4. [Programming guide](programmingguide.md)
-
-
+5. Resources
+   1. [EMU tutorial](tutorial):  detailed walk through of how to build a UI for EMU using a drag and drop software
+   2. [Example plugins](examples)
+   3. [htSMLM]( https://github.com/jdeschamps/htSMLM ): a complex EMU plugin used by the Ries lab at EMBL
 
 ## Cite us
 
@@ -31,6 +35,7 @@ doi: [10.1186/s12859-020-03727-8](https://doi.org/10.1186/s12859-020-03727-8)
 ## Contact us
 
 By email:  joran.deschamps(at)embl(dot)de
+
 On [image.sc](https://forum.image.sc/): post and tag @jdeschamps.
 
 ## Resources  <a name="resources"></a>  
@@ -44,10 +49,11 @@ The [EMU tutorial](tutorial) offers a detailed walk through of how to build a UI
 [This repository](examples) offers example plugins for EMU:
 
 - A base plugin to help kick-start a new EMU plugin.
+- Plugin example from the BMC publication.
 - A plugin controlling a single iBeamSmart laser (Toptica).
 - A simple UI controlling four lasers and a filterwheel.
 
-The latter two are distributed with EMU in Micro-Manager 2-gamma.
+The last two are distributed with EMU in Micro-Manager 2-gamma.
 
 ### htSMLM  <a name="htsmlm"></a>    
 
@@ -55,5 +61,4 @@ The latter two are distributed with EMU in Micro-Manager 2-gamma.
 
 ### Source-code and javadoc<a name="javadoc"></a>    
 
-The [Javadoc]( https://jdeschamps.github.io/EMU/ ) is available in the [EMU repository]( https://github.com/jdeschamps/EMU ).
-
+The [Javadoc]( https://jdeschamps.github.io/EMU/) is available in the [EMU repository]( https://github.com/jdeschamps/EMU ).
