@@ -5,7 +5,7 @@
 
 	<groupId>de.embl.rieslab</groupId>
 	<artifactId>emu-examples</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -33,6 +33,7 @@
 		<module>ibeamsmart</module>
 		<module>simpleui</module>
 		<module>baseplugin</module>
+		<module>bmc-example</module>
 	</modules>
 
 </project>
