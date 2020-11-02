@@ -1,6 +1,6 @@
 # Installing EMU
 
-**EMU is now distributed with Micro-Manager 2.0-gamma (nightly build). To download the latest Micro-Manager 2.0-gamma nightly build, refer [to this page and choose your platform](https://micro-manager.org/wiki/Micro-Manager_Nightly_Builds). EMU is then available from the Plugin menu, under "User Interface".** 
+**EMU is now distributed with Micro-Manager 2.0.0-gamma (nightly build). To download the latest Micro-Manager 2.0.0-gamma nightly build, refer [to this page and choose your platform](https://micro-manager.org/wiki/Micro-Manager_Nightly_Builds). EMU is then available from the Plugin menu, under "User Interface".** 
 
 If you wish to install it from the source code, then follow the next steps:
 

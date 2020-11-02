@@ -12,7 +12,6 @@ Here is a preview of the UI:
 
 - [Eclipse]( https://www.eclipse.org/downloads/packages/ ) with the WindowBuilder+SwingDesigner plugin running java 8.
 - Micro-Manager 2gamma installed.
-- EMU installed (refer to the [installing section]( https://jdeschamps.github.io/EMU-guide/installation.html )).
 
 > If the WindowBuilder and SwingDesigner are not installed, you will have to go to Help -> Install New Software and using "All available sites", search and install both.
 
@@ -46,9 +45,9 @@ Here is a preview of the UI:
 
 
 
-**4)** In the "**Librairies**" tab, click on "**Add External JARs**" and navigate to your Micro-Manager folder and then to the "**mmplugins**" subfolder. Select the EMU jar (**EMU-1.0-SNAPSHOT.jar**). Click again on "**Add External JARs**", this time navigate to the "**plugins\Micro-Manager**" folder in Micro-Manager and select both **MMCoreJ.jar** and **MMJ_.jar**. Click **finish**. 
+**4)** In the "**Librairies**" tab, click on "**Add External JARs**" and navigate to your Micro-Manager folder and then to the "**mmplugins**" subfolder. Select the EMU jar (**EMU.jar**). Click again on "**Add External JARs**", this time navigate to the "**plugins\Micro-Manager**" folder in Micro-Manager and select both **MMCoreJ.jar** and **MMJ_.jar**. Click **finish**. 
 
-> Note: If the jar is not present in the folder, then EMU was not properly installed (refer to the [EMU repository]( https://github.com/jdeschamps/EMU)).
+> Note: EMU is present by default in Micro-Manager 2.0.0-gamma nightly build. Therefore, make sure you have a recent nightly build installed.
 
 
 
