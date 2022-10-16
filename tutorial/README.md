@@ -1,6 +1,6 @@
 # EMU tutorial: building a UI
 
-This tutorial is a simple example walk-through of how to build a plugin for EMU, in order to obtain a re-configurable user interface within Micro-Manager. 
+This tutorial is a simple example walk-through of how to build a plugin for EMU, in order to obtain a re-configurable user interface within Micro-Manager.
 
 Here is a preview of the UI:
 
@@ -11,9 +11,9 @@ Here is a preview of the UI:
 #### Prerequisite
 
 - [Eclipse]( https://www.eclipse.org/downloads/packages/ ) with the WindowBuilder+SwingDesigner plugin running java 8.
-- Micro-Manager 2gamma installed.
+- Micro-Manager 2.0.0 installed.
 
-> If the WindowBuilder and SwingDesigner are not installed, you will have to go to Help -> Install New Software and using "All available sites", search and install both.
+> If the WindowBuilder and SwingDesigner are not installed, you will have to go to Help -> Install New Software and using "All available sites", search and install "WindowBuilder Java Core" and "WindowBuilder Swing Designer".
 
 
 
@@ -27,7 +27,7 @@ Here is a preview of the UI:
 
 ## A - Making sure that eclipse runs java 8
 
-**1)** In Eclipse, go to "**Window -\> Preferences -\> Java -\> Installed JREs**" and make sure that java 1.8 or 8 is known and is the default. 
+**1)** In Eclipse, go to "**Window -\> Preferences -\> Java -\> Installed JREs**" and make sure that java 1.8 or 8 is known and is the default.
 
 
 
@@ -45,9 +45,7 @@ Here is a preview of the UI:
 
 
 
-**4)** In the "**Librairies**" tab, click on "**Add External JARs**" and navigate to your Micro-Manager folder and then to the "**mmplugins**" subfolder. Select the EMU jar (**EMU.jar**). Click again on "**Add External JARs**", this time navigate to the "**plugins\Micro-Manager**" folder in Micro-Manager and select both **MMCoreJ.jar** and **MMJ_.jar**. Click **finish**. 
-
-> Note: EMU is present by default in Micro-Manager 2.0.0-gamma nightly build. Therefore, make sure you have a recent nightly build installed.
+**4)** In the "**Librairies**" tab, select "Modulepath" and then click on "**Add External JARs**" and navigate to your Micro-Manager folder and then to the "**mmplugins**" subfolder. Select the EMU jar (**EMU.jar**). Click again on "**Add External JARs**", this time navigate to the "**plugins\Micro-Manager**" folder in Micro-Manager and select both **MMCoreJ.jar** and **MMJ_.jar**. Click **finish**.
 
 
 
@@ -57,7 +55,7 @@ Here is a preview of the UI:
 <img src="img/2_package.png">
 </p>
 
-Right-click on the project and select "**Properties**". In **Java Build Path** and the **Source tab**, select **MyUI/src** and remove it from the source. Then click on "**Add Folder**" and tick the **java** folder and **OK**.
+Right-click on the project and select "**Properties**". In **Java Build Path** and the **Source tab**, select **MyUI/src** and remove it from the source. Then click on "**Add Folder**" and tick the **java** folder in the tree and **OK**.
 
 
 
@@ -77,22 +75,22 @@ In our case, here we want:
 
 - UIParameters: name and color of the laser.
 
-  
+
 
 
 **6)** Right click on your package (here "com.myname.myui") and select "**new -\> other**". In the pop-up, select "**WindowBuilder/Swing Designer/JPanel**". Click **next**.
 
-> Note: If WindowBuilder or Swing Designer do not appear, then refer to the prerequisite section and follow the link to install the WindowBuilder. 
+> Note: If WindowBuilder or Swing Designer do not appear, then refer to the prerequisite section and follow the link to install the WindowBuilder.
 
 
 
-**7)** Name the JPanel, e.g. "*LaserPanel*". In the "**superclass**" section, search for "**ConfigurablePanel**". Click **finish**. The LaserPanel should now appear in the package explorer.
+**7)** Name the JPanel, e.g. "*LaserPanel*". In the "**superclass**" section, click on "Browse" and search for "**ConfigurablePanel**". Click **finish**. The LaserPanel should now appear in the package explorer.
 
-> Note:  If ConfigurablePanel does not appear, then EMU was not properly imported (refer to **4**). 
+> Note:  If ConfigurablePanel does not appear, then EMU was not properly imported (refer to **4**).
 
 
 
-**8)** Delete the LaserPanel() constructor, your "LaserPanel.java" should then look like the following:
+**8)** Delete the LaserPanel() constructor (just the method, not the class), your "LaserPanel.java" should then look like the following:
 
 ```java
 package com.myname.myui;
@@ -152,7 +150,7 @@ Eclipse should generate a new Constructor with a String parameter. This paramete
 
 6. Resize all three components and the panel to make it look aesthetically pleasant.
 
-   
+
 
 **13)** For each component (JLabel, JSlider and JToggleButton), right click on it in the **Structure** tab and select "**Expose component**". Select **protected** and click **OK**.
 
@@ -180,11 +178,11 @@ public class LaserPanel extends ConfigurablePanel {
 	private JLabel label_1;
 	private JSlider slider;
 	private JToggleButton tglbtnOnoff;
-	
+
 	//////// Properties
 	public final String LASER_PERCENTAGE = "power percentage";
 	public final String LASER_OPERATION = "enable";
-    
+
 	[...]
 ```
 
@@ -197,7 +195,7 @@ protected void initializeProperties() {
 	String text2 = "Property turning the laser on/off.";
 	String propertyPercentage = getPanelLabel() + " " + LASER_PERCENTAGE;
 	String propertyOperation = getPanelLabel() + " " + LASER_OPERATION;
-		
+
 	addUIProperty(new UIProperty(this, propertyPercentage, text1, new NoFlag()));
 	addUIProperty(new TwoStateUIProperty(this, propertyOperation, text2, new NoFlag()));
 }
@@ -214,10 +212,10 @@ Use again Eclipse suggestions to import the UIProperty, TwoStateUIProperty and N
 protected void addComponentListeners() {
 	String propertyName1 = getPanelLabel() + " " + LASER_PERCENTAGE;
 	String propertyName2 = getPanelLabel() + " " + LASER_OPERATION;
-    
-	SwingUIListeners.addActionListenerOnIntegerValue(this, propertyName1, slider, 
+
+	SwingUIListeners.addActionListenerOnIntegerValue(this, propertyName1, slider,
                                                      label_1, "", "%");
-    
+
 	try {
 		SwingUIListeners.addActionListenerToTwoState(this, propertyName2, tglbtnOnoff);
 	} catch (IncorrectUIPropertyTypeException e) {
@@ -236,7 +234,7 @@ As done previously, use the Eclipse suggestions to import the missing class. Swi
 protected void propertyhasChanged(String propertyName, String newvalue) {
 	String propertyName1 = getPanelLabel() + " " + LASER_PERCENTAGE;
 	String propertyName2 = getPanelLabel() + " " + LASER_OPERATION;
-		
+
 	if (propertyName1.equals(propertyName)) {
 		if (EmuUtils.isNumeric(newvalue)) {
 			int val = (int) Double.parseDouble(newvalue);
@@ -271,11 +269,11 @@ public class LaserPanel extends ConfigurablePanel {
 	private JLabel label_1;
 	private JSlider slider;
 	private JToggleButton tglbtnOnoff;
-	
+
 	//////// Parameters
 	public final String PARAM_TITLE = "Name";
-	public final String PARAM_COLOR = "Color";	
-    
+	public final String PARAM_COLOR = "Color";
+
     [...]
 ```
 
@@ -294,7 +292,7 @@ Import the missing classes using Eclipse suggestions. We declared two parameters
 
 
 
-**20)** Let's now define what happens when the UIParameters change. This happens when starting EMU or modifying the configuration. 
+**20)** Let's now define what happens when the UIParameters change. This happens when starting EMU or modifying the configuration.
 
 ```java
 @Override
@@ -346,20 +344,20 @@ This time we want:
 
 1. In the **Layouts** section of the Palette, select "**GridLayout**" and click on the panel.
 2. Click on the panel, in the **Properties**, select **border** and, in the pop-up window, choose "**TitledBorder**". Enter the title and choose the left justification.
-3. Place a **JToggleButton** (from the palette) on the panel. Enter a placeholder text (such as "Filter 1"). 
+3. Place a **JToggleButton** (from the palette) on the panel. Enter a placeholder text (such as "Filter 1").
 4. Repeat by adding **JToggleButtons** on the right of the panel (up to 6).
 5. Select all **JToggleButtons** in the Components section, and **show advanced properties** in the Properties section (upper right button in the same section). Go to **margin**, set the left and right margin to 2 pixels (so that longer filter names are not cut).
-6. With all the **JToggleButtons** still selected, right-click on them and set a **new standard ButtonGroup**.
+6. With all the **JToggleButtons** still selected, right-click on them and set a **new standard ButtonGroup** (Set button group / new standard).
 7. Finally, right-click again and **expose the components** as protected elements.
 8. **Resize** the panel to make it look aesthetically pleasant.
 
 
 
-**23)** Let's now create the UIProperties and UIParameters. First, let's declare some variables:
+**23)** Back to the "**Source**" tab, let's now create the UIProperties and UIParameters. First, let's declare some variables:
 
 ```java
 public class FiltersPanel extends ConfigurablePanel {
-    
+
 	// generated by Eclipse WindowBuilder
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JToggleButton tglbtnFilter;
@@ -371,14 +369,14 @@ public class FiltersPanel extends ConfigurablePanel {
 
 	//////// Properties
 	public final String FW_POSITION = "Filterwheel position";
-	
+
 	//////// Parameters
 	public final String PARAM_NAMES = "Filter names";
 	public final String PARAM_COLORS = "Filter colors";
-	
+
 	//////// Initial parameter
 	public final int NUM_POS = 6;
-    
+
     [...]
 ```
 
@@ -388,7 +386,7 @@ We declare a MultiStateUIProperty with 6 positions (one per filter):
 @Override
 protected void initializeProperties() {
 	String description = "Filter wheel position property.";
-	addUIProperty(new MultiStateUIProperty(this, FW_POSITION, description, new NoFlag(), 
+	addUIProperty(new MultiStateUIProperty(this, FW_POSITION, description, new NoFlag(),
                                            NUM_POS));				
 }
 ```
@@ -401,9 +399,8 @@ protected void propertyhasChanged(String propertyName, String newvalue) {
 	if(FW_POSITION.equals(propertyName)){
 		int pos;
 		try {
-			pos = ((MultiStateUIProperty)getUIProperty(FW_POSITION))
-                .getStatePositionNumber(newvalue);
-			
+			pos = ((MultiStateUIProperty)getUIProperty(FW_POSITION)).getStateIndex(newvalue);
+
 			switch (pos) {
 			case 0:
 				tglbtnFilter.setSelected(true);
@@ -437,11 +434,11 @@ protected void initializeParameters() {
 		colors += "," + "gray";
 	}
 
-	String helpNames = "Comma separated filter names, e.g.:" 
+	String helpNames = "Comma separated filter names, e.g.:"
         +"\"name1,name2,name3,name4,None,None\".";
 	String helpColors = "Comma separated filter colors, e.g: "
         +"\"blue,dark red, dark green,orange,gray,gray\".";
-				
+
 	addUIParameter(new StringUIParameter(this, PARAM_NAMES, helpNames, names));
 	addUIParameter(new StringUIParameter(this, PARAM_COLORS, helpColors, colors));
 }
@@ -455,26 +452,26 @@ protected void parameterhasChanged(String parameter) {
 	if(PARAM_NAMES.equals(parameter)){
 		try {
 			String value = getStringUIParameterValue(PARAM_NAMES);
-			
+
 			String[] astr = value.split(",");
 			int maxind = NUM_POS > astr.length ? astr.length : NUM_POS;
-				
+
 			JToggleButton[] buttons = {tglbtnFilter,tglbtnFilter_1,tglbtnFilter_2,
         				tglbtnFilter_3,tglbtnFilter_4,tglbtnFilter_5};
 			for(int i=0;i<maxind;i++) {
 				buttons[i].setText(astr[i]);
 			}
-				
+
 		} catch (UnknownUIParameterException e) {
 			e.printStackTrace();
 		}
 	} else if(PARAM_COLORS.equals(parameter)){
 		try {
 			String value = getStringUIParameterValue(PARAM_COLORS);
-            
+
         	String[] astr = value.split(",");
 			int maxind = NUM_POS > astr.length ? astr.length : NUM_POS;
-				
+
 			JToggleButton[] buttons = {tglbtnFilter,tglbtnFilter_1,tglbtnFilter_2,
                                        tglbtnFilter_3,tglbtnFilter_4,tglbtnFilter_5};
 			for(int i=0;i<maxind;i++) {
@@ -510,8 +507,9 @@ public String getDescription() {
 
 ## E - Exporting the compiled ConfigurablePanels
 
-**24)** In order to assemble the panels, we need to compile them and export them as a **.jar**. Right-click on the project and select **Export**. Make sure "**JAR file**" is selected and click on **Next**. Choose the path (e.g. in the project folder) and click on **Finish**. The jar file should appear in the Eclipse package explorer.
+> Note: This is only useful for old versions of Eclipse and of the WindowBuilder.
 
+**24)** In order to assemble the panels, we need to compile them and export them as a **.jar**. Right-click on the project and select **Export**. In **Java**, make sure "**JAR file**" is selected and click on **Next**. Choose the path (e.g. in the project folder) and click on **Finish**. The jar file should appear in the Eclipse package explorer.
 
 
 ## F - Assembling the ConfigurableMainFrame
@@ -538,14 +536,10 @@ Fix the imports of SystemController and TreeMap.
 
 
 
-**27)** Go to the **Design** tab. In the bottom of the **Palette**, right-click and select **Import JAR**. In the pop-up window, select the **Jar Archive** to be **MyUI.jar**. Answer yes to "Show all classes?". Finally, check both FiltersPanel and LaserPanel and click **OK**. They should appear at the bottom of the **Palette**.
-
-<p align="center">
-<img src="img/5_import_jar.png">
-</p>
+**27)** Go to the **Design** tab. In "**System**", click on "Choose component". Search for your laser panel. Do the same for the filter panel. They should appear in the "Custom" folder at the bottom of the palette.
 
 
-> Note: If the panels don't appear in the Palette, try deleting the jar from the package explorer, exporting it new and importing it in the Palette again.
+> Note: If "Choose component" doesn't appear, you can try to follow E and right-click in the palette and import the .jar.
 
 
 
@@ -560,23 +554,64 @@ Fix the imports of SystemController and TreeMap.
 
 1. Add an **AbsoluteLayout** to the Frame.
 2. Add a **JPanel** to the frame's content.
-3. Set the layout of the JPanel to **GridLayout**. 
+3. Set the layout of the JPanel to **GridLayout**.
 4. Add a **LaserPanel** to the left of the **JPanel**. An error will be displayed as the LaserPanel constructor expects a String parameter. Navigate to the **Properties** section, under **Constructor**, set the **label** parameter to "Laser0".
-5. Repeat for three more lasers, each type selecting the **JPanel** in the **Components** section to start with and placing the **LaserPanel** to the right (a red line should appear). Give them different names (e.g.: Laser1, Laser2 ...etc...) 
+5. Repeat for three more lasers, each type selecting the **JPanel** in the **Components** section to start with and placing the **LaserPanel** to the right (a red line should appear). Give them different names (e.g.: Laser1, Laser2 ...etc...)
 6. Resize the **JPanel** and the frame **window** to fit the lasers.
 7. Add a **FiltersPanel** to the bottom of the frame's content. Set its label parameter to "Filters".
 8. Resize for aesthetic purposes.
 
 
 
-**29)** Back to the **Source** tab, errors should have appeared related to the initComponents() method. Delete the empty initComponents() method and change the header of the one generated by Eclipse WindowBuilder:
+**29)** Back to the **Source** tab, if Eclipse added all the code in the constructor, then you need to move it to the initComponents() method. The constructors should look like the following:
+
+```java
+	/**
+	 * Create the frame.
+	 */
+  public MyFrame() {
+    super("",null,null); // calls superconstructor
+    setBounds(100, 100, 450, 400);
+  }
+
+	public MyFrame(String arg0, SystemController arg1, TreeMap<String, String> arg2) {
+		super(arg0, arg1, arg2);
+	}
+```
+
+And the initComponents() something along these lines:
 
 ```java
 @Override
 protected void initComponents() {
-	
-	[...]
+  setBounds(100, 100, 450, 400);
+  getContentPane().setLayout(null);
+
+  JPanel panel = new JPanel();
+  panel.setBounds(0, 0, 434, 268);
+  getContentPane().add(panel);
+  panel.setLayout(new GridLayout(1, 0, 0, 0));
+
+  LaserPanel laserPanel = new LaserPanel("Laser0");
+  panel.add(laserPanel);
+
+  LaserPanel laserPanel_1 = new LaserPanel("Laser1");
+  panel.add(laserPanel_1);
+
+  LaserPanel laserPanel_2 = new LaserPanel("Laser2");
+  panel.add(laserPanel_2);
+
+  LaserPanel laserPanel_3 = new LaserPanel("Laser3");
+  panel.add(laserPanel_3);
+
+  FilterPanel filterPanel = new FilterPanel("Filters");
+  filterPanel.setBounds(0, 275, 434, 53);
+  getContentPane().add(filterPanel);
+}
 ```
+
+If you have multiple initComponents(), simply delete the empty one and make sure that the remaining ones resemble the one above.
+
 **30)** Implement the getDefaultPluginSettings() method by returning an empty HashMap and the getPluginInfo() method by returning a description for your plugin:
 
 ```java
@@ -606,7 +641,7 @@ protected String getPluginInfo() {
 ```java
 public class MyPlugin implements UIPlugin {
 	@Override
-	public ConfigurableMainFrame getMainFrame(SystemController arg0, 
+	public ConfigurableMainFrame getMainFrame(SystemController arg0,
                                               TreeMap<String, String> arg1) {
 		return new MyFrame("MyUI", arg0, arg1);
 	}
@@ -636,13 +671,13 @@ The package explorer should look as follows:
 
 
 
-> Note: any deviation from the correct folder or the correct UIPlugin paths will prevent EMU from finding the plugin. 
+> Note: any deviation from the correct folder or the correct UIPlugin paths will prevent EMU from finding the plugin.
 
 
 
 ## H - Exporting and loading in EMU
 
-**34)** Right-click on your project and select **Export**. Make sure **JAR file** is selected and click on **Next**. Uncheck MyUI.jar and set the export destination to the **EMU folder** in **Micro-Manager**. 
+**34)** Right-click on your project and select **Export**. Make sure **JAR file** is selected and click on **Next**. Uncheck MyUI.jar and set the export destination to the **EMU** folder in **Micro-Manager** (this folder is created when starting EMU within Micro-Manager).
 
 > Note: Make sure to have selected the project and not one of the source folders (src/main/java or src/main/resources) before exporting the jar.
 
@@ -660,7 +695,7 @@ In order to debug the import into EMU or the operation of the panels, you need t
 
 1. Right-click on your project and select **Properties**.
 
-2. In **Java Build Path**, click on **Add External JARs**. Navigate to your Micro-Manager folder and add the **ij.jar**.
+2. In **Java Build Path**, click on **Libraries** and then **Add External JARs**. Navigate to your Micro-Manager folder and add the **ij.jar**.
 
 3. Click again on **Add External JARs**, and this time go to **Micro-Manager/plugins/Micro-Manager** and add all the jars.
 
@@ -672,7 +707,7 @@ In order to debug the import into EMU or the operation of the panels, you need t
 
 7. You can then, by right-clicking on your project or selecting the small arrow next to the run button in the menu bar, click on "**Run Configurations...**" and select your newly created configuration.
 
-8. Next time, the run button should also kick-start your configuration directly. 
+8. Next time, the run button should also kick-start your configuration directly.
 
 9. Running Micro-Manager from Eclipse allows you to have access to the live console output, see exceptions and at what line in your code they occur/originate from. You have also access to the Eclipse debugger, allowing you to place breakpoints in your code and halt the processes there to inspect variable values.
 
@@ -684,12 +719,12 @@ In order to debug the import into EMU or the operation of the panels, you need t
 
 #### Bonus: Optional panel
 
-Using plugin settings, we could make the FiltersPanel optional. First, add a String in MyFrame: 
+Using plugin settings, we could make the FiltersPanel optional. First, add a String in MyFrame:
 
 ```java
 public class MyFrame extends ConfigurableMainFrame {
 	public final String SETTING_USE_FW = "Use FW";
-	
+
 	[...]
 ```
 
@@ -699,7 +734,7 @@ Then, modify the plugin settings method:
 @Override
 public HashMap<String, Setting> getDefaultPluginSettings() {
 	HashMap<String, Setting> settgs = new HashMap<String, Setting>();
-	settgs.put(SETTING_USE_FW, new BoolSetting(SETTING_USE_FW, 
+	settgs.put(SETTING_USE_FW, new BoolSetting(SETTING_USE_FW,
                                    "Enable/disable filter wheel panel", true));
 	return settgs;
 }
@@ -721,7 +756,7 @@ if(((BoolSetting) this.getCurrentPluginSettings().get(SETTING_USE_FW)).getValue(
 
 Not all lasers have a percentage device property, for instance many offer a power (mW) set-point instead. How to reconcile this with our power percetage slider? The answer is using a RescaledUIProperty.
 
-In the initializeUIProperties() method: 
+In the initializeUIProperties() method:
 
 ```java
 addUIProperty(new RescaledUIProperty(this, property1, text, new LaserFlag()));
@@ -734,4 +769,3 @@ addUIProperty(new RescaledUIProperty(this, property1, text, new LaserFlag()));
 - StringUIParameter for the title of the FiltersPanel.
 - An IntSetting for the number of LaserPanels.
 - More FiltersPanel (e.g.: for dual channel)
-
