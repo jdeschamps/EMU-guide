@@ -45,7 +45,7 @@ Here is a preview of the UI:
 
 
 
-**4)** In the "**Librairies**" tab, select "Modulepath" and then click on "**Add External JARs**" and navigate to your Micro-Manager folder and then to the "**mmplugins**" subfolder. Select the EMU jar (**EMU.jar**). Click again on "**Add External JARs**", this time navigate to the "**plugins\Micro-Manager**" folder in Micro-Manager and select both **MMCoreJ.jar** and **MMJ_.jar**. Click **finish**.
+**4)** In the "**Librairies**" tab, select "Modulepath" and then click on "**Add External JARs**" and navigate to your Micro-Manager folder and then to the "**mmplugins**" subfolder. Select the EMU jar (**EMU.jar**). Click again on "**Add External JARs**", this time navigate to the "**plugins\Micro-Manager**" folder in Micro-Manager and select all .jar. Click **finish**.
 
 
 
