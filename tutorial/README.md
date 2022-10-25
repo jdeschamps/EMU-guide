@@ -523,8 +523,7 @@ public String getDescription() {
 ```java
 public MyFrame() {
 	super("",null,null); // calls superconstructor
-	setBounds(100, 100, 450, 300);
-	// setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	setBounds(100, 100, 450, 400);
 }
 
 public MyFrame(String arg0, SystemController arg1, TreeMap<String, String> arg2) {
