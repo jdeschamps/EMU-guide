@@ -45,7 +45,7 @@ In EMU, UIs consist of a **single frame** composed of multiple **panels**. The f
 
 ## Configuration<a name="configuration"></a>
 
-EMU is accessible from Micro-Manager by clicking on "**Plugins/Interface/EMU**" in the main window. If a single plugin is present in the EMU folder, then it will be automatically loaded. If more than one plugin is present, then the user will be prompted with a choice. Then, the chosen UI will be loaded.
+EMU is accessible from Micro-Manager by clicking on "**Plugins/User Interface/EMU**" in the main window. If a single plugin is present in the EMU folder, then it will be automatically loaded. If more than one plugin is present, then the user will be prompted with a choice. Then, the chosen UI will be loaded.
 
 The first step in using EMU and one of its plugins is to create a *plugin configuration* containing the values of each *setting*, *property* and *parameter*. Later on, the default *plugin configuration* is loaded automatically at start.
 
