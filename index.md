@@ -34,7 +34,7 @@ doi: [10.1186/s12859-020-03727-8](https://doi.org/10.1186/s12859-020-03727-8)
 
 ## Contact us
 
-By email:  joran.deschamps(at)embl(dot)de
+By email:  joran.deschamps(at)fht(dot)org
 
 On [image.sc](https://forum.image.sc/): post and tag @jdeschamps.
 
